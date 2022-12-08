@@ -43,6 +43,16 @@ async function getMongoClient(uri) {
     return client;
 }
 
+
+/**
+ * function: usage ()
+ * This function verifies that the module app receives required args
+ * or else warns the user to provide the required args once again.
+ * 
+ * 
+ * 
+ */
+
 async function usage () {
   let bin = require('path').basename(process.argv[1])
   console.error([
@@ -93,6 +103,16 @@ Promise.try(function () {
   process.exit(1)
 })
 
+/**
+ * function:  saver
+ * This function takes the db collection, rabbitmq channel, queue name and message
+ * and saves it in the database.
+ * @param {*} collection 
+ * @param {*} channel 
+ * @param {*} queueName 
+ * @param {*} opts 
+ * @param {*} msg 
+ */
 function saver (collection, channel, queueName, opts, msg) {
   // Attach all message stuff sans content
   let toSave = _.assign({date: new Date(), queue: queueName}, {
@@ -121,7 +141,14 @@ function saver (collection, channel, queueName, opts, msg) {
   })
 }
 
-// Serializes message for JSON output
+
+/**
+ * Function: finalTranslate
+ * THis function takes the content type and messages and encodes the message to
+ * base64 and Serializes message for JSON output before sending the data to db.
+ * @param {*} base 
+ * @returns 
+ */
 function finalTranslate (base) {
   // Alter object content based on type
   let cType = base.properties.contentType
@@ -141,6 +168,13 @@ function finalTranslate (base) {
 }
 
 // Converts Buffer to a string, altering contentEncoding as appropriate
+/**
+ * Function: convertContent
+ * This function converts the content to desired format
+ * @param {*} buff 
+ * @param {*} props 
+ * @returns 
+ */
 function convertContent (buff, props) {
   let cEnc = props.contentEncoding
   cEnc = cEnc && cEnc.toLowerCase().replace(/[^a-z0-9]/g, '')
