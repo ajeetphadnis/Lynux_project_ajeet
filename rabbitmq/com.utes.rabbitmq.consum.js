@@ -18,10 +18,21 @@
 const amqplib = require('amqplib');
 const amqpUrl = process.env.AMQP_URL || 'amqp://ajeetphadnis:Ajeet786@localhost:5672';
 
+
+/**
+ * Function: processMessages
+ * @param {*} msg 
+ */
 async function processMessage(msg) {
   console.log(msg.content.toString(), 'Call email API here');
   //call your email service here to send the email
 }
+
+/**
+ * Function: sync
+ * This function connects app to rabbitmq and creates a queue
+ * with name privided by the user
+ */
 
 (async () => {
     const connection = await amqplib.connect(amqpUrl, "heartbeat=60");
