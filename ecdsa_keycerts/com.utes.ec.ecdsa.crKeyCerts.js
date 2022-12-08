@@ -86,7 +86,12 @@ var cn="";
 var emailAdd="";
 var pass = '';
 
-
+/**
+ * Function: createEcDsaPrivateKey
+ * This method calls openssl function to create ecdsa keys
+ * @param {*} algo 
+ * @param {*} path 
+ */
 function createEcDsaPrivateKey(algo, path) {
     console.log("openssl_home:   "+ osl_home +  "       osl_conf:    " + osl_conf);
     exec('openssl ecparam -name secp521r1 -genkey -param_enc explicit -out jwks/ecdsa_certs/private-aj-key.pem', function (err, buffer) {
@@ -95,6 +100,12 @@ function createEcDsaPrivateKey(algo, path) {
   }
 
 
+/**
+ * Function: toOIDArray
+ * This method creates an array of OID elements
+ * @param {*} oid 
+ * @returns 
+ */
 function toOIDArray(oid) {
     return oid.split('.').map(function(s) {
       return parseInt(s, 10)
@@ -114,6 +125,16 @@ function toOIDArray(oid) {
 	};
 
 
+/**
+ * Function: createEcDsaCert:
+ * This funcation creates ecdsa certificate that can be used for SSL, TLS3
+ * digital signing, data encryption and so on.
+ * @param {*} user 
+ * @param {*} curvType 
+ * @param {*} keyType 
+ * @param {*} validityTime 
+ * @param {*} pkeyStr 
+ */
 async function createEcDsaCert(user, curvType, keyType, validityTime, pkeyStr) {
     var keyfil = user+'.pem';
     var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
@@ -130,7 +151,15 @@ async function createEcDsaCert(user, curvType, keyType, validityTime, pkeyStr) {
 }
 
 
-
+/**
+ * Function: crAsn1EcKeys
+ * This method creates ASn1 formated ecdsa keys for prime256v1 curve type.
+ * @param {*} user 
+ * @param {*} curvType 
+ * @param {*} path 
+ * @param {*} type 
+ * @returns 
+ */
 async function crAsn1Eckeys(user, curvType, path, type) {
     // Define ECPrivateKey from RFC 5915
        var ECPrivateKey = asn1.define('ECPrivateKey', function() {
@@ -169,7 +198,14 @@ async function crAsn1Eckeys(user, curvType, path, type) {
 
 
 
-   async function showECDSACert(user, certFil ) {
+/**
+ * Function: showECDSACert
+ * This function  converts the ecDSACertificate into a text format that is
+ * human readable. And is used to show in the app's dashboard.
+ * @param {*} user 
+ * @param {*} certFil 
+ */
+async function showECDSACert(user, certFil ) {
     var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
     var txtfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.txt';
     exec(`openssl x509 -in ${servfil} -text -out ${txtfil} `, function (err, buffer) {  
@@ -179,6 +215,14 @@ async function crAsn1Eckeys(user, curvType, path, type) {
 
 
 
+/**
+ * Function: crEcdsaPfx
+ * This function takes the private key and certificate and formats it to pfx format
+ * The pfx format is than used by clients.
+ * @param {*} pkeyfil 
+ * @param {*} certfil 
+ * @param {*} user 
+ */
    async function crEcdsaPfx(pkeyfil, certfil, user) {
         var keyfil = user+'.pem';
         var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/srv_'+keyfil;
@@ -191,6 +235,14 @@ async function crAsn1Eckeys(user, curvType, path, type) {
     }
 
 
+    /**
+     * Function: crEcdsaP12
+     * This function takes the private key and certificate and formats it to p12 format
+     * The p12 format is than used by clients.
+     * @param {*} pkeyfil 
+     * @param {*} certfil 
+     * @param {*} user 
+     */
     async function crEcdsaP12(pkeyfil, certfil, user) {
         var keyfil = user+'.pem';
         var servfil = 'ecdsa_keycerts/ecdsaKeyCerts//srv_'+keyfil;
@@ -203,6 +255,14 @@ async function crAsn1Eckeys(user, curvType, path, type) {
     }
 
 
+     /**
+     * Function: crEcdsaP12
+     * This function takes the private key and certificate and formats it to P7B format
+     * The P7B format is than used by clients.
+     * @param {*} pkeyfil 
+     * @param {*} certfil 
+     * @param {*} user 
+     */
     async function crEcdsaP7B(pkeyfil, certfil, user) {
         var keyfil = user+'.pem';
         var servfil = 'ecdsa_keycerts/ecdsaKeyCerts//srv_'+keyfil;
@@ -216,6 +276,13 @@ async function crAsn1Eckeys(user, curvType, path, type) {
    
 
 
+    /**
+     * Function: getEcDsaKeysCerts
+     * This function is the inter face to ejs to visualize the certificate.
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     */
     async function getEcDsaKeysCerts(req, res, next) {
       req.app.set("../views", path.join(__dirname));
 			req.app.set("view engine", "ejs");
