@@ -28,8 +28,8 @@ var ecdsaUtils = require('../ecdsa_keycerts/com.utes.ec.ecdsa.crKeyCerts');
 
 /**
  * 
- * 
- * 
+ * Module: controllers
+ * This module registers different collectors as requested by the router
  * 
  * @param firstname
  * @returns
