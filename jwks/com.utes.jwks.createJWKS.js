@@ -87,8 +87,8 @@ const readFile = (filePath, encoding) => {
 
 
 /**
- * 
- * 
+ * Function: getCA_P12_PrivKey
+ * function gets private
  * 
  * 
  * @param firstname
@@ -114,8 +114,8 @@ const getCA_P12_PrivKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * 
- * 
+ * Function: getCA_P12_PubKey
+ * Gets publickey
  * 
  * 
  * @param firstname
@@ -140,8 +140,8 @@ const getCA_P12_PubKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * 
- * 
+ * FUnction: cert_to_x5c
+ * Gets certificate to x509
  * 
  * 
  * @param firstname
@@ -175,8 +175,8 @@ function cert_to_x5c (cert, maxdepth) {
 
 
 /**
- * 
- * 
+ * Function: createstdJWKStore
+ * Creates standard JWKStore
  * 
  * 
  * @param firstname
@@ -203,8 +203,8 @@ async  function createstdJWKStore (uid, path, pass) {
 
 
 /**
- * 
- * 
+ * Function: getJWKStore
+ * Gets JWK store
  * 
  * 
  * @param firstname
@@ -229,8 +229,8 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 
 /**
- * 
- * 
+ * Function: loadKeyStore1
+ * Loads key store
  * 
  * 
  * @param firstname
@@ -246,7 +246,8 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
-	 * 
+	 * Function: loadKeyStore
+	 * loads key store
 	 * 
 	 * 
 	 * 
@@ -272,6 +273,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
+	 * Function: getJWKPublic
 	 * 
 	 * 
 	 * 
@@ -290,7 +292,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 
 	
 	/**
-	 * 
+	 * Function: createJWToken1
 	 * 
 	 * 
 	 * 
@@ -325,7 +327,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
-	 * 
+	 * Function: createJWKStore
 	 * 
 	 * 
 	 * 
@@ -354,7 +356,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
-	 * 
+	 * Function: createstdJWKStore
 	 * 
 	 * 
 	 * 
@@ -382,7 +384,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
-	 * 
+	 * Function: x5jwtsjson
 	 * 
 	 * 
 	 * 
@@ -433,7 +435,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	 
 	 /**
-	     * 
+	     * Function: createJWToken
 	     * 
 	     * 
 	     * 
@@ -460,7 +462,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: validateToken
 		 * 
 		 * 
 		 * 
@@ -490,7 +492,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		// time that we set) we will delete the unused key
 		// used by /addKey endpoint
 		/**
-		 * 
+		 * Function: addJWK2KeyStore
 		 * 
 		 * 
 		 * 
@@ -517,7 +519,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: delJWKFromKeyStore
 		 * 
 		 * 
 		 * 
@@ -536,7 +538,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: crJWKFromPrivateKeyPEM1
 		 * 
 		 * 
 		 * 
@@ -556,7 +558,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: crJWKFromPrivateKeyPEM
 		 * 
 		 * 
 		 * 
@@ -579,7 +581,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: encrypt
 		 * 
 		 * 
 		 * 
@@ -606,7 +608,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 
 		
 		/**
-		 * 
+		 * Function: decrypt 
 		 * 
 		 * 
 		 * 
@@ -627,7 +629,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 		
 		
 		/**
-		 * 
+		 * Function: crJWEToken
 		 * 
 		 * 
 		 * 
@@ -678,7 +680,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 		
 		/**
-		 * 
+		 * FUnction: cert_to_x5c
 		 * 
 		 * 
 		 * 
@@ -716,7 +718,7 @@ async function getJWKStore (uid, path, req, res, next)  {
 	
 	
 	/**
-	 * 
+	 * Function: jwtsjson
 	 * 
 	 * 
 	 * 
@@ -779,7 +781,12 @@ async function getJWKStore (uid, path, req, res, next)  {
 			 
 	 }
 	 
-	 
+	 /**
+	  * Function: getDemoUserJWKSets
+	  * @param {*} req 
+	  * @param {*} res 
+	  * @param {*} next 
+	  */
 	 async function getDemoUserJWKSets(req, res, next) {
 		 jwksPath = process.env.JWKS_ClientPath;
 		 modelPath = process.env.Models_ClientPath;
