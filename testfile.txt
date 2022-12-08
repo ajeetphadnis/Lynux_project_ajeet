@@ -1,0 +1,2 @@
+node  pha_authExchangeSrv
+npm install 

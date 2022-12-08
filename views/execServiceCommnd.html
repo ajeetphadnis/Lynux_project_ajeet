@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>UTESInc</title>
+</head>
+<body>
+
+	<div style="margin-left: 5%;" class="container"
+		style="background-color: lightblue">
+		<form id="servinfo" name="servinfo" method="post" action="/postServ">
+			<div class="row">
+				<div class="col-25">
+					<label for="keysize">Service to run:</label>
+				</div>
+				<div class="col-75">
+					<select name="serv" required="required" id="serv">
+						<option value="">Select</option>
+						<option value="serv1">jwt-to-pem</option>
+						<option value="serv2">pem-to-jwt</option>
+						<option value="serv3">saml-to-json</option>
+						<option value="serv4">X509-to-saml</option>
+						<option value="serv5">oauth-to-saml</option>
+						<option value="serv6">saml-to-oauth</option>
+						<option value="serv7">jwt-to-oauth</option>
+						<option value="serv8">oauth-to-jwt</option>
+						<option value="serv9">jwt-to-saml</option>
+						<option value="serv10">saml-to-jwt</option>
+						<option value="serv11">idp_saml-to-jwt</option>
+						<option value="serv12">jwt2saml</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="opFile">Input File For Service:</label>
+				</div>
+				<div class="col-75">
+					<input type="file" name="opFile" id="opFile">
+				</div>
+			</div>
+			<div>
+				<input type="submit" value="Send message" />
+				<input type="hidden" id="status2" name="status2" value="OK" class="form-control" placeholder="Active" /><br>
+			</div>
+			
+			<div class="row">
+				<div class="col-25">
+					<label for="result">Result:</label>
+				</div>
+				<div class="col-75">
+					<textarea  name="result" id="result" value="{{result}}" rows="10" cols="50">JWT: </textarea>
+					</p>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script> 
+		function runService() { 
+		alert("Ajeet");
+	</script>
+	
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Authentication Token Converter Middleware Services</title>
+	<style>
+		h2, h3, h4 {
+			color: #2B547E;
+			font-family: Verdana;
+			font-size: 15px;
+		}
+		body {
+			background-color: #BCC6CC;
+		}
+	</style>
+	<script>
+		function changeLableTxt(text) {
+            document.getElementById('oprt').innerHTML = text;
+        }
+    </script>
+</head>
+
+<body>
+	<h1>Authentication Token Converter Middleware Services </h1>
+
+	<form action="/convrt" method="POST">
+		<pre>
+			<label id = 'oprt' name = 'oprt'>Operation:  <%= user.oprt %></label>
+
+			User_Id	 : <input type="text" name="uid" id="uid"	value='<%=user.uid%>' readonly>   <select name="serv"  id="serv">
+						<option value="">Select</option>
+						<option value="serv1">SAML-OAUTH</option>
+						<option value="serv2">OAUTH-SAML</option>
+						<option value="serv3">OAUTH-X509</option>
+						<option value="serv4">X509-OAUTH</option>
+					</select>   <input type="submit" value="Generate"><br>
+
+			Source Token		: <textarea id="srctxt" name="srctxt" cols="50" rows="10" style="margin: 0px; width: 522px; height: 111px;"><%= user.srctxt %></textarea> 
+
+			Destination Token	: <textarea id="destxt" name="destxt" cols="50" rows="10" style="margin: 0px; width: 522px; height: 111px;"><%= user.destxt %></textarea>	
+		</pre>
+		<input type="hidden" id="pass" name="pass" value='<%=user.pass%>'>
+	</form>
+</body>
+</html>

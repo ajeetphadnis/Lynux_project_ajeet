@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--link rel="stylesheet" href="/css/pha_styles001.css"  type="text/css"-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 		<style type="text/css">
+		.container i {
+			color: lightblue;
+		    margin-left: -30px;
+		    cursor: pointer;
+		}
+		
+		h2, h3, h4 {
+			color: #2B547E;
+			font-family: Verdana;
+			font-size: 15px;
+		}
+		
+		.parent {
+			text-align: left;
+		}
+		.parent > ul {
+		  display: inline-block;
+		}
+		
+		
+		body {
+			background-color: #BCC6CC;
+		}
+	</style>
+</head>
+<body>
+<h2> SAML Authentication Assert Services </h2>
+<h3>
+
+
+<!-- p><ul>
+  <li><a href="/login_user">Login</a></li>
+  <li><a href="/register_user">Register</a></li>
+  <li><a href="/logout">Logout</a></li>
+</ul></p -->
+	<form>
+		<div>
+			SAML Token		: <textarea id="samlassrt" name="samlassrt" cols="50" rows="10" style="margin: 0px; width: 522px; height: 111px;"><%= user.samlassrt %></textarea>
+		</div>
+		<div class="parent">
+			<button formaction="/register_user">Register</button>
+        </div>
+        <div class="parent">
+			<button formaction="/login_user">Login</button>
+        </div>
+	</form>
+</body>
+</html>

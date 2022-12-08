@@ -1,0 +1,42 @@
+// command failed due to -X not recognised
+            // issue this command: Remove-item alias:curl
+            //curl -X POST -H --silent --data-urlencode "payload={\"text\": \"$(cat commands.txt | sed "s/\"/'/g")\"}" http://pratham002.phadnis.no:3000/protocoltrans
+            // curl  -H "Content-Type:application/octet-stream" --data-binary testfile.txt http://localhost:3000/protocoltrans
+            // curl --request POST --data-binary "signedAssert.xml" http://localhost:3000/protocoltrans
+            // curl -X POST http://localhost:3000/protocoltrans -H "Content-Type:application/octet-stream" --data-binary file@signedAssert.xml
+            // curl -X POST http://localhost:3000/protocoltrans -d "<Request><Login>my_login</Login><Password>my_password</Password></Request>"
+            // curl http://localhost:3000/protocoltrans  -d $file=testXml.xml -H "Content-Type: application/xml"
+            // curl -F file=@karan123456_x5jwtok.jwt http://localhost:3000/protocoltrans (working)
+            // curl -F file=@testXml.xml http://localhost:3000/protocoltrans
+            // curl -v -H "Content-Type: application/xml" POST -d $file=testXml.xml http://localhost:3000/protocoltrans
+            // curl -F file=@samlResponse1.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -F file=@ajeetphadnis_signedAssert.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -F file=@samlRandomResponse.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest2_signedAssertion.xml --header 'Accept: application/json' http://localhost:3000/protocoltrans?convrt=saml-x509
+            // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest2_signedAssertion.xml --header 'Accept: application/json' http://localhost:3000/protocoltrans?convrt=saml-x509
+            // curl -F file=@HydroASA_DOMAINCert.pem  http://localhost:3000/protocoltrans?convrt=x509-oauth
+            // curl -F http://localhost:3000/protocoltrans?convrt=saml-oauth&file=protocolservice/samlResponse1.xml
+            // curl -F file=@samlTestResponse.xml  http://localhost:3000/protocoltrans?convrt=saml-x509
+            // curl -s -o response.txt -w "%{http_code}"  -F file=@saml01@salesforce.com_selfsigned.crt  --header 'Accept: application/json' http://localhost:3000/protocoltrans?convrt=x509-saml
+            // curl -F file=@saml2jwt_00DD0000000F7L5.jwt  http://localhost:3000/protocoltrans?convrt=oauth-saml
+            // curl -F file=@saml2jwt_00DD0000000F7L5.jwt  http://localhost:3000/protocoltrans?convrt=oauth-x509
+            // curl -F file=@samlTest1.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -F file=@samlTest2_signedAssertion.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -F file=@samlTest3signedMessage.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -F file=@samlTest4signedMsgAssrt.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
+            // curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt__ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7.jwt --header 'Accept: application/json'  -X POST -k https://pratham001:20443/getProtocolTrans?convrt=oauth-x509
+            // curl -s -o response.txt -w "%{http_code}" -F file=@../protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://pratham001:20443/getProtocolTrans?convrt=oauth-saml
+            // Invoke-WebRequest : A parameter cannot be found that matches parameter name 'F'.
+            // Remove-item alias:curl
+
+            // latest commands:
+            // curl -s -o response.txt -w "%{http_code}" -F file=@../protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'   -X POST -k https://pratham001:20443/getProtocolTrans?convrt=oauth-x509
+            // curl -s -o response.txt -w "%{http_code}" -F file=@../protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://pratham001:20443/getProtocolTrans?convrt=oauth-saml
+
+
+            // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest1.xml --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=saml-x509
+            // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest1.xml --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=saml-oauth
+
+
+            // curl -s -o response.txt -w "%{http_code}"  -F file=@saml01@salesforce.com_selfsigned.crt  --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=x509-saml
+            // curl -s -o response.txt -w "%{http_code}"  -F file=@saml01@salesforce.com_selfsigned.crt  --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=x509-oauth

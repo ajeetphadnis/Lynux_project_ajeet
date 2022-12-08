@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--link rel="stylesheet" href="/css/pha_styles001.css"  type="text/css"-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		.container i {
+			color: lightblue;
+		    margin-left: -30px;
+		    cursor: pointer;
+		}
+		
+		h2, h3, h4 {
+			color: #2B547E;
+			font-family: Verdana;
+			font-size: 15px;
+		}
+		
+		.parent {
+			text-align: center;
+		}
+		.parent > ul {
+		  display: inline-block;
+		}
+		
+		
+		body {
+			background-color: #BCC6CC;
+		}
+	</style>
+</head>
+<script>
+		toggleEye = function(  ) {
+	  		const togglePassword = document.querySelector('#togglePassword');
+			const password = document.querySelector('#password');
+			togglePassword.addEventListener('click', function (e) {
+		    // toggle the type attribute
+		    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+		    password.setAttribute('type', type);
+		    // toggle the eye slash icon
+		    this.classList.toggle('fa-eye-slash');
+			});
+		}
+	</script>
+<body><center>
+<h2> Authentication Token Converter Middleware Services Registration Page </h2>
+<h3>
+This page registers new users. To navigate to Broker service demo <br>
+one needs to register first and then login to gain access to demo.<br>
+</h3>
+    <div style="margin-left:50px;" class="container">
+        <h3>Register User </h3>
+
+        <% if(typeof alert != 'undefined') { %>
+            <% alert.forEach(function(error) { %>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <%= error.msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+            <% }) %>
+        <% } %>
+
+        <form action="/register_user" method="POST" >
+			 <div style="max-width:200px;margin:auto">
+			        <div class="input-icons">
+			            <input type="text" id="nameIdentifier" name="nameIdentifier" required placeholder="Name Identifier">
+			            <i class="fa fa-user icon"></i>			            
+			            <input type="text" id="emailAddress" name="emailAddress" required placeholder="Email Address">
+			            <i class="fa fa-envelope icon"></i>
+			            
+			            <div class="input-icons">
+						<input  type="password" name="password" id="password" required placeholder="Password">
+						<i class="fa fa-eye icon" id="togglePassword" name="togglePassword" onClick="toggleEye()"></i>
+						
+
+						<input type="password" name="password1" id="password1" required placeholder="Confirm Password">
+						<i class="fa fa-eye icon"></i>
+						<div class="input-icons">
+			                <input type="text" id="fullname" name="fullname" required placeholder="fullname">
+			                <i class="fa fa-id-card icon"></i>
+			            </div>
+			            <div class="input-icons">
+			                <input type="text" id="commonName" name="commonName" required placeholder="commonName">
+			                <i class="fa fa-id-card icon"></i>
+			            </div>
+			            <div class="input-icons">
+			               	<input type="text" id="orgName" name="orgName" required placeholder="orgName">
+			               	<i class="fa fa-id-card icon"></i>
+			            </div>
+			            <div class="input-icons">
+			                <input type="text" name="mobilePhone" id="mobilePhone" required placeholder="mobilePhone">
+			                <i class="fa fa-mobile-phone icon"></i>
+			            </div>
+			            <div class="input-icons">
+			                <input type="text" name="groups" id="groups" required placeholder="groups">
+			                <i class="fa fa-group icon"></i>
+			            </div>											
+					</div>
+			            <!-- i class="fa fa-instagram icon"></i>
+			            <input class="input-field" type="text">			            
+			            <i class="fa fa-youtube icon"></i>
+			            <input class="input-field" type="text">
+			            <i class="fa fa-facebook icon"></i>
+			            <input class="input-field" type="text" -->
+			        </div>
+			        <button type="submit" class="btn btn-primary">Submit</button>
+			  </div>			  
+        </form>
+        <form>
+        	<div class="parent">
+				<button formaction="/protocolconvert_start">App Overview</button><br>
+	        </div>
+        </form> 
+    </div>
+    </center>
+</body>
+</html>

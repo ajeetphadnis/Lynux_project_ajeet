@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js">
+  </script>
+    <title>UTESInc</title>
+    </head>
+    <body>
+        <form id="form" enctype = "multipart/form-data" onsubmit="return false;" >
+            <input id="file" type="file" name="file" />
+            <button id="upload-button" onclick="uploadFile(this.form)"> Upload </button>
+        </form>
+        <div id="static_file_response"> </div>
+        
+        <script type="text/javascript">
+            function uploadFile (form) {
+                // define URL and for element
+                alert("uploadJS:  001");
+                const url = "http://localhost:3000/uploadJS";
+                //const form = document.querySelector('form');
+                alert("uploadJS:  002");
+                // add event listener
+                document.getElementById('form').addEventListener('submit', function(e) {
+                    alert("uploadJS:  003");
+                    // disable default action
+                    e.preventDefault();
+
+                // collect files
+                //const files = document.getElementById('file').files;
+                var files = document.getElementById('file').files[0];
+                var fileVal=document.getElementById("file");
+                alert("fileVal:  uploadJS 10" + fileVal.value);
+                var file = fileVal.value.split("\\");
+                var fileName = file[file.length-1];
+                alert("uploadJS:  004: filename:   " + fileName );
+                //alert("uploadJS:  004");
+                if (files) {
+                    alert("uploadJS:  005");
+                    var reader = new FileReader();
+                    alert("uploadJS:  006");
+                    reader.readAsText(files, "UTF-8");
+                    reader.onload = function() {            
+                        alert("uploadJS:  007");
+                        var parser = new DOMParser();
+		                var doc = parser.parseFromString( e.target.result, "text/xml");
+		                alert(doc);
+                        alert("uploadJS:  008:   " + reader.result);
+                        //document.getElementById("static_file_response").innerHTML = evt.target.result;
+                        document.getElementById("static_file_response").innerHTML = reader.result;
+                        const formData = new FormData(form);
+                        formData.append('avatar', files[0]);
+                        // post form data
+                        const xhr = new XMLHttpRequest();
+                        //Send the proper header information along with the request
+                        //xhr.setRequestHeader('Content-type', 'application/xml');
+                        //res.header("Access-Control-Allow-Origin", "*");
+                        alert("uploadJS:  009");                        
+                        xhr.open('post', '/uploadJS', true);
+                        xhr.send(formData);
+                    }
+                    reader.readAsText(selectedFile);
+                    reader.onerror = function (evt) {
+                        alert("uploadJS:  Err");
+                        document.getElementById("static_file_response").innerHTML = "error reading file";
+                    }
+                }
+                    
+                    // post form data
+                    //const xhr = new XMLHttpRequest();
+                    // log response
+                    xhr.onload = () => {
+                        alert("uploadJS:  012" + xhr.responseText);
+                    };
+                    alert("uploadJS:  013");
+                    // create and send the reqeust
+                    xhr.open('POST', url);
+                    xhr.send(formData);
+                });
+            }
+
+
+
+            function uploadFile1(form) {
+                alert("upload001");
+                var xhr = new XMLHttpRequest();
+                var formData = new FormData();
+                xhr.onload = successfullyUploaded;
+                xhr.open("POST", "http://localhost:3000/upload", true);
+                xhr.setRequestHeader('X-Requested-With','XMLHttpRequest');
+                for(var file in files) {
+                    formData.append("uploads", files[file].data);
+                }
+                xhr.send(formData);
+            }
+
+            /* Check the response status */  
+            client.onreadystatechange = function() 
+            {
+                if (client.readyState == 4 && client.status == 200) 
+                {
+                    alert(client.statusText);
+                }
+            }
+            function uploadFile2(form){
+                const formData = new FormData(form);
+                var oOutput = document.getElementById("static_file_response")
+                var oReq = new XMLHttpRequest();
+                    oReq.open("POST", "upload_static_file", true);
+                oReq.onload = function(oEvent) {
+                    if (oReq.status == 200) {
+                    oOutput.innerHTML = "Uploaded!";
+                    console.log(oReq.response)
+                    } else {
+                    oOutput.innerHTML = "Error occurred when trying to upload your file.<br \/>";
+                    }
+                    };
+                oOutput.innerHTML = "Sending file!";
+                console.log("Sending file!")
+                oReq.send(formData);
+            }
+        </script>
+    </body>
+</html>

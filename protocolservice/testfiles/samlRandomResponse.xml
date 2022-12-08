@@ -1,0 +1,58 @@
+<samlp:Response Destination="https://app.skeddly.com/sso/saml/"
+    ID="R577e2cbf662b1c890b4ce265a5c8570365be3d14" IssueInstant="2017-06-15T15:13:08Z" Version="2.0"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <saml:Issuer>https://app.onelogin.com/saml/metadata/123456</saml:Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion ID="pfxb637c19d-8ef8-8c40-2450-9c54fe3136ae" IssueInstant="2017-06-15T15:13:08Z"
+      Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <saml:Issuer>https://app.onelogin.com/saml/metadata/123456</saml:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      <ds:SignedInfo>
+        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+        <ds:Reference URI="#pfxb637c19d-8ef8-8c40-2450-9c54fe3136ae">
+          <ds:Transforms>
+            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          </ds:Transforms>
+          <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <ds:DigestValue>y72efAcPNpGV1NQeCK1IFJjdr84=</ds:DigestValue>
+        </ds:Reference>
+      </ds:SignedInfo>
+      <ds:SignatureValue>k3ZjYpLRbrmtwauPFTVOBBHap/S551fetRSkNBMCMCC5JOxm+3a+v4kMO3tqwGzq5BMP5p5VjM7vOKD6xXOXWFVzVFmYjQYBfda9WsmHdQI/hMYc9jg7gas+0NNWm4+jthdSxbpPy7nj9cI6DgL7y0OyY8wd73HR1255Pni5NlFk0KiyzYJ5xe+Er13tOYc2/+u9+LnIOnBJs2J0no3CJ7jJPdArjFc/jy14fk0PEKRT5hfYcBYXNf6MnIJe/VSaBbFBZ/JrNv/XQcxiqKSPakH7yG4klSbeDFox5tcLD4oMsr9i6JM+L8ar/oz+9xOFwdq5mI4vZvi0rIj5f63fdQ==</ds:SignatureValue>
+      <ds:KeyInfo>
+        <ds:X509Data>
+          <ds:X509Certificate>MIIEMjCCAxqgAwIBAgIUWERB927ytbVvEhLDXGgH7zL5mUwwDQYJKoZIhvcNAQEFBQAwYTELMAkGA1UEBhMCQ0ExGjAYBgNVBAoMEUVsZXZlbjQxIFNvZnR3YXJlMRUwEwYDVQQLDAxPbmVMb2dpbiBJZFAxHzAdBgNVBAMMFk9uZUxvZ2luIEFjY291bnQgOTM0ODMwHhcNMTcwNTMxMDQwNzE0WhcNMjIwNjAxMDQwNzE0WjBhMQswCQYDVQQGEwJDQTEaMBgGA1UECgwRRWxldmVuNDEgU29mdHdhcmUxFTATBgNVBAsMDE9uZUxvZ2luIElkUDEfMB0GA1UEAwwWT25lTG9naW4gQWNjb3VudCA5MzQ4MzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANGnuG0mo4nPUVL9X2k4bVU9wLK1+JURsA6c0+TQtU7tzaFtG7nXcHn6hUO217Prybfh8Ag9mXX1dqKMLtCvOxsBKvvBci9BfCchT2Lo84B5GfkcRPhlRADpkFihmEmzO+KmE+MlqQK4wCf4r1BvabGwOm89QW4tYtNbH1k9+2uVyYAC1ZFemFSM/kGCmCl1Oaghr6stZMFVkNB3KUIQi2k+maf94pIg+YJoitVn2oDdeU69h8c4p5xffcpnU5Gcpgy4Ydi31mundGGPdBGmh9WS9lV0JlSRJ6mHwNvt+BITAkON7OVA0CWZGsJ4FwYLFkGprV9ICT8OXwtFvFLCvmsCAwEAAaOB4TCB3jAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQKL3PiAiHSRsqmCzG7g2kveizV+DCBngYDVR0jBIGWMIGTgBQKL3PiAiHSRsqmCzG7g2kveizV+KFlpGMwYTELMAkGA1UEBhMCQ0ExGjAYBgNVBAoMEUVsZXZlbjQxIFNvZnR3YXJlMRUwEwYDVQQLDAxPbmVMb2dpbiBJZFAxHzAdBgNVBAMMFk9uZUxvZ2luIEFjY291bnQgOTM0ODOCFFhEQfdu8rW1bxISg1xoB+8y+ZlMMA4GA1UdDwEB/wQEAwIHgDANBgkqhkiG9w0BAQUFAAOCAQEASpg0dPxrGtBt21zv6E36mOJmtquonCtPSxSu64+1EZdNvY8b+uf9mxZvzAmmMFujnHFmtXpTYr2Tpz9uaE0GXZc3YmkMCt84FjUTxKsAUjkdLPETnfXgjlrlEvdAL0Mf9iO3QYO568vI3NEiasDgToVbbQ14WENmwhZlnM3VpJ9GckLxuRGqe1LeyVcYvTh8d8WOGtVqOmvT0qgLKamimX0aSqHOHHW1xGZTkl8O7db+Byhvyk4egYq/PBGPZjasBEP+N7PlfEf9lDfVT5F+L9F5arY1gGTGEVwMZ5lwocU4CN9WHIgRlpH2Fxs6FDTkMtJHPfYspHEvuh3uhjIF3g==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </ds:Signature>
+    <saml:Subject>
+      <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">user@example.com</saml:NameID>
+      <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <saml:SubjectConfirmationData NotOnOrAfter="2017-06-15T15:16:08Z"
+                Recipient="https://app.skeddly.com/sso/saml/"/>
+      </saml:SubjectConfirmation>
+    </saml:Subject>
+    <saml:Conditions NotBefore="2017-06-15T15:10:08Z" NotOnOrAfter="2017-06-15T15:16:08Z">
+      <saml:AudienceRestriction>
+        <saml:Audience>https://app.skeddly.com/</saml:Audience>
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+    <saml:AuthnStatement AuthnInstant="2017-06-15T15:13:07Z"
+        SessionIndex="_bbd07130-340a-0135-2978-06490e210d25" SessionNotOnOrAfter="2017-06-16T15:13:08Z">
+      <saml:AuthnContext>
+        <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef>
+      </saml:AuthnContext>
+    </saml:AuthnStatement>
+    <saml:AttributeStatement>
+      <saml:Attribute Name="https://skeddly.com/SAML/Attributes/Roles"
+          NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+        <saml:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">srn:skeddly:idp::01234567:OneLogin,srn:skeddly:policy:::standard</saml:AttributeValue>
+      </saml:Attribute>
+    </saml:AttributeStatement>
+  </saml:Assertion>
+</samlp:Response>

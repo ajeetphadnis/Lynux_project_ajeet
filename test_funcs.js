@@ -1,0 +1,159 @@
+//var date = new Date();
+//console.log("xml Parser6:  " + date );
+//date.setHours(date.getHours()-1);
+//console.log("xml Parser6:  " + date.toISOString());
+//var seconds = date.getTime() / 1000; // 1440516958
+//nbSecs = seconds;
+//seconds = seconds+36000;
+//console.log("xml Parser6:  " + date + "       " + seconds);
+//
+//var sn = Math.floor(Math.random() * 900000);
+//console.log("SN:  " + sn);
+//var dt = new Date();
+//mm = (dt.getMonth() + 1).toString().padStart(2, "0");
+//dd   = dt.getDate().toString().padStart(2, "0");
+//var sn =sn+'-'+mm+dd;
+//console.log('snum:  ' + sn);
+
+
+//const fs = require('fs');
+
+//function getP12FileName(dir, strtStr, endStr) {
+//	//const dir = '/Users/flavio/folder'
+//	const files = fs.readdirSync(dir);
+//	
+//	for (const file of files) {
+//		if (file.startsWith(strtStr) && file.endsWith(endStr)) {
+//			//console.log(file);
+//			return file;
+//		}	  
+//	}
+//}
+
+//function getUploadFile(req, res) {
+//	try {
+//        if(!req.files) {
+////            res.send({
+////                status: false,
+////                message: 'No file uploaded'
+////            });
+//        	console.log("getUploadFile: File could not be uploaded ...." );
+//        } else {
+//        	fs.readFile(req.files.path, function (err, data) {
+//        		  if (err) throw err;
+//        		  // data will contain your file contents
+//        		  console.log("Content File Data:  " + data);
+////
+////        		  // delete file
+////        		  fs.unlink(req.files.path, function (err) {
+////        		    if (err) throw err;
+////        		    console.log('successfully deleted ' + req.files.path);
+////        		  });
+//        		  return data;
+//        		});
+//        }
+//    } catch (err) {
+//        res.status(500).send(err);
+//    }
+//};
+//
+//var ret = getP12FileName('E:\\App2\\App2\\workspaces\\PhadnisWorkspace\\com.utes.cert.crypto\\rsa_domain', 'Integration_grp', 'p12');
+//console.log(ret);
+/* Content File path:  {"target_file":{"name":"NAB5.8259433097._11.lis","data":{"type":"Buffer","data":[]},"size":1863,"encoding":"7bit","tempF
+ilePath":"E:\\App2\\App2\\workspaces\\PhadnisWorkspace\\com.utes.auth.protocol.exchange\\uploads\\tmp-1-1625065734502","truncated":false,"mi
+metype":"application/octet-stream","md5":"7f3cfa7d85e38b3978b20d96c05404ca"}}*/
+
+const express = require('express');
+//Put this statement near the top of your module
+var bodyParser = require('body-parser');
+const fileUpload = require('express-fileupload');
+const fs = require('fs');
+const path = require('path');
+const app = express();
+const readF = require('./readUploadFile');
+const crypto = require('crypto');
+var multer = require('multer');
+var forms = multer();
+
+//Put these statements before you define any routes.
+app.use(bodyParser.json());
+app.use(forms.array()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(express.static("public"));
+app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
+app.set('view engine', 'ejs'); // configure template engine
+//app.use(bodyParser.urlencoded({ extended: true }));
+//parse application/vnd.api+json as json
+console.log("Dir: " + __dirname);
+/*app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : path.join(__dirname,'uploads'),
+}));*/
+
+var jwtStr = "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpZCI6IjAwREQwMDAwMDAwRjdMNSIsImlzcyI6ImNvbS51dGVzLmludGVybWVkaWF0ZV9jYS1kb21haW4iLCJzdWIiOiIwMEREMDAwMDAwMEY3TDUiLCJhdWQiOiJjb20udXRlcy5pbnRlcm1lZGlhdGVfY2EtZG9tYWluIiwianRpIjoiMTIwLTUxLTIxNi0xMDYtMjQ0LTc0LTE3OC01Mi02MS0xMzkiLCJleHAiOjEyNDUyNjQ2MTAsIm5iZiI6MTI0NTI2NDMxMCwiaWF0IjoxNjYzNjM3NTY5fQ.";
+
+var randuser = {"fullname": "Ajeet", "emailAddress": "ajeet@phadnis.no", "uid": "ajeet"};
+
+app.get('/demo_user', (req, res) => {
+    res.render(path.join(__dirname, 'views/demo_user'),
+    		{randusr: JSON.stringify(randuser)});
+});
+
+
+app.post('/demo_user', (req, res) => {
+	console.log("UID:   " + JSON.stringify(req.body));
+	var id = req.body.uid;
+	var mail = req.body.demomail;
+	console.log("ID:   " + req.body.uid);
+	console.log("mail:   " + req.body.demomail);
+});
+/*
+app.post('/', (req, res) => {
+    
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    if(!req.files) {
+    	console.log("getUploadFile: File could not be uploaded ...." );
+    } else {
+    	//console.log("Content File path:  " + JSON.stringify(req.files.target_file.tempFilePath));
+    	var fpath = JSON.stringify(req.files.target_file.tempFilePath);
+    	var fName = readF.getUploadFileName('./uploads', 'tmp', '');
+    	console.log("Content File path:  " + fpath);
+    	fs.readFile('uploads/'+fName, function (err, data) {
+    		  if (err) throw err;
+    		  // data will contain your file contents
+    		  console.log("Content File Data:  " + data);
+
+    		  // delete file
+    		  fs.unlink('uploads/'+fName, function (err) {
+    		    if (err) throw err;
+    		    console.log('successfully deleted ' + req.files.path);
+        		  });
+        		  return data;
+        		});
+   }
+});
+*/
+
+function getRandomHex(length) {
+	    const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+	    var hx = genRanHex(length);
+	    hx = hx.replace(/..\B/g, '$&:');
+	    return hx;
+}
+
+function compareDates(date1, date2) {
+    var g1 = new Date();
+}
+
+function parseJwt (token) {
+    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
+}
+
+
+ //app.listen(3001, () => console.log('Your app listening on port 3000'));
+
+ //var ran = getRandomHex(16);
+ parseJwt(jwtStr);
+//console.log(ran);

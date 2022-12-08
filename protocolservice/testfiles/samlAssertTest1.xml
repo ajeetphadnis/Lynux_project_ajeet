@@ -1,0 +1,30 @@
+<saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="ID_75291c31-93f7-4f7f-8422-aacdb07466ee" IssueInstant="2012-05-25T10:40:58.912-03:00" Version="2.0">
+    <saml:Issuer>http: //192.168.1.1:8080/idp-sig/</saml:Issuer><saml:Signature xmlns:saml="http://www.w3.org/2000/09/xmlsamlig#">
+  <saml:SignedInfo><saml:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <saml:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmlsamlig#rsa-sha1"/>
+  <saml:Reference URI="#pfxf629ef6c-5032-7158-17bb-16cd574427c6"><saml:Transforms><saml:Transform Algorithm="http://www.w3.org/2000/09/xmlsamlig#enveloped-signature"/><saml:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></saml:Transforms><saml:DigestMethod Algorithm="http://www.w3.org/2000/09/xmlsamlig#sha1"/><saml:DigestValue>rFvSJBOh5p+yU70XUNLuPDRREwI=</saml:DigestValue></saml:Reference></saml:SignedInfo><saml:SignatureValue>dq+UVd5VSbE/kvAV2BTpx/QnENOd0fkNdTezHZ4amgXtGAAy8TDySAzNg4yJVC4Ek7KraByz9l7TyIjK7uwlnsNx+HtS+3ZLqKRJxog5ZUIS4dprAuquRTxhfrhyRsAsz4Bb/zIxupvbyJG890S8nBldPxdHPdJCOCbOUUK5pL0=</saml:SignatureValue>
+<saml:KeyInfo><saml:X509Data><saml:X509Certificate>MIICajCCAdOgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBSMQswCQYDVQQGEwJ1czETMBEGA1UECAwKQ2FsaWZvcm5pYTEVMBMGA1UECgwMT25lbG9naW4gSW5jMRcwFQYDVQQDDA5zcC5leGFtcGxlLmNvbTAeFw0xNDA3MTcxNDEyNTZaFw0xNTA3MTcxNDEyNTZaMFIxCzAJBgNVBAYTAnVzMRMwEQYDVQQIDApDYWxpZm9ybmlhMRUwEwYDVQQKDAxPbmVsb2dpbiBJbmMxFzAVBgNVBAMMDnNwLmV4YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZx+ON4IUoIWxgukTb1tOiX3bMYzYQiwWPUNMp+Fq82xoNogso2bykZG0yiJm5o8zv/sd6pGouayMgkx/2FSOdc36T0jGbCHuRSbtia0PEzNIRtmViMrt3AeoWBidRXmZsxCNLwgIV6dn2WpuE5Az0bHgpZnQxTKFek0BMKU/d8wIDAQABo1AwTjAdBgNVHQ4EFgQUGHxYqZYyX7cTxKVODVgZwSTdCnwwHwYDVR0jBBgwFoAUGHxYqZYyX7cTxKVODVgZwSTdCnwwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOBgQByFOl+hMFICbd3DJfnp2Rgd/dqttsZG/tyhILWvErbio/DEe98mXpowhTkC04ENprOyXi7ZbUqiicF89uAGyt1oqgTUCD1VsLahqIcmrzgumNyTwLGWo17WDAa1/usDhetWAMhgzF/Cnf5ek0nK00m0YZGyc4LzgD0CROMASTWNg==</saml:X509Certificate></saml:X509Data></saml:KeyInfo></saml:Signature> 
+    <saml:Subject> 
+        <saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">user</saml:NameID>
+        <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"> 
+            <saml:SubjectConfirmationData InResponseTo="ID_326a389f-6a8a-4712-b71d-77aa9c36795c" NotBefore="2012-05-25T10:40:58.894-03:00" NotOnOrAfter="2012-05-25T10:41:00.912-03:00" Recipient="http://192.168.1.4:8080/fake-sp" /> 
+        </saml:SubjectConfirmation> 
+    </saml:Subject> 
+    <saml:Conditions NotBefore="2012-05-25T10:40:57.912-03:00" NotOnOrAfter="2012-05-25T10:41:00.912-03:00" /> 
+    <saml:AuthnStatement AuthnInstant="2012-05-25T10:40:58.981-03:00"> 
+        <saml:AuthnContext> 
+            <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml:AuthnContextClassRef> 
+        </saml:AuthnContext> 
+    </saml:AuthnStatement> 
+    <saml:AttributeStatement> 
+        <saml:Attribute Name="Role"> 
+            <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test-role1</saml:AttributeValue> 
+        </saml:Attribute> 
+        <saml:Attribute Name="Role"> 
+            <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test-role2</saml:AttributeValue>
+        </saml:Attribute> 
+        <saml:Attribute Name="Role"> 
+            <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:string">test-role3</saml:AttributeValue>
+        </saml:Attribute>
+    </saml:AttributeStatement>
+</saml:Assertion>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--link rel="stylesheet" href="/css/pha_styles001.css"  type="text/css"-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 		<style type="text/css">
+		.container i {
+			color: lightblue;
+		    margin-left: -30px;
+		    cursor: pointer;
+		}
+		
+		h2, h3, h4 {
+			color: #2B547E;
+			font-family: Verdana;
+			font-size: 15px;
+		}
+		
+		.parent {
+			text-align: left;
+		}
+		.parent > ul {
+		  display: inline-block;
+		}
+		
+		
+		body {
+			background-color: #BCC6CC;
+		}
+	</style>
+</head>
+<body>
+<h2> Authentication Token Converter Middleware Services </h2>
+<h3>
+The Authentication Token Converter Middleware enables to establish 	<br>
+trust between parties that want to use online identities of one another.<br>
+Authentication Token Converter Middleware is a service 					<br>
+which translates multiple service providers with different identity <br>
+providing protocols and converting source protocols to target protocols.<br>
+No needs to understand or implement complex Single Sign-On <br>
+(SSO) protocols like SAML, OpenID, OAuth, CAS or any other authentication releam.<br>
+The advantage with Identity Middleware Service is  <br>
+that it supports Cross Protocol conversions i.e. configuring one Service Provider <br>
+following a particular protocol with another Identity Provider <br>
+following some different protocol. This service enables enterprise <br>
+Single Sign-On (SSO) as an identity certificate / token service providing secure <br>
+and easy access to all your services.<br>
+To demo this service, user is first navigated to login, if user has already<br>
+a user identification in our system, then user is logged in and navigated to demo.<br>
+Else the user is prompted to go to registration application, <br>
+and then the user is navigated to login page, where after a successful <br>
+login the user is navigated to Converter Middleware service demo page.<br>
+</h3>
+
+<!-- p><ul>
+  <li><a href="/login_user">Login</a></li>
+  <li><a href="/register_user">Register</a></li>
+  <li><a href="/logout">Logout</a></li>
+</ul></p -->
+	<form>
+		<div class="parent">
+			<button formaction="/register_user">Register</button>
+        </div>
+        <div class="parent">
+			<button formaction="/login_user">Login</button>
+        </div>
+	</form>
+</body>
+</html>

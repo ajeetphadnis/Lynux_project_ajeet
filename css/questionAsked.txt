@@ -1,0 +1,237 @@
+This is a snippet of my secenv.ejs template:
+
+				<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+					<h2>
+						Secure Envelope For User: <label id="usr10" name="usr10"></label>
+					</h2>
+					<script type="text/javascript"> var usr = getActiveUserSource();
+					//alert("Secure Envelope:   " + usr);
+					//alert("Secure Envelope:   " + JSON.stringify(user));
+	        		document.getElementById("usr10").innerText = usr;
+	        	</script>
+				<form id="secenv" action="/getDemoUserSecureEnv" method="POST" enctype="multipart/form-data">
+					<div class="w3-container">
+						<input type="text" id="uid11" name="uid11" required placeholder="CustomerId"  value="">
+						<input type="text" id="target" name="target" required placeholder="TargetId" value="">
+						<input type="text" id="filetype" name="filetype" required  placeholder="FileType" value="" >			            
+						<input type="file" id="Content" name="Content" required placeholder="upload_file">						
+						Secure Envelope		: <textarea class="textinput" id="envtxt" name="envtxt" ><%= user.secenv %></textarea>
+					</div>
+					<div >
+						<p>Run Create SecureEnvelop scenario</p>
+						<button id="but12"  name="but12"  class="w3-button w3-black" onclick="uploadFiles(event);">SecureEnvelop</button>
+					</div>
+					<div id="dwnldStatus"></div>
+				</form>				
+	<script type="text/javascript">
+		var tiles = 0;
+		function uploadFiles(event) {
+			$(document).ready(function() {
+				alert("uploadFiles002:  ");
+				localStorage.setItem("scrollY", window.scrollY);
+				$('#but12').click(function(event){
+					$(window).bind ("beforeunload",  function (event) {
+						tiles++; 
+						$("#dwnldStatus").text ("This code runs just before the file open/save dialog pops up."+tiles);
+						event.preventDefault();
+						return;
+					} );					
+					alert("uploadFiles003:  " );
+					var files = $("#Content").get(0).files;
+					//alert("uploadFiles003::C:  ");
+					if (files.length > 0){
+						//alert("uploadFiles004:  ");
+						var formData = new FormData();							      
+						for (var i = 0; i < files.length; i++) {
+						var file = files[i];							        
+						formData.append('uploaded_files', file, file.name);
+						//alert("uploadFiles: ");
+						}
+						//alert("uploadFiles005:  ");
+						var uid = document.getElementById("usr").innerText;
+						// alert("setUserOCSPStatusAjax: " + uid);
+						document.getElementById("demoname").value = uid;
+						document.getElementById("uid11").value = uid;
+						//alert("uploadFiles006:  ");
+						$.ajax({
+						url: '/getDemoUserSecureEnv',
+						type: 'POST',
+						data: formData,
+						processData: false,
+						contentType: false,
+						success: function(response) {
+							user = {
+									uid: '',
+									pass: '',
+									serv: '',
+									srctxt: '',
+									destxt: '',
+									jwksets: '',
+									oprf: '',
+									oprt: '',
+									Timestamp: '',
+									target: '',
+									filetype: '',
+									Content: '',
+									secenv: '',
+									keyInfo: '',
+									newuser: {}
+								};
+								var usr = JSON.parse(JSON.stringify(response));							          
+								JSON.parse(usr, (key, value) => {
+									if (typeof value === 'string') {
+										//alert("Response: key:  " + key + "  value:  " + value);
+										if(key === 'uid') user.uid = value;
+										if(key === 'ope') user.oprf = value;
+										if(key === 'pass') user.pass = value;
+										if(key === 'secenv') {
+											user.secenv = value;
+											//alert("Response: secenv:   " + user.secenv);
+										}
+									}
+								}
+							);
+							document.getElementById("envtxt").value = user.secenv;
+							$(window).bind ("beforeunload",  function (event) {
+								tiles++; 
+								$("#dwnldStatus").text ("This code runs after ajax textarea is filled."+tiles);
+								event.preventDefault();
+								return;
+							} );	
+								var scrollY = parseInt(localStorage.getItem("scrollY"));
+								window.scroll(0, scrollY);
+								return false;
+						},
+							error: function(jqXHR, status, error) {
+							alert('Upload Failed. Error: ' + error);
+							//window.location.reload();
+						},
+					});	//end ajax					      
+				}
+			});
+		});
+	}
+	
+	
+	This is my server js:
+	
+	/**
+ * 
+ */
+ const formidable = require("formidable");
+ const path = require('path');
+ const fs = require('fs');
+ const fsp = require('fs').promises;
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
+const envsec = require('./secure_envelop/com.utes.secure.env');
+const app = express();
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');app.use(express.static(path.join(__dirname, '/public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+// creating 24 hours from milliseconds
+const oneDay = 1000 * 60 * 60 * 24;
+var session;
+app.use('/secenv', envsec);
+//session middleware
+app.use(sessions({
+    secret: "7654321000",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+// cookie parser middleware
+app.use(cookieParser());
+
+var user = {
+	uid: '',
+	pass: '',
+	serv: '',
+	srctxt: '',
+	destxt: '',
+	jwksets: '',
+	oprf: '',
+	oprt: '',
+	Timestamp: '',
+	target: '',
+	filetype: '',
+	Content: '',
+	secenv: '',
+	keyInfo: '',
+	newuser: {}
+};
+
+ //ROUTES
+
+ app.get('/secenv',function(req,res){
+    console.log("Get:");
+    session=req.session;
+    session.uname = 'ajeet';
+    session.user = user;
+     res.sendFile(path.join(__dirname,  'views/com.utes.protocol.exchange.html')); 
+ });
+
+ 
+ app.post('/secenv', async function (req,res, next) {
+    const uploadFolder =  "./uploads";
+    console.log("POSTFunc:uploaderPath:  " + uploadFolder);
+    console.log("session data:  " + req.session.uname);
+    console.log("session data:  " + req.session.user);
+    session=req.session;
+    session.uid=req.body.uid;
+    const form = formidable({ multiples: true });
+    form.multiples = true;
+    form.maxFileSize = 50 * 1024 * 1024; // 5MB
+    form.uploadDir = uploadFolder;
+    form.on("file", (fields, files) => {
+        fs.rename(
+          files.filepath,
+          form.uploadDir + "/" + files.newFilename,
+          () => {
+            console.log(
+              `Succesfully renamed to ${
+                form.uploadDir + "/" + files.newFilename
+              }`
+            );
+          }
+        );
+      });
+      var formfields = new Promise(async function (resolve, reject) {
+        form.parse(req, async function (err, fields, files) {
+            if (err) {
+                console.log("processfileTest003:  ");
+                reject(err);
+                return;
+            }
+            console.log("fileTest004:  ");
+            //console.log("within form.parse method, subject field of fields object is: " + fields.subjects);
+            resolve(fields);
+            console.log("fileTest005:  " + JSON.stringify(fields));
+            resolve(files);
+            pars = JSON.parse(JSON.stringify(fields));
+            fil = JSON.parse(JSON.stringify(files));
+            console.log("fileTest008:  " + JSON.stringify(fil.Content));
+            if (files && fil.Content) {
+                fil.Content.filepath = uploadFolder;
+                console.log("fileTest009:  " + fil.Content.filepath);
+                fName = JSON.stringify(fil.Content.newFilename);
+                console.log("fileTest011:   " + fName);
+                var fpath = fil.Content.filepath+'/'+fName;
+                fpath = fpath.replace(/[\[\]'"]/gi, '');
+                console.log("fileTest012:   " + fpath);
+            }
+        });
+    });
+    //await new Promise(resolve => setTimeout(resolve, 50));
+    var sess = await envsec.processExtForm(form, req, res);
+    console.log("SecureEnv_Returned user:  " + JSON.stringify(sess));
+    console.log("SecureEnv_Returned user:  " + JSON.stringify(req.session));
+    //res.status(200).send(user);
+    res.render('secenv.ejs', { user: user });				
+ });
+ 
+  app.listen(3000, () => console.log('Your app listening on port 3000'));

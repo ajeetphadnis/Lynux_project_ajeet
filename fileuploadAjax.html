@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AJAX/Express Example</title>
+	<script type="text/javascript">
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+      	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      	crossorigin="anonymous">
+
+		function main(e) {
+		$('document').ready(() => {
+			$('#signup').on('submit', handleSignup)
+			function handleSignup (e) {
+			e.preventDefault()
+			const options = {
+				method: $(this).attr('method'),
+				url: $(this).attr('action'),
+				data: $(this).serialize()
+			}
+			$.ajax(options).done(response => {
+				alert(JSON.stringify(response))
+			})
+			}
+		})
+	}
+	</script>
+  </head>
+  <body>
+    <form id="signup" method="POST" action="/">
+      <div>
+        <label for="name">Name</label>
+        <input name="name"type="text" id="name" />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input name="email" type="text" id="email" />
+      </div>
+      <div>
+        <label for="mobile">Mobile</label>
+        <input name="mobile" type="text" id="mobile" />
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+  </body>
+</html>

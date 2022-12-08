@@ -1,0 +1,71 @@
+{
+  "name": "saml-idp",
+  "description": "Test Identity Provider (IdP) for SAML 2.0 Web Browser SSO Profile",
+  "version": "1.2.1",
+  "private": false,
+  "author": "Karl McGuinness",
+  "keywords": [
+    "saml",
+    "idp",
+    "okta"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcguinness/saml-idp"
+  },
+  "bugs": {
+    "url": "https://github.com/mcguinness/saml-idp/issues"
+  },
+  "main": "./app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "bin": "./bin/run.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "asn1": "^0.2.4",
+    "base64-url": "^2.3.3",
+    "bn": "^1.0.5",
+    "body-parser": "^1.19.0",
+    "chalk": "^4.1.0",
+    "coinkey": "^0.1.0",
+    "crypto": "^1.0.1",
+    "debug": "~4.1.1",
+    "dedent": "^0.7.0",
+    "eccrypto": "^1.1.6",
+    "ecdsa": "^0.7.0",
+    "elliptic": "^6.5.4",
+    "elliptic-curve": "^0.1.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "extend": "^3.0.2",
+    "fs": "^0.0.1-security",
+    "hbs": "^4.1.1",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "jose-jwe-jws": "^0.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "jsrsasign": "^10.1.13",
+    "morgan": "^1.10.0",
+    "node-jose": "^2.0.0",
+    "os": "^0.1.1",
+    "parse-string": "^1.2.3",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-saml": "^2.1.0",
+    "path": "^0.12.7",
+    "saml": "*",
+    "saml-idp": "^1.2.1",
+    "saml2js": "^0.1.2",
+    "samlp": "github:mcguinness/node-samlp",
+    "secure-random": "^0.2.1",
+    "xml-formatter": "^2.1.0",
+    "xml2js": "^0.4.23",
+    "xml2json": "^0.12.0",
+    "xmldom": "^0.5.0",
+    "yargs": "^15.4.1"
+  }
+}

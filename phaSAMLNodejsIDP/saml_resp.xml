@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" ID="12a5ae506fd0dec5d216" Version="2.0" IssueInstant="2021-03-29T15:16:31Z" Destination="http://www.prathamesh-phadnis.com:9099">
+   <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">prathamesh-phadnis.com:idp</saml:Issuer>
+   <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+         <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+         <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+         <Reference URI="#_12a5ae506fd0dec5d216">
+            <Transforms>
+               <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+               <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </Transforms>
+            <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+            <DigestValue>XbWAocPfGah/p/A8yuE4ScGakHyiTc14P4zQ1j1R6Y4=</DigestValue>
+         </Reference>
+      </SignedInfo>
+      <SignatureValue>wIHUyPsTht4yATMlQc+Ykno0YctwqEomswHqCOHO3BmEekQVVMu9KQe7NrB5eE8PVu1AX+x4SR90V+N5qdQuHz2o1bXSj8RP8yCWvWiYfesrJdXFeGiZ9KHbayN+09cNKM6K5to5loTf26EzS1rtrZ2Zcd6Va6fqRlQ9pDE8LBY+6qvr8BBel1Tg/mn04qncbws1D37lNev25tJHUP+OJRZTHVabpopWuPsrYTXorFwd/nfouUGRSURCHEW8fux1GFJsPVXqjfl0KPbuoSmO9QqmQaiwSxk2uj24AdneKvbIsW0ECtLMDnoz/TVScBcrQ9ksyZcjvG8MsA73ylZpyQ==</SignatureValue>
+      <KeyInfo>
+         <X509Data>
+            <X509Certificate>MIIDPDCCAiQCCQDydJgOlszqbzANBgkqhkiG9w0BAQUFADBgMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEQMA4GA1UEChMHSmFua3lDbzESMBAGA1UEAxMJbG9jYWxob3N0MB4XDTE0MDMxMjE5NDYzM1oXDTI3MTExOTE5NDYzM1owYDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xEDAOBgNVBAoTB0phbmt5Q28xEjAQBgNVBAMTCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMGvJpRTTasRUSPqcbqCG+ZnTAurnu0vVpIG9lzExnh11o/BGmzu7lB+yLHcEdwrKBBmpepDBPCYxpVajvuEhZdKFx/Fdy6j5mH3rrW0Bh/zd36CoUNjbbhHyTjeM7FN2yF3u9lcyubuvOzr3B3gX66IwJlU46+wzcQVhSOlMk2tXR+fIKQExFrOuK9tbX3JIBUqItpI+HnAow509CnM134svw8PTFLkR6/CcMqnDfDK1m993PyoC1Y+N4X9XkhSmEQoAlAHPI5LHrvuujM13nvtoVYvKYoj7ScgumkpWNEvX652LfXOnKYlkB8ZybuxmFfIkzedQrbJsyOhfL03cMECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAeHwzqwnzGEkxjzSD47imXaTqtYyETZow7XwBc0ZaFS50qRFJUgKTAmKS1xQBP/qHpStsROT35DUxJAE6NY1Kbq3ZbCuhGoSlY0L7VzVT5tpu4EY8+Dq/u2EjRmmhoL7UkskvIZ2n1DdERtd+YUMTeqYl9co43csZwDno/IKomeN5qaPc39IZjikJ+nUC6kPFKeu/3j9rgHNlRtocI6S1FdtFz9OZMQlpr0JbUt2T3xS/YoQJn6coDmJL5GTiiKM6cOe+Ur1VwzS1JEDbSS2TWWhzq8ojLdrotYLGd9JOsoQhElmz+tMfCFQUFLExinPAyy7YHlSiVX13QH2XTu/iQQ==</X509Certificate>
+         </X509Data>
+      </KeyInfo>
+   </Signature>
+   <samlp:Status>
+      <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" />
+   </samlp:Status>
+   <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Version="2.0" ID="_jzfajXHINf3xVKD1MB8qlXiyLOh0luRu" IssueInstant="2021-03-29T15:16:31.478Z">
+      <saml:Issuer>urn:prathamesh-phadnis.com:idp</saml:Issuer>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+         <SignedInfo>
+            <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+            <Reference URI="#_jzfajXHINf3xVKD1MB8qlXiyLOh0luRu">
+               <Transforms>
+                  <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                  <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+               </Transforms>
+               <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+               <DigestValue>Jg7PtCdpV/piL/o7F+1Rvnj+NtMwGDeYj0caAo3riJo=</DigestValue>
+            </Reference>
+         </SignedInfo>
+         <SignatureValue>ARaSNjgQDCIwoptjLBP6Kkzdng/cfXqhOeCyw/7OQ63dcDIjtX13J2zY25aqnGKmagSfDBoU1NtWCvO6zHZHjWoagr6mOKTK68pFBexpa/hppz8Gc3vFJob2vM9bTbKNaOjJiiv1AKvwiFMkNZnBhNHy8pHtQ23WR/CA+kNrtYyFiwCNREJbtY7w0xGn9injLQ7W4hUL1zHNQC8sQ4PZjQYNj8Qac/HihzEtgwH/5J08Wy4gIHdOsqLghIhBL0wKs7g00N3DnKRKG6LLtY4GrwpaDQJqrCa1p1eW3LSxQM5anEC9XO+9Hds3XD32narSVnO8Ow+9sn4F/gPvMbNrcg==</SignatureValue>
+         <KeyInfo>
+            <X509Data>
+               <X509Certificate>MIIDPDCCAiQCCQDydJgOlszqbzANBgkqhkiG9w0BAQUFADBgMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzEQMA4GA1UEChMHSmFua3lDbzESMBAGA1UEAxMJbG9jYWxob3N0MB4XDTE0MDMxMjE5NDYzM1oXDTI3MTExOTE5NDYzM1owYDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBGcmFuY2lzY28xEDAOBgNVBAoTB0phbmt5Q28xEjAQBgNVBAMTCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMGvJpRTTasRUSPqcbqCG+ZnTAurnu0vVpIG9lzExnh11o/BGmzu7lB+yLHcEdwrKBBmpepDBPCYxpVajvuEhZdKFx/Fdy6j5mH3rrW0Bh/zd36CoUNjbbhHyTjeM7FN2yF3u9lcyubuvOzr3B3gX66IwJlU46+wzcQVhSOlMk2tXR+fIKQExFrOuK9tbX3JIBUqItpI+HnAow509CnM134svw8PTFLkR6/CcMqnDfDK1m993PyoC1Y+N4X9XkhSmEQoAlAHPI5LHrvuujM13nvtoVYvKYoj7ScgumkpWNEvX652LfXOnKYlkB8ZybuxmFfIkzedQrbJsyOhfL03cMECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAeHwzqwnzGEkxjzSD47imXaTqtYyETZow7XwBc0ZaFS50qRFJUgKTAmKS1xQBP/qHpStsROT35DUxJAE6NY1Kbq3ZbCuhGoSlY0L7VzVT5tpu4EY8+Dq/u2EjRmmhoL7UkskvIZ2n1DdERtd+YUMTeqYl9co43csZwDno/IKomeN5qaPc39IZjikJ+nUC6kPFKeu/3j9rgHNlRtocI6S1FdtFz9OZMQlpr0JbUt2T3xS/YoQJn6coDmJL5GTiiKM6cOe+Ur1VwzS1JEDbSS2TWWhzq8ojLdrotYLGd9JOsoQhElmz+tMfCFQUFLExinPAyy7YHlSiVX13QH2XTu/iQQ==</X509Certificate>
+            </X509Data>
+         </KeyInfo>
+      </Signature>
+      <saml:Subject>
+         <saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">saml.jackson@example.com</saml:NameID>
+         <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+            <saml:SubjectConfirmationData NotOnOrAfter="2021-03-29T16:16:31.478Z" Recipient="http://www.prathamesh-phadnis.com:9099" />
+         </saml:SubjectConfirmation>
+      </saml:Subject>
+      <saml:Conditions NotBefore="2021-03-29T15:16:31.478Z" NotOnOrAfter="2021-03-29T16:16:31.478Z">
+         <saml:AudienceRestriction>
+            <saml:Audience>http://www.prathamesh-phadnis.com:3000/execServ</saml:Audience>
+         </saml:AudienceRestriction>
+      </saml:Conditions>
+      <saml:AuthnStatement AuthnInstant="2021-03-29T15:16:31.478Z" SessionIndex="273636680">
+         <saml:AuthnContext>
+            <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef>
+         </saml:AuthnContext>
+      </saml:AuthnStatement>
+      <saml:AttributeStatement xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <saml:Attribute Name="firstName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">Saml</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="lastName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">Jackson</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="displayName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">saml jackson</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">saml.jackson@example.com</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="mobilePhone" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">+1-415-555-5141</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="groups" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">Simple IdP Users</saml:AttributeValue>
+            <saml:AttributeValue xsi:type="xs:string">West Coast Users</saml:AttributeValue>
+            <saml:AttributeValue xsi:type="xs:string">Cloud Users</saml:AttributeValue>
+         </saml:Attribute>
+         <saml:Attribute Name="userType" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+            <saml:AttributeValue xsi:type="xs:string">Admin</saml:AttributeValue>
+         </saml:Attribute>
+      </saml:AttributeStatement>
+   </saml:Assertion>
+</samlp:Response>

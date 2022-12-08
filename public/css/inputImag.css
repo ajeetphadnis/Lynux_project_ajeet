@@ -1,0 +1,45 @@
+HTML CSS JSResult Skip Results Iframe
+EDIT ON
+html, body {
+  height: 100%;
+  background: #212121;
+  margin: 0px;
+}
+.first-example , .second-example, .third-example{
+  margin-bottom: 10px;
+}
+body {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+input {
+  width: 250px;
+  padding: 15px 12px;
+  font-size:22px;
+}
+.fa{
+  color:white;
+  font-size:27px;
+  margin-left:8px;
+}
+#validation-txt{
+  color:red;
+  font-size:18px;
+  width: 300px;
+}
+#password-3{
+  -webkit-text-security: disc;
+    -moz-text-security:circle;
+     text-security:circle;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+
+Resources1× 0.5× 0.25×Rerun

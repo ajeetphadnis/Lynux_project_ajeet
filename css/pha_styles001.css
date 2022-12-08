@@ -1,0 +1,23 @@
+.container i {
+	color: lightblue;
+	align: left;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+h2, h3, h4 {
+	color: #2B547E;
+	font-family: Verdana;
+	font-size: 15px;
+}
+
+.parent {
+	text-align: left;
+}
+.parent  ul {
+  display: inline-block;
+}
+
+body {
+	background-color: #BCC6CC;
+}

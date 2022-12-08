@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-color: black;
+  /* background-image: url("raksha_header.jpg"); */
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="index.html#home" class="w3-bar-item w3-button w3-wide">raksha.io [Rakṣā (रक्षा). - Protection, preservation; guarding;]</a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+		  <a href="/views/demo_index.ejs#about">About</a>
+		  <a href="/demo_index#team">FAQt</a>
+		  <a href="/demo_index#work">Products </a>
+		  <a href="/demo_index#contact">Contact</a>
+		  <a href="/utesdemo">Demo</a>
+	  </div>
+      <!-- div class="w3-right w3-hide-small">
+        <a href="views/demo_index#about" class="w3-bar-item w3-button">About</a>
+        <a href="index.html#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> FAQ</a>
+        <a href="index.html#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Products</a>
+        <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Pricing</a>
+        <a href="index.html#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
+        <a href="views/utesdemo" class="w3-bar-item w3-button"><i class="fa fa-gears"></i>Demo</a>
+      </div -->
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="demo_index#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="index.html#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+  <a href="index.html#work" onclick="w3_close()" class="w3-bar-item w3-button">WORK</a>
+  <a href="index.html#pricing" onclick="w3_close()" class="w3-bar-item w3-button">PRICING</a>
+  <a href="index.html#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small">Simplicity Matters</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Simplicity Matters</span><br>
+    <span class="w3-large">Our demos allow you to see eaxactly what you can achieve with UTES... In 4 clicks (well.. maybe 5)</span>
+    <p><a href="#sdemo" class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Get Started</a></p>
+  </div> 
+</header>
+
+
+<!-- Register or Create a demo user Section -->
+<div class="w3-container" style="padding:128px 16px" id="sdemo">
+    <h3 class="w3-center">The Demo</h3>
+    <!--  <p class="w3-center w3-large">In this demo, we need a user. Don't worry, we do not want your details. At least not the real details. However, we do need a user. You can choose to either provide some dummy details or let us create a user for you.</p>-->
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <i class="fa fa-user w3-margin-bottom w3-jumbo w3-center"></i>
+        <i class="fa-solid fa-0"></i>
+        <p class="w3-large">Register or Create a User</p>
+        <p>Of course we need a user if we are going to demostrate token exchange. However, you do not need to give us any details. Either enter any fake data (Donald Duck is a favortite) or let us create a user for you.</p>
+        <p>And dont worry, none of this data is being stored in any manner whatsoever. Even if you enter your real name and email address, we do not store it.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-cogs w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">See UTES in Action</p>
+        <p>Once a user is available, you can </p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-leanpub w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Understand what it did</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </div>
+      <div class="w3-quarter">
+        <i class="fa fa-info w3-margin-bottom w3-jumbo"></i>
+        <p class="w3-large">Currently Supported Exchanges</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </div>
+    </div>
+
+    <div class="w3-row w3-border">
+        <div class="w3-container w3-half">
+             <form class="w3-container" action="/demouser" method="post" enctype="multipart/form-data">
+                <h2>Create a Demo User</h2> 
+                <input class="w3-input" type="text" id="demoname" name="demoname" placeholder="Name"><br>
+                <input class="w3-input" type="text" id="demomail" name="demomail" placeholder="Email"><br>
+                <input class="w3-input" type="text" id="uid" name="uid" placeholder="Unique ID"><br>
+                <button class="w3-button w3-black">Register</button>
+              </form>
+        </div>
+        <div class="w3-container w3-half">
+        	<form class="w3-container" action="/randuser" method="post" enctype="multipart/form-data">
+          		<h2>Generate Random User</h2>
+                <p>Creates a random user for demo purposes.</p>
+                <textarea class="w3-input" id="randname" name="randname"  placeholder="Random name details"></textarea><br>
+                <button class="w3-button w3-black">Create Random User</button>
+            </form>
+        </div>
+        </div>
+
+
+        <div class="w3-row w3-border w3-padding-64">
+            <h2>Token Exchange</h2>
+          
+          <div class="w3-container w3-half">
+          
+                  <p>Run various token exchange scenarios</p>
+                  <input type="button" class="w3-button w3-black" value="SAML --> OAuth">
+                  <button class="w3-button w3-black">OAuth --> SAML</button>
+                  <button class="w3-button w3-black">OAuth --> X.509</button>
+                  <button class="w3-button w3-black">X.509 --> OAuth</button>
+                  <a class="w3-button w3-black w3-right-align" href="#">Clear Forms.</a>  
+          
+          </div>
+              
+          </div>
+
+          <div class="w3-row w3-border w3-padding-64">
+            <h2>Results</h2>
+
+          <div class="w3-card-4 w3-half w3-row-padding" style="width:50%;">
+            <header class="w3-container w3-blue">
+              <h1>Header</h1>
+            </header>
+        
+            <div class="w3-container" id="fromdemo">
+              <p>This is the From section</p>
+            </div>
+        
+            <footer class="w3-container w3-blue">
+              <h5>Footer</h5>
+            </footer>
+          </div>
+
+          <div class="w3-card-4 w3-half w3-row-padding" style="width:50%;">
+            <header class="w3-container w3-green">
+              <h1>Header</h1>
+            </header>
+        
+            <div class="w3-container" id="todemo">
+              <p>This is the To Section</p>
+            </div>
+        
+            <footer class="w3-container w3-green">
+              <h5>Footer</h5>
+            </footer>
+          </div>
+
+          </div>
+
+
+  </div>
+
+<!-- Footer -->
+<footer class="w3-center w3-grey w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+<script>
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>

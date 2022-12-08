@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		user = {
+			uid: '',
+			pass: '',
+			serv: '',
+			srctxt: '',
+			destxt: '',
+			jwksets: '',
+			oprf: '',
+			oprt: '',
+			Timestamp: '',
+			target: '',
+			filetype: '',
+			Content: '',
+			secenv: '',
+			keyInfo: '',
+			newuser: {}
+		};
+
+	</script>
+</head>
+<body>
+	<form id="secenv" action="" method="POST" enctype="multipart/form-data">
+		<div class="w3-container">
+			<input type="text" id="uid" name="uid" required placeholder="CustomerId"  value="">
+			<input type="text" id="target" name="target" required placeholder="TargetId" value="">
+			<input type="text" id="filetype" name="filetype" required  placeholder="FileType" value="" >			            
+            <input type="file" id="Content" name="Content" required placeholder="upload_file">						
+			Secure Envelope		: <textarea class="textinput" id="envtxt" name="envtxt" ><%= user.secenv %></textarea>
+		</div>
+		<div class="w3-container">
+			<p>Run Create SecureEnvelop scenario</p>
+			<!--input type="submit" id="but9" name="but9"  onclick="readSingleFile(event);" value="SecureEnvelop" -->
+			<button id="but9" name="but9" onclick="readSingleFile(event);" value="" >SecureEnvelop</button>
+	    	</div>
+	</form>
+
+<script type="text/javascript">
+	function uploadFilesUpdate(e, form) {
+						//event.preventDefault();
+						//alert("uploadFiles001:  ");
+						$(document).ready(function() {
+							  alert("uploadFiles002:  ");
+							  $('#but9').click (function() {
+								var formData = new FormData();							      
+								alert("uploadFiles003:  ");
+							  	var files = $("#upload_file").get(0).files;
+							    alert("uploadFiles004  ");
+							    if (files.length > 0){
+							      alert("uploadFiles005:  ");
+							      for (var i = 0; i < files.length; i++) {
+							        var file = files[i];							        
+							        formData.append('uploaded_files', file, file.name);
+							        //alert("uploadFiles: ");
+							      }
+							      //alert("uploadFiles005:  ");
+							      //var uid = document.getElementById("usr").innerText;
+			    				  alert("uploadFiles006:  ");
+							      $.ajax({
+							        url: '/getDemoUserSecureEnv',
+							        type: 'POST',
+							        data: formData,
+							        success: function(response) {
+							        	user = {
+							        			uid: '',
+							        			pass: '',
+							        			serv: '',
+							        			srctxt: '',
+							        			destxt: '',
+							        			jwksets: '',
+							        			oprf: '',
+							        			oprt: '',
+							        			Timestamp: '',
+							        			target: '',
+							        			filetype: '',
+							        			Content: '',
+							        			secenv: '',
+							        			keyInfo: '',
+							        			newuser: {}
+							        		};
+
+
+							          alert('Files Saved: ' + response);
+							          var usr = JSON.parse(JSON.stringify(response));							          
+							          JSON.parse(usr, (key, value) => {
+										  if (typeof value === 'string') {
+											 alert("Response: key:  " + key + "  value:  " + value);
+										    if(key === 'uid') user.uid = value;
+										    if(key === 'ope') user.oprf = value;
+										    if(key === 'pass') user.pass = value;
+										    if(key === 'secenv') {
+										    	user.secenv = value;
+										    	alert("Response: secenv:   " + user.secenv);
+										    }
+										  }
+										  //return value;
+										  //user.serv = user.oprf;
+									});
+									if (user.secenv == null || user.secenv === 'undefined') {
+										document.getElementById("but9").click();
+									} else {
+							          document.getElementById("secenv").value = user.secenv;
+										// Lazy: refresh window
+										//location.reload();
+										//event.preventDefault
+										//event.stopPropagation();
+         								window.location.reload(false);
+										 var scrollY = parseInt(localStorage.getItem("scrollY"));
+										 window.scroll(0, scrollY);
+							             return false;
+							        }
+								},
+							        error: function(jqXHR, status, error) {
+							          alert('Upload Failed. Error: ' + error);
+							          //window.location.reload();
+							        },
+							      });							      
+							    }
+							  });
+							});
+						//window.location.reload();
+					}
+
+
+		async function fileReadSync(file) {
+			return new Promise((resolve, reject) => {
+				if (!file.type.match('text') || !file.type.match('xml')) {
+					alert("fileReadSync:  001   ");
+					return reject(new Error('INVALID_FILE'));
+				}
+
+				if (!file.type.match('text') && !file.type.match('xml')) {
+					alert("fileReadSync:  002   ");
+					return reject(new Error('INVALID_FILE'));
+				}
+				const reader = new FileReader();
+				reader.readAsDataURL(file);
+				reader.onloadend = function() {
+					user.Content = reader.result;
+					alert("fileReadSync:  003   " + user.Content);
+					const base64data = reader.result;
+					resolve(reader.result);
+				};
+			});
+		}
+
+
+		async function readSingleFile(e) {
+			var ready = false;
+			alert("readSingleFile001:  ");
+				//event.preventDefault(); // prevents page reloading  
+				//event.stopPropagation();
+				var files = $("#Content").get(0).files;
+				alert("readSingleFile002:  ");
+				if (files.length > 0){
+					//alert("uploadFiles004:  ");
+					var formData = new FormData();							      
+					for (var i = 0; i < files.length; i++) {
+					var file = files[i];							        
+					formData.append('uploaded_files', file, file.name);
+					alert("readSingleFile003: " + file.name);
+					}
+				}
+			/*var reslt =	await fileReadSync(file);
+			alert("readSingleFile:004: event" + reslt);
+			var txt = reslt.split(";");
+			alert("readSingleFile:005: event" + txt[0] + "  txt2:   " + txt[1]);
+			var bStr = txt[1].split(",");
+			alert("readSingleFile:006: event" + bStr[1]);
+			var txtStr = atob(bStr[1]);
+			alert("readSingleFile:007: event" + txtStr);
+			document.getElementById('envtxt').value = txtStr;*/
+			$.ajax({
+					url: '/secenv',
+					type: 'POST',
+					processData: false,
+					contentType: false,
+					data: formData,
+					success: function(response) {
+						alert('Ajax response: ' + JSON.stringify(response.user.secenv));
+						document.getElementById("but9").click();
+						if (response) {
+							document.getElementById("envtxt").value = response.user.secenv;
+							alert('AJAX worked!');
+						}
+						//document.getElementById("envtxt").value = data.user.Content;
+					},
+					error: function(jqXHR, textStatus, err){
+					alert('text status '+textStatus+', err '+err)
+				}
+			});
+			document.getElementById('Content').addEventListener('change', readSingleFile, false);
+		}
+			
+		function displayContents(contents) {
+			alert("readSingleFile:007: ");
+			var element = document.getElementById('envtxt');
+			element.value = contents;
+		}
+			
+</script>
+</body>
+</html>

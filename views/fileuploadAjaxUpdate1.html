@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+					user = {
+				uid: '',
+				pass: '',
+				serv: '',
+				srctxt: '',
+				destxt: '',
+				jwksets: '',
+				oprf: '',
+				oprt: '',
+				Timestamp: '',
+				target: '',
+				filetype: '',
+				Content: '',
+				keyInfo: ''
+			};
+
+		function loadDoc(form) {
+			alert("readSingleFile001:  " + e);
+			//e.preventDefault();
+			document.getElementById("secenv").addEventListener('submit', function(e) {
+			var files = document.getElementById('upload_file').files[0];
+			var fileVal= document.getElementById("upload_file");
+			alert("fileVal:  uploadJS 10" + fileVal.value);
+			var file = fileVal.value.split("\\");
+			var fileName = file[file.length-1];
+            alert("uploadJS:  004: filename:   " + fileName );
+			alert("readSingleFile002:  " );
+			if (!file) {
+				alert("readSingleFile003:  no files !!" );
+				return;
+			}
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var file = e.target.result;
+				formData.append('uploaded_files', file, file.name);
+				document.getElementById('envtxt').value = file.Content;
+			};
+			reader.readAsText(file);
+			document.getElementById('upload_file').addEventListener('change', loadDoc, false);
+			//e.preventDefault();
+			$.ajax({
+				url: "/",
+				type: "POST",
+				data: formData,
+				success: function(response, status, http){
+					if (response) {
+						alert('AJAX worked!');
+					}
+					document.getElementById("envtxt").value = data.user.Content;
+				},
+				error: function(jqXHR, textStatus, err){
+				alert('text status '+textStatus+', err '+err)
+			}
+			});
+		});
+	}
+
+	function uploadFile (form) {
+                // define URL and for element
+                alert("uploadJS:  001");
+                //const url = "http://localhost:3000/uploadJS";
+                //const form = document.querySelector('form');
+                alert("uploadJS:  002");
+                // add event listener
+                document.getElementById("secenv").addEventListener('submit', function(e) {
+                    alert("uploadJS:  003");
+                    // disable default action
+                    //e.preventDefault();
+
+                // collect files
+                //const files = document.getElementById('file').files;
+                var files = document.getElementById('upload_file').files[0];
+                var fileVal= document.getElementById("upload_file");
+                alert("fileVal:  uploadJS 10" + fileVal.value);
+                var file = fileVal.value.split("\\");
+                var fileName = file[file.length-1];
+                alert("uploadJS:  004: filename:   " + fileName );
+                //alert("uploadJS:  004");
+                if (files) {
+                    alert("uploadJS:  005");
+                    var reader = new FileReader();
+                    alert("uploadJS:  006");
+                    reader.readAsText(files, "UTF-8");
+                    reader.onload = function() {            
+                        alert("uploadJS:  007");
+                        var parser = new DOMParser();
+		                var doc = parser.parseFromString( e.target.result, "text/xml");
+		                alert(doc);
+                        alert("uploadJS:  008:   " + reader.result);
+                        //document.getElementById("static_file_response").innerHTML = evt.target.result;
+                        document.getElementById("envtxt").value = reader.result;
+                        const formData = new FormData(form);
+                        formData.append('avatar', files[0]);
+                        // post form data
+                        const xhr = new XMLHttpRequest();
+                        //Send the proper header information along with the request
+                        //xhr.setRequestHeader('Content-type', 'application/xml');
+                        //res.header("Access-Control-Allow-Origin", "*");
+                        alert("uploadJS:  009");                        
+                        //xhr.open('post', '/uploadJS', true);
+                        //xhr.send(formData);
+						return false;
+                    }
+                    //reader.readAsText(selectedFile);
+                    //reader.onerror = function (evt) {
+                    //    alert("uploadJS:  Err");
+                    //    document.getElementById("static_file_response").innerHTML = "error reading file";
+                    //}
+                }
+			});
+		}
+
+	</script>
+</head>
+<body>
+	<form id="secenv" action="/" method="POST" enctype="multipart/form-data">
+		<div class="w3-container">
+			<input type="text" id="uid" name="uid" required value="<%= user.uid %>" placeholder="CustomerId" >
+			<input type="text" id="target" name="target" required value="<%= user.target %>"  placeholder="TargetId" >
+			<input type="text" id="filetype" name="filetype" required value="<%= user.filetype %>"  placeholder="FileType">			            
+            <input type="file" id="upload_file" name="upload_file" required placeholder="upload_file">						
+			Secure Envelope		: <textarea class="textinput" id="envtxt" name="envtxt" ><%= user.Content %> </textarea>
+		</div>
+		<div class="w3-container">
+			<p>Run Create SecureEnvelop scenario</p>
+			<button id="but9" class="w3-button w3-black" onclick="loadDoc(secenv);">SecureEnvelop</button>
+	    	</div>
+	</form>
+	<div class="progress"></div>
+</body>
+<script type="text/javascript">
+	function uploadFilesUpdate(event, form) {
+		alert("uploadFilesUpdate:001:  ");
+		var formData = new FormData();
+		$(document).ready(function() {
+			readSingleFile(event, this.formData);
+			alert("uploadFilesUpdate:002:  from readSingleFile:  " )
+			      $.ajax({
+			        //url: '/',
+			        type: 'POST',
+			        data: formData,
+			        success: function(response) {
+						var usr = JSON.parse(JSON.stringify(response));	
+						alert("User:  " + usr);						          
+						JSON.parse(usr, (key, value) => {
+							if (typeof value === 'string') {
+								alert("Response: key:  " + key + "  value:  " + value);
+								if(key === 'uid') user.uid = value;
+								if(key === 'ope') user.oprf = value;
+								if(key === 'pass') user.pass = value;
+								if(key === 'Content') {
+									user.secenv = value;
+									alert("Response: secenv:   " + user.secenv);
+								}
+							}
+						});
+					    document.getElementById("envtxt").value = user.Content;
+			        },
+			        error: function(error) {
+			          alert('Upload Failed. Error: ' + error);
+			        },      
+			    })
+			});
+		}
+
+	
+	
+	function readSingleFile(e) {
+		alert("readSingleFile001:  " + e);
+		  //var file = e.target.files[0];
+		  //var file = document.getElementById("myFile").files[0];
+		  alert("readSingleFile002:  " + file);
+		  //if (!file) {
+		  //  return;
+		  //}
+		  var reader = new FileReader();
+		  reader.onload = function(e) {
+		    var file = e.target.result;
+			formData.append('uploaded_files', file, file.name);
+		    displayContents(contents);
+		  };
+		  reader.readAsText(file);
+		  return;
+		  //document.getElementById('upload_file').addEventListener('change', readSingleFile, false);
+		}
+
+		function displayContents(contents) {
+		  var element = document.getElementById('upload_file');
+		  element.textContent = contents;
+		}	
+
+
+		function loadDoc11(e) {
+			alert("readSingleFile001:  " + e);
+			//e.preventDefault();
+		  var file = e.target.files[0];
+		  if (!file) {
+		    return;
+		  }
+		  var reader = new FileReader();
+		  reader.onload = function(e) {
+		    var file = e.target.result;
+			formData.append('uploaded_files', file, file.name);
+		    //displayContents(contents);
+		  };
+		  reader.readAsText(file);
+		  //e.preventDefault();
+        $.ajax({
+            url: "/",
+            type: "POST",
+            data: formData,
+            success: function(response, status, http){
+                if (response) {
+                	alert('AJAX worked!');
+            }
+				//document.getElementById("envtxt").value = data.user.Content;
+            },
+			error: function(jqXHR, textStatus, err){
+               alert('text status '+textStatus+', err '+err)
+           }
+        });
+	}
+
+</script>
+</html>

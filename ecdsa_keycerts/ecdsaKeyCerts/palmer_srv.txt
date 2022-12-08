@@ -1,0 +1,57 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            11:70:17:ff:63:8f:34:13:cf:a2:fd:09:29:74:e9:9c:20:5b:a6:2f
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: CN = palmer, C = na, O = nico.palmer, ST = nico.palmer, L = na, OU = nico.palmer, emailAddress = nick.palmer@hotmail.com
+        Validity
+            Not Before: Dec  2 12:45:05 2022 GMT
+            Not After : Dec  1 12:45:05 2024 GMT
+        Subject: CN = palmer, C = na, O = nico.palmer, ST = nico.palmer, L = na, OU = nico.palmer, emailAddress = nick.palmer@hotmail.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:07:90:ca:8a:d8:a5:45:b3:dc:47:98:79:7d:f8:
+                    6c:ec:39:dc:6e:99:3a:53:24:bd:09:f8:42:ef:9b:
+                    b3:31:23:ef:37:c0:c7:1e:19:9a:a7:1f:0b:49:b2:
+                    de:1e:1e:b8:6f:b6:93:9f:74:6c:72:c5:11:5f:09:
+                    0b:05:3e:54:0f
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                A5:F3:BE:A8:AE:F5:A6:F9:97:84:4B:C6:86:85:23:A5:A5:B8:4D:30
+            X509v3 Authority Key Identifier: 
+                keyid:A5:F3:BE:A8:AE:F5:A6:F9:97:84:4B:C6:86:85:23:A5:A5:B8:4D:30
+
+            X509v3 Basic Constraints: critical
+                CA:TRUE
+            X509v3 Subject Alternative Name: 
+                DNS:utes.phadnis.com
+            X509v3 Certificate Policies: 
+                Policy: 1.2.3.4
+
+    Signature Algorithm: ecdsa-with-SHA256
+         30:44:02:20:30:07:a7:ee:49:29:3b:2f:a9:dd:69:1d:e2:ea:
+         dd:0c:8a:5e:49:23:9c:92:9c:d0:96:11:7d:7b:7d:09:45:78:
+         02:20:1d:39:5c:bc:2f:25:5d:63:fb:cc:b3:dc:50:7c:ce:22:
+         64:6e:a6:a9:a3:60:57:af:b0:88:2d:a4:17:07:6a:01
+-----BEGIN CERTIFICATE-----
+MIICsTCCAligAwIBAgIUEXAX/2OPNBPPov0JKXTpnCBbpi8wCgYIKoZIzj0EAwIw
+gZUxDzANBgNVBAMMBnBhbG1lcjELMAkGA1UEBhMCbmExFDASBgNVBAoMC25pY28u
+cGFsbWVyMRQwEgYDVQQIDAtuaWNvLnBhbG1lcjELMAkGA1UEBwwCbmExFDASBgNV
+BAsMC25pY28ucGFsbWVyMSYwJAYJKoZIhvcNAQkBFhduaWNrLnBhbG1lckBob3Rt
+YWlsLmNvbTAeFw0yMjEyMDIxMjQ1MDVaFw0yNDEyMDExMjQ1MDVaMIGVMQ8wDQYD
+VQQDDAZwYWxtZXIxCzAJBgNVBAYTAm5hMRQwEgYDVQQKDAtuaWNvLnBhbG1lcjEU
+MBIGA1UECAwLbmljby5wYWxtZXIxCzAJBgNVBAcMAm5hMRQwEgYDVQQLDAtuaWNv
+LnBhbG1lcjEmMCQGCSqGSIb3DQEJARYXbmljay5wYWxtZXJAaG90bWFpbC5jb20w
+WTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQHkMqK2KVFs9xHmHl9+GzsOdxumTpT
+JL0J+ELvm7MxI+83wMceGZqnHwtJst4eHrhvtpOfdGxyxRFfCQsFPlQPo4GDMIGA
+MB0GA1UdDgQWBBSl876orvWm+ZeES8aGhSOlpbhNMDAfBgNVHSMEGDAWgBSl876o
+rvWm+ZeES8aGhSOlpbhNMDAPBgNVHRMBAf8EBTADAQH/MBsGA1UdEQQUMBKCEHV0
+ZXMucGhhZG5pcy5jb20wEAYDVR0gBAkwBzAFBgMqAwQwCgYIKoZIzj0EAwIDRwAw
+RAIgMAen7kkpOy+p3Wkd4urdDIpeSSOckpzQlhF9e30JRXgCIB05XLwvJV1j+8yz
+3FB8ziJkbqapo2BXr7CILaQXB2oB
+-----END CERTIFICATE-----
