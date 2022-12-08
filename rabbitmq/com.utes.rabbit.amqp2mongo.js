@@ -60,7 +60,7 @@ async function usage () {
     ''
   ].join(require('os').EOL));
 }
-
+// new line changed
 Promise.try(function () {
   return AMQP.connect(CONFIG.AMQPHOST);
 }).then(async function (amqp) {
