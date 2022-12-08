@@ -13,6 +13,12 @@
 const amqplib = require('amqplib');
 const amqpUrl = process.env.AMQP_URL || 'amqp://test:test@localhost:5672';
 
+
+/**
+ * Function: publisher
+ * This function takes the messages from user and creates rabbitmq conneciion
+ * exchange, queue and routingkey and sends the message to queue.
+ */
 (async () => {
   const connection = await amqplib.connect(amqpUrl, 'heartbeat=60');
   const channel = await connection.createChannel();
