@@ -12,7 +12,8 @@ The main goal of this application is to provide a ID protocol exchange HUB. The 
 a REST service serving the transformed protocol. A client sends a certificate or assertion or
 a token to the HUB and gets in response a transformed certificate or assertion or a token as
 requested.
-client can 
+We provide a user experiencing demo : https://0-bb367.phadnis.no/demo_user
+The website has enough documentation for any client to carry out the demo steps.
 
 
 
