@@ -2,13 +2,13 @@
  *Module: 
  *Doc:  https://riptutorial.com/jwt/example/20822/what-to-store-in-a-jwt
  *      https://betterprogramming.pub/jwt-ultimate-how-to-guide-with-best-practices-in-javascript-f7ba4c48dfbd
- * examples: "context": {
-        "user": {
-            "key": "joe",
-            "displayName": "Joe Smith"
-        },
-        "roles":["admin","finaluser"]
-    }
+ *      examples: "context": {
+            "user": {
+                "key": "joe",
+                "displayName": "Joe Smith"
+            },
+            "roles":["admin","finaluser"]
+        }
 */
 
 
@@ -55,7 +55,12 @@ var pemcert = '';
 
 
 
-
+/**
+ * Function: parseJwt
+ * @param {*} token 
+ * @param {*} mode 
+ * @returns 
+ */
 async function parseJwt(token, mode) {
     try {
         console.log("parseJwt001:   " + token);

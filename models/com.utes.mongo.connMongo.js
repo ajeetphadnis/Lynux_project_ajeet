@@ -14,6 +14,10 @@ if (debug === 'true') {
 }
 
 debug = 'true';
+
+/**
+ * Function: connectMongo
+ */
 async function connectMongo() {
 	try {
 		if(debug) {console.log("mongodb_connect:  "+ process.env.DATABASE);}
@@ -32,6 +36,9 @@ async function connectMongo() {
 }
 
 
+/**
+ * FUnction: connMongo
+ */
 async function connMongo () {
 	await mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true }).then(
 			  () => { /**
@@ -51,6 +58,11 @@ async function connMongo () {
 
 var client;
 
+/**
+ * FUnction: connMongoClient1
+ * @param {*} uri 
+ * @returns 
+ */
 async function connMongoClient1(uri) {
 	const url = 'mongodb://mongodb:27017';
 	client = null;
@@ -65,7 +77,12 @@ async function connMongoClient1(uri) {
 	 //finally{ client.close(); } // make sure to close your connection after
 	}
 
-//connect to database
+
+	/**
+	 * Function: connMongoClient
+	 * @param {*} uri 
+	 * @returns 
+	 */
 function connMongoClient(uri)  {
      uri = process.env.DATABASE;      
     try{
@@ -79,6 +96,11 @@ function connMongoClient(uri)  {
 }
 
 
+/**
+ * Function: connMongoIDPClient
+ * @param {*} uri 
+ * @returns 
+ */
 async function connMongoIDPClient(uri) {
 	const url = 'mongodb://localhost:27017?retryWrites=true&w=majority';
 	 try{

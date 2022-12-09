@@ -59,15 +59,10 @@ UserSchema.methods.setPassword = function(password) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: validPassword
+ * @param {*} password 
+ * @returns 
  */
-// Method to check the entered password is correct or not
 UserSchema.methods.validPassword = function(password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, `sha512`)
 	    .toString(`hex`);

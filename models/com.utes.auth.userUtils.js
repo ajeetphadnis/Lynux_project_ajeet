@@ -410,6 +410,12 @@ const express               =  require('express'),
 	};
 	
 	
+	/**
+	 * Function: sendEmail
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
+	 */
 	function sendEmail(req, res, next) {
 		if (req.method === 'POST' && req.method !== 'GET') {
 			var mname = req.body.name;
@@ -446,7 +452,7 @@ const express               =  require('express'),
 	
 	
 	/**
-	 * setSAMLAssert:  
+	 * Function: setSAMLAssert:  
 	 * @param req
 	 * @param res
 	 * @param next

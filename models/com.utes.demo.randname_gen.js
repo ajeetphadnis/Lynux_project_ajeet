@@ -24,14 +24,30 @@ var randuser = {
     }; 
 
 
-function capFirst(string) {
+/**
+ * Function: capFirst
+ * @param {*} string 
+ * @returns 
+ */
+	function capFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+/**
+ * FUnction: getRandomInt
+ * @param {*} min 
+ * @param {*} max 
+ * @returns 
+ */
 function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+/**
+ * Function: generateName1
+ * @returns 
+ */
 function generateName1(){
     var name1 = ["Harry","Ross",
     "Bruce","Cook","Carolyn","Morgan","Albert","Walker","Randy","Reed",
@@ -45,6 +61,12 @@ function generateName1(){
 
     return name;
 }
+
+
+/**
+ * FUnctiopn: generateName2()
+ * @returns 
+ */
 function generateName2(){
 
     var name2 =[ "Anderson", "Ashwoon", "Aikin", "Bateman", "Bongard", "Bowers", "Boyd", "Cannon", "Cast", "Deitz", "Dewalt", "Ebner", "Frick", "Hancock", "Haworth", "Hesch", "Hoffman", "Kassing", "Knutson", "Lawless", "Lawicki", "Mccord", "McCormack", "Miller", "Myers", "Nugent", "Ortiz", "Orwig", "Ory", "Paiser", "Pak", "Pettigrew", "Quinn", "Quizoz", "Ramachandran", "Resnick", "Sagar", "Schickowski", "Schiebel", "Sellon", "Severson", "Shaffer", "Solberg", "Soloman", "Sonderling", "Soukup", "Soulis", "Stahl", "Sweeney", "Tandy", "Trebil", "Trusela", "Trussel", "Turco", "Uddin", "Uflan", "Ulrich", "Upson", "Vader", "Vail", "Valente", "Van Zandt", "Vanderpoel", "Ventotla", "Vogal", "Wagle", "Wagner", "Wakefield", "Weinstein", "Weiss", "Woo", "Yang", "Yates", "Yocum", "Zeaser", "Zeller", "Ziegler", "Bauer", "Baxster", "Casal", "Cataldi", "Caswell", "Celedon", "Chambers", "Chapman", "Christensen", "Darnell", "Davidson", "Davis", "DeLorenzo", "Dinkins", "Doran", "Dugelman", "Dugan", "Duffman", "Eastman", "Ferro", "Ferry", "Fletcher", "Fietzer", "Hylan", "Hydinger", "Illingsworth", "Ingram", "Irwin", "Jagtap", "Jenson", "Johnson", "Johnsen", "Jones", "Jurgenson", "Kalleg", "Kaskel", "Keller", "Leisinger", "LePage", "Lewis", "Linde", "Lulloff", "Maki", "Martin", "McGinnis", "Mills", "Moody", 
@@ -59,6 +81,11 @@ function generateName2(){
     return name12;``
 }
 
+/**
+ * Function: generateDemoUser
+ * @param {*} num 
+ * @returns 
+ */
 function generateDemoUser (num) {
 	if (num === 1) {
 		var name = generateName1();

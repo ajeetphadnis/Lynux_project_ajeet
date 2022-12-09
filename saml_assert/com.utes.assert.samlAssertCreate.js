@@ -26,13 +26,13 @@ if (debug === 'true') {
 var signedAssertion = '';
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: createSamlAssert
+ * @param {*} uid 
+ * @param {*} opts 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @returns 
  */
 async function  createSamlAssert(uid, opts, req, res, next) {
 	console.log("createSamlAssert001: " + uid);
@@ -57,13 +57,12 @@ async function  createSamlAssert(uid, opts, req, res, next) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * FUnction: createDemoSamlAssert
+ * @param {*} uid 
+ * @param {*} opts 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
  */
 function  createDemoSamlAssert(uid, opts, req, res, next) {
 	//console.log("Assert2: " + opts.cert); 

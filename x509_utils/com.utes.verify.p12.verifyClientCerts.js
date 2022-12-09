@@ -49,13 +49,11 @@ user = {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * compareDates
+ * @param {*} date1 
+ * @param {*} date2 
+ * @param {*} date3 
+ * @returns 
  */
 function compareDates(date1, date2, date3) {
     var g1 = date1;
@@ -83,13 +81,11 @@ function compareDates(date1, date2, date3) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * getP12PrivateKey
+ * @param {*} user 
+ * @param {*} filePath 
+ * @param {*} pass 
+ * @returns 
  */
 function getP12PrivateKey ( user, filePath, pass ) {
     // Read file in binary contents
@@ -110,13 +106,11 @@ function getP12PrivateKey ( user, filePath, pass ) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * getP12Certs
+ * @param {*} user 
+ * @param {*} filePath 
+ * @param {*} pass 
+ * @returns 
  */
 function getP12Certs(user, filePath, pass) {
     var keyFile = fs.readFileSync(filePath, 'binary');
@@ -183,6 +177,12 @@ function getP12Certs(user, filePath, pass) {
 
 
 
+/**
+ * getDemoUserOCSP
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 async function getDemoUserOCSP(req, res, next) {
 	 try{
 			if (req.method === 'GET' && req.method !== 'POST') {

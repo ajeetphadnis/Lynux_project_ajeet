@@ -57,13 +57,8 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: getUsrdt
+	 * @returns 
 	 */
 	function getUsrdt() {
 		return usrdt;
@@ -84,39 +79,29 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
+	 * Function: getMongoClient
+	 * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+	 * const uri = "mongodb://Administrator:Ajeet78654321@localhost:27017/test?authSource=Administrator&retryWrites=true&w=majority&ssl=false";
+	 * client = new MongoClient(uri, { useUnifiedTopology: true , useNewUrlParser: true });
 	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+	 * @param {*} uri 
+	 * @returns 
 	 */
 	async function getMongoClient(uri) {
-		/**
-		   * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-		   * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-		   */
-		  //const uri = "mongodb://Administrator:Ajeet78654321@localhost:27017/test?authSource=Administrator&retryWrites=true&w=majority&ssl=false";
-		  /*client = new MongoClient(uri, { useUnifiedTopology: true , useNewUrlParser: true });
-		  await client.connect();
-		  dbClient = client;
-		  return client;	*/
 		  client = await conMongo.connMongoClient();
 		  return client;
 	}
 	
 
 	
-	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
-	 */
+/**
+ * Function: createUser
+ * @param {*} user 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 	async function createUser(user, req, res, next) {
 		const myDb = client.db('auth_users');
 		const myTab = myDb.collection('users');
@@ -128,13 +113,13 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * FUnction: getUser
+	 * @param {*} userid 
+	 * @param {*} userpw 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
+	 * @returns 
 	 */
 	async function getUser(userid, userpw, req, res, next) {
 		console.log("getUser001:   called ....");
@@ -165,13 +150,12 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: getUserStruct
+	 * @param {*} userid 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
+	 * @returns 
 	 */
 	async function getUserStruct(userid, req, res, next) {
 		console.log("getUserStruct001:   called ...." + userid);
@@ -196,13 +180,11 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: deleteUser
+	 * @param {*} userid 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
 	 */
 	async function deleteUser(userid, req, res, next) {
 		const myDb = client.db('auth_users');
@@ -222,13 +204,12 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * FUnction: updateUser
+	 * @param {*} userid 
+	 * @param {*} updat 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
 	 */
 	async function updateUser(userid, updat, req, res, next) {
 		const myDb = client.db('auth_users');
@@ -249,13 +230,9 @@ if(debug) {console.log('mongo database 001:  ');}
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * FUnction: createListing
+	 * @param {*} client 
+	 * @param {*} newListing 
 	 */
 	async function createListing(client, newListing){
 	    const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);

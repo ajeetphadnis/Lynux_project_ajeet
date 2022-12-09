@@ -45,13 +45,10 @@ if (debug === 'true') {
 }
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * readFile
+ * @param {*} filePath 
+ * @param {*} encoding 
+ * @returns 
  */
 const readFile = (filePath, encoding) => {
     return new Promise((resolve, reject) => {
@@ -68,13 +65,12 @@ const readFile = (filePath, encoding) => {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * jwt2IdpSaml
+ * @param {*} uid 
+ * @param {*} text 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
  */
 async function jwt2IdpSaml(uid, text, req, res, next) {
 	req.app.set(bodyParser.urlencoded({ extended: true }));

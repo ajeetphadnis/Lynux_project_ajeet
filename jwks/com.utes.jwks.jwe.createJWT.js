@@ -60,13 +60,11 @@ const payload = {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: getX509Details
+ * @param {*} uid 
+ * @param {*} x5cStr 
+ * @param {*} pass 
+ * @returns 
  */
 async function getX509Details (uid, x5cStr, pass) {
 	//var pem = await readFile(filePath);
@@ -101,13 +99,11 @@ async function getX509Details (uid, x5cStr, pass) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: getCA_P12_PrivKey
+ * @param {*} uid 
+ * @param {*} filePath 
+ * @param {*} pass 
+ * @returns 
  */
 const getCA_P12_PrivKey = async ( uid, filePath, pass ) => {
     // Read file in binary contents
@@ -128,13 +124,11 @@ const getCA_P12_PrivKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: getCA_P12_PubKey
+ * @param {*} uid 
+ * @param {*} filePath 
+ * @param {*} pass 
+ * @returns 
  */
 const getCA_P12_PubKey = async ( uid, filePath, pass ) => {
     // Read file in binary contents
@@ -155,13 +149,7 @@ const getCA_P12_PubKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: store
  */
 var store = JWK.createKeyStore();
 	async function creJWTJWE (uid, path, pass, req, res, next) {
@@ -294,13 +282,14 @@ var store = JWK.createKeyStore();
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: creJWTJWS
+	 * @param {*} uid 
+	 * @param {*} path 
+	 * @param {*} pass 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
+	 * @returns 
 	 */
 	async function creJWTJWS (uid, path, pass, req, res, next) {
 		var privatepem = await getCA_P12_PrivKey(uid, './demo_certs/'+uid+'_certp12b64.p12', pass);
@@ -335,10 +324,13 @@ var store = JWK.createKeyStore();
 	
 	
 	
-	/*
-	 * 
+	/**
+	 * Function: creDemoJWTJWS
+	 * @param {*} uid 
+	 * @param {*} path 
+	 * @param {*} pass 
+	 * @returns 
 	 */
-	
 	async function creDemoJWTJWS (uid, path, pass) {
 		var privatepem = await getCA_P12_PrivKey(uid, './demo_certs/'+uid+'_certp12b64.p12', pass);
 		var jwks = await fs.readFileSync('./JWKSets/'+uid+'_x5cjwks.json');
@@ -372,28 +364,19 @@ var store = JWK.createKeyStore();
 	
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: cert_to_x5c
+	 * Convert a PEM-encoded certificate to the version used in the x5c element
+	 * of a [JSON Web Key](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+	 * `cert` PEM-encoded certificate chain
+	 * `maxdepth` The maximum number of certificates to use from the chain.
+	 * @param {*} cert 
+	 * @param {*} maxdepth 
+	 * @returns 
 	 */
-	// Utils taken from (MIT licensed):
-	// https://github.com/hildjj/node-posh/blob/master/lib/index.js
 	function cert_to_x5c (cert, maxdepth) {
 	  if (maxdepth == null) {
 	    maxdepth = 0;
 	  }
-	  /*
-	   * Convert a PEM-encoded certificate to the version used in the x5c element
-	   * of a [JSON Web Key](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
-	   *             
-	   * `cert` PEM-encoded certificate chain
-	   * `maxdepth` The maximum number of certificates to use from the chain.
-	   */
-
 	  cert = cert.replace(/-----[^\n]+\n?/gm, ',').replace(/\n/g, '');
 	  cert = cert.replace(/(\r\n|\n|\r)/gm, "");
 	  cert = cert.split(',').filter(function(c) {
@@ -407,13 +390,9 @@ var store = JWK.createKeyStore();
 
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: x5c_to_cert
+	 * @param {*} x5c 
+	 * @returns 
 	 */
 	function x5c_to_cert (x5c) {
 	  var cert, y;
@@ -429,7 +408,12 @@ var store = JWK.createKeyStore();
 	}
 	
 	
-	
+	/**
+	 * Function: getDemoUserJWT
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
+	 */
 	 async function getDemoUserJWT(req, res, next) {
 		 try{
 				if (req.method === 'GET' && req.method !== 'POST') {

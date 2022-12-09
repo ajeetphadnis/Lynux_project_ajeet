@@ -33,7 +33,7 @@ const oneDay = 1000 * 60 * 60 * 24;
 var session;
 var conf;
 var result;
-//session middleware
+//session middleware is a must
 app.use(sessions({
     secret: "7654321000",
     saveUninitialized:true,
