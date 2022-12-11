@@ -7,7 +7,6 @@ const http = require('http');
 const fs = require('fs');
 const express = require('express')
 const path = require('path');
-const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const Users =  require("./models/com.utes.auth.users");
 const conMongo = require("./models/com.utes.mongo.connMongo");
@@ -41,14 +40,6 @@ const oneHr = 1000 * 60 * 60 ;
 	var certificate = fs.readFileSync('nodeSrvCert.pem');
 	var credentials = {key: privateKey, cert: certificate};
 	app = express();
-	app.use(express.static(path.join(__dirname,'demo_docs')));
-	app.use(cors({
-		credentials: true,
-		preflightContinue: true,
-		methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
-		origin: true,
-		optionsSuccessStatus: 200
-	}));
 	const port = process.env.PORT ||443;
 	app.use(bodyParser.json());
 	//app.use(forms.array()); 
@@ -58,9 +49,7 @@ const oneHr = 1000 * 60 * 60 ;
 	app.use(session({
 	    secret: "786Phadnis7654321",
 	    saveUninitialized:true,
-	    cookie: { maxAge: oneHr, secure: true,
-			httpOnly: true,
-			sameSite: 'none'  },
+	    cookie: { maxAge: oneHr },
 	    resave: false,
 	    store: new MongoStore({
 	          mongooseConnection: mongoose.connection,
@@ -81,11 +70,9 @@ const oneHr = 1000 * 60 * 60 ;
 	app.use(bodyParser.urlencoded({ extended: true }));
 	//parse application/vnd.api+json as json
 	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-	//app.use(express.static(path.join(__dirname, 'public'))); // 
-	app.use(express.static('public'));
-	app.use(express.static('paperjsv01215/dist'));
+	app.use(express.static(path.join(__dirname, 'public'))); // 
 	app.disable('view cache');
 	routes(app);
 	https.createServer(credentials,app).listen(port);
-	http.createServer(app).listen(20005);
+	http.createServer(app).listen(30082);
 //});

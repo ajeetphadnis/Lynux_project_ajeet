@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<title>UTES Demo</title>
+<head></head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--link rel="stylesheet" href="/css/pha_styles001.css"  type="text/css"-->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="javascripts/script.js"></script>
+<style>
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Raleway", sans-serif
+}
+
+body, html {
+	height: 100%;
+	line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+	background-position: center;
+	background-size: cover;
+	background-color: black;
+	/* background-image: url("raksha_header.jpg"); */
+	min-height: 100%;
+}
+
+.w3-bar .w3-button {
+	padding: 16px;
+}
+.comment-text-area {
+            float: left;
+            width: 100%;
+            height: auto;
+        }
+.textinput {
+            float: left;
+            width: 100%;
+            min-height: 75px;
+            outline: none;
+            resize: none;
+            border: 1px solid grey;
+        }
+</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<!-- Navbar (sit on top) -->
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card" id="myNavbar">
+			<a href="index.html#home" class="w3-bar-item w3-button w3-wide">raksha.io
+				[Rakṣā (रक्षा). - Protection, preservation; guarding;]</a>
+			<!-- Right-sided navbar links -->
+			<div class="w3-right w3-hide-small">
+				<a href="/index#about">About</a> <a href="/index#team">FAQt</a> <a
+					href="/index#work">Products </a> <a href="/index#contact">Contact</a>
+				<a href="/index">Demo</a>
+			</div>
+			<!-- div class="w3-right w3-hide-small">
+        <a href="views/demo_index#about" class="w3-bar-item w3-button">About</a>
+        <a href="index.html#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> FAQ</a>
+        <a href="index.html#work" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Products</a>
+        <!-- <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Pricing</a>
+        <a href="views/utesdemo#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> Contact</a>
+        <a href="views/utesdemo" class="w3-bar-item w3-button"><i class="fa fa-gears"></i>Demo</a>
+      </div -->
+			<!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+			<a href="javascript:void(0)"
+				class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+				onclick="w3_open()"> <i class="fa fa-bars"></i>
+			</a>
+		</div>
+	</div>
+
+	<!-- Sidebar on small screens when clicking the menu icon -->
+	<nav
+		class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
+		style="display: none" id="mySidebar">
+		<a href="javascript:void(0)" onclick="w3_close()"
+			class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a> <a
+			href="index#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+		<a href="index#team" onclick="w3_close()"
+			class="w3-bar-item w3-button">TEAM</a> <a href="index#work"
+			onclick="w3_close()" class="w3-bar-item w3-button">WORK</a> <a
+			href="index#pricing" onclick="w3_close()"
+			class="w3-bar-item w3-button">PRICING</a> <a href="index#contact"
+			onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+	</nav>
+
+	<!-- Header with full-height image -->
+	<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+		<div class="w3-display-left w3-text-white" style="padding: 48px">
+			<span class="w3-jumbo w3-hide-small">Simplicity Matters</span><br>
+			<span class="w3-xxlarge w3-hide-large w3-hide-medium">Simplicity
+				Matters</span><br> <span class="w3-large">Our demos allow you
+				to see eaxactly what you can achieve with UTES... In 4 clicks
+				(well.. maybe 5)</span>
+			<p>
+				<a href="#sdemo"
+					class="w3-button w3-black w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Get
+					Started</a>
+			</p>
+		</div>
+	</header>
+
+
+	<!-- Register or Create a demo user Section -->
+	<div class="w3-container" style="padding: 128px 16px" id="sdemo">
+		<h3 class="w3-center">The Demo</h3>
+		<!--  <p class="w3-center w3-large">In this demo, we need a user. Don't worry, we do not want your details. At least not the real details. However, we do need a user. You can choose to either provide some dummy details or let us create a user for you.</p>-->
+		<div class="w3-row-padding w3-center" style="margin-top: 64px">
+			<div class="w3-quarter">
+				<i class="fa fa-user w3-margin-bottom w3-jumbo w3-center"></i> <i
+					class="fa-solid fa-0"></i>
+				<p class="w3-large">Register or Create a User</p>
+				<p>Of course we need a user if we are going to demostrate token
+					exchange. However, you do not need to give us any details. Either
+					enter any fake data (Donald Duck is a favortite) or let us create a
+					user for you.</p>
+				<p>And dont worry, none of this data is being stored in any
+					manner whatsoever. Even if you enter your real name and email
+					address, we do not store it.</p>
+			</div>
+			<div class="w3-quarter">
+				<i class="fa fa-cogs w3-margin-bottom w3-jumbo"></i>
+				<p class="w3-large">See UTES in Action</p>
+				<p>Once a user is available, you can</p>
+			</div>
+			<div class="w3-quarter">
+				<i class="fa fa-leanpub w3-margin-bottom w3-jumbo"></i>
+				<p class="w3-large">Understand what it did</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore.</p>
+			</div>
+			<div class="w3-quarter">
+				<i class="fa fa-info w3-margin-bottom w3-jumbo"></i>
+				<p class="w3-large">Currently Supported Exchanges</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore.</p>
+			</div>
+		</div>
+
+		<div class="w3-row w3-border">
+			<div class="w3-container w3-half">
+				<form class="w3-container" action="/demo_user" method="post" enctype="application/x-www-form-urlencoded" >
+					<h2>Create a Demo User</h2>
+					<input class="w3-input" type="text" id="demoname" name="demoname"
+						placeholder="Name"><br> <input class="w3-input"
+						type="text" id="demomail" name="demomail" placeholder="Email"><br>
+					<input class="w3-input" type="text" id="uid" name="uid"
+						placeholder="Unique ID"><br> <input type="hidden"
+						id="democre" name="democre" value="" />
+					<button class="w3-button w3-black"
+						onclick="setActiveUserSource('cre', '');">Register</button>
+				</form>
+			</div>
+			<div class="w3-container w3-half">
+				<form class="w3-container" action="/utesdemo" method="post"
+					enctype="multipart/form-data">
+					<h2>Generate Random User</h2>
+					<p>Creates a random user for demo purposes.</p>
+					<ul>
+						<h2>Generated Random User:</h2>
+						<% if (randusr && randusr !== '') { %> <% var data = JSON.parse(randusr); %>
+						<li>Full Name: <%= data.fullname %></li>
+						<li>e-mail : <%= data.emailAddress %></li>
+						<li>Unique ID: <%= data.nameIdentifier %></li>
+						<li>Password :<%= data.nameIdentifier %></li> 
+					</ul>
+					<input type="hidden" id="demorand" name="demorand"	value="<%= data.nameIdentifier %>" />
+					
+					<!-- <textarea id="rand" name="rand"  cols="50" rows="10" style="margin: 0px; width: 522px; height: 111px;"> <%= JSON.stringify(randusr) %></textarea><br> -->
+
+					<button class="w3-button w3-black"
+						onclick="setActiveUserSource('rand', <%= data.nameIdentifier %>);">Create
+						Random User</button><% } %>
+				</form>
+				<script>            	
+				   function setActiveUserSource(src, id) {
+					   alert("Data:  " + document.getElementById('demorand').value);
+					   if(src === 'rand') {
+						//  alert("Rand:   " + document.getElementById('demorand').value);
+						   document.getElementById('demorand').value = id;
+						   document.getElementById('democre').value='';
+						// alert("setActiveUserSource-rand:  " + id);
+						   return id;
+					   } else if (src === 'cre') {
+						   var ud = document.getElementById('uid').value;
+							alert("cre-uid:  " + ud  );
+						   document.getElementById('demorand').value = '';
+						   document.getElementById('democre').value= ud;
+						   id = document.getElementById('democre').value;
+						// alert("setActiveUserSource-cre:  " + id);
+						   return id;
+					   }
+				   }
+			</script>
+			</div>
+		</div>
+		<script type="text/javascript">
+			   
+		   function getActiveUserSource() {
+			// alert("getActiveUserSource");
+			   var ran = document.getElementById('demorand').value;
+			// alert("getActiveUserSource1:   "  + ran);
+			   if (ran) { 
+				   return ran;
+			   } else {
+				   var cre = document.getElementById('democre').value;
+				// alert("getActiveUserSource2:   "  + cre);
+				   if (cre) return cre;
+				   
+			   }
+		   }
+
+		 </script>
+
+
+		<div class="w3-row w3-border w3-padding-64">
+			<h2>
+				Token Exchange For User: <label id="usr" name="usr"></label>
+			</h2>
+			<script type="text/javascript"> var usr = getActiveUserSource();
+        		document.getElementById("usr").innerText = usr;
+        	</script>
+
+			<div class="w3-container w3-half">
+
+				<p>Run various token exchange scenarios</p>
+				<button id="but1" class="w3-button w3-black" onclick="setConvertModeAjax('OAuth-SAML', 'but1' ,event);">OAuth --> SAML</button>
+				<button id="but2" class="w3-button w3-black" onclick="setConvertModeAjax('SAML-OAuth', 'but2' , event);">SAML  --> OAuth </button>
+				<button id="but3" class="w3-button w3-black" onclick="setConvertModeAjax('OAuth-X509',  'but3' ,event);">OAuth --> X509</button>
+				<button id="but4" class="w3-button w3-black" onclick="setConvertModeAjax('X509-OAuth',  'but4' ,event);">X509  --> OAuth</button>
+				<button id="but5" class="w3-button w3-black" onclick="setConvertModeAjax('X509-SAML',  'but5' ,event);">X509  --> SAML</button>
+				<button id="but6" class="w3-button w3-black" onclick="setConvertModeAjax('SAML-X509',  'but6' ,event);">SAML  --> X509</button>
+				<a class="w3-button w3-black w3-right-align" href="#">Clear	Forms.</a>
+
+			</div>
+		</div>
+
+		<div class="w3-row w3-border w3-padding-64">
+			<h2>Results</h2>
+
+			<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<form id="output" action="/convrt_demo" method="POST">
+					<header class="w3-container w3-blue">
+						<h3>
+							From: <label id='oprf' name='oprf'></label>
+						</h3>
+					</header>
+					<div class="w3-container" id="fromdemo">
+						<textarea class="textinput" id="srctxt" name="srctxt" ><%= user.srctxt %></textarea>
+					</div>
+					<footer class="w3-container w3-blue">
+						<h5>Footer</h5>
+					</footer>
+					<!-- div class="w3-card-4 w3-half w3-row-padding" style="width: 50%;">  -->
+						<header class="w3-container w3-green">
+							<h3>To: <label id='oprt' name='oprt'></label></h3>
+						</header>
+						<div class="w3-container" id="todemo">
+							<textarea class="textinput" id="destxt" name="destxt" ><%= user.destxt %></textarea>
+						</div>
+						<footer class="w3-container w3-green">
+							<h5>Footer</h5>
+						</footer>
+					<!--  /div> -->
+					<script type="text/javascript">
+						function setConvertModeAjax( mode , but, e) {
+							// alert(mode);
+							if (mode === 'OAuth-SAML' ) {
+									document.getElementById("oprf").innerText = 'OAuth';
+									document.getElementById("oprt").innerText = 'SAML';
+							}
+							if (mode === 'SAML-OAuth' ) {
+								document.getElementById("oprt").innerText = 'OAuth';
+								document.getElementById("oprf").innerText = 'SAML';
+							}
+							if (mode === 'OAuth-X509' ) {
+								document.getElementById("oprf").innerText = 'OAuth';
+								document.getElementById("oprt").innerText = 'X509';
+							}
+							if (mode === 'X509-OAuth' ) {
+								document.getElementById("oprt").innerText = 'OAuth';
+								document.getElementById("oprf").innerText = 'X509';
+							}
+							if (mode === 'X509-SAML' ) {
+								document.getElementById("oprt").innerText = 'SAML';
+								document.getElementById("oprf").innerText = 'X509';
+							}
+							if (mode === 'SAML-X509' ) {
+								document.getElementById("oprt").innerText = 'X509';
+								document.getElementById("oprf").innerText = 'SAML';
+							}
+							var uid = document.getElementById("usr").innerText;
+							// alert("uid:  " + uid);
+							var upass = uid;
+							var udata = {"uid": uid, "ope": mode, "upass": upass};
+							// alert("data:  " + JSON.stringify(udata));						      
+							$.ajax({
+						        type: 'POST',
+						        url: '/convrt_demo',
+						        data: { udata: JSON.stringify(udata) },
+						        success: function(data) {
+						        	console.log('message', data.message);
+						        	document.getElementById("srctxt").value = JSON.stringify(data.user.srctxt);
+						        	document.getElementById("destxt").value = JSON.stringify(data.user.destxt);						        	
+					            },
+					            error: function(jqXHR, textStatus, err) {
+					                alert('text status '+textStatus+', err '+err)
+					            }
+						      });							
+						}						
+					</script>
+				</form>
+			</div>			
+		</div>
+		<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<h2>
+					SAML Assert For User: <label id="usr1" name="usr1"></label>
+				</h2>
+				<script type="text/javascript"> var usr = getActiveUserSource();
+				// alert("SAML Assert:   " + usr);
+	        		document.getElementById("usr1").innerText = usr;
+	        	</script>
+				<form id="samlAssrt" action="/getDemoUserSAMLAssert" method="POST" >
+					<div class="w3-container">
+						SAML Token		: <textarea class="textinput" id="samlassrt" name="samlassrt" ><%= user.samlassrt %></textarea>
+					</div>
+					<div class="w3-container">
+						<p>Run Create SAML Assert scenario</p>
+						<button id="but8" class="w3-button w3-black" onclick="setSAMLAssertUserAjax('SAMLAssert', 'but8' ,event);">SAMLAssert</button>
+			    	</div>	
+					
+        			<script type="text/javascript">
+        				function setSAMLAssertUserAjax(ope, but , event) {
+        					// alert("setSAMLAssertUserAjax: ");
+	    					var uid = document.getElementById("usr").innerText;
+	    					// alert("setSAMLAssertUserAjax: " + uid);
+	    					document.getElementById("demoname").value = uid;
+	    					document.getElementById("uid").value = uid;
+	    					// alert("uid:  " + uid);
+							var upass = uid;
+							var udata = {"uid": uid, "ope": 'SAMLAssert', "upass": uid};
+							// alert("data:  " + JSON.stringify(udata));						      
+							$.ajax({
+						        type: 'POST',
+						        url: '/getDemoUserSAMLAssert',
+						        data: { udata: JSON.stringify(udata) },
+						        success: function(data) {
+						        	console.log('message', data.message);
+						        	document.getElementById("samlassrt").value = JSON.stringify(data.user.samlassrt);
+					            },
+					            error: function(jqXHR, textStatus, err) {
+					                alert('text status '+textStatus+', err '+err)
+					            }
+						   });
+	    				}
+        			
+        			</script>
+ 				</form>
+			</div>
+			<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<h2>
+					JWKSets End-Point For User: <label id="usr3" name="usr3"></label>
+				</h2>
+				<script type="text/javascript"> var usr = getActiveUserSource();
+				// alert("JWKSets:   " + usr);
+	        		document.getElementById("usr3").innerText = usr;
+	        	</script>
+				<form id="jwks" action="/getDemoUserJWKSets" method="POST" >
+					<div class="w3-container">
+						JWKX5CSets		: <textarea class="textinput" id="jwkx5csets" name="jwkx5csets" ><%= user.jwkx5csets %></textarea>
+					</div>
+					<div  class="w3-container">
+						JWKStdSets		: <textarea class="textinput" id="jwkstdsets" name="jwkstdsets" ><%= user.jwkstdsets %></textarea>
+					</div>
+					<div class="w3-container">
+						<p>Run Create JWKSets scenario</p>
+						<button id="but7" class="w3-button w3-black" onclick="setUserJWKSetsAjax('JWKSets', 'but7' ,event);">JWKSets</button>
+			    	</div>	
+        			<script type="text/javascript">
+        				function setUserJWKSetsAjax(ope, but , event) {
+        					// alert("setUserJWKSetsAjax: ");
+	    					var uid = document.getElementById("usr").innerText;
+	    					// alert("setUserJWKSetsAjax: " + uid);
+	    					document.getElementById("demoname").value = uid;
+	    					document.getElementById("uid").value = uid;
+	    					// alert("uid:  " + uid);
+							var upass = uid;
+							var udata = {"uid": uid, "ope": 'JWKSets', "upass": uid};
+							// alert("data:  " + JSON.stringify(udata));						      
+							$.ajax({
+						        type: 'POST',
+						        url: '/getDemoUserJWKSets',
+						        data: { udata: JSON.stringify(udata) },
+						        success: function(data) {
+						        	console.log('message', data.message);
+						        	document.getElementById("jwkx5csets").value = JSON.stringify(data.user.jwkx5csets);
+						        	document.getElementById("jwkstdsets").value = JSON.stringify(data.user.jwkstdsets);
+					            },
+					            error: function(jqXHR, textStatus, err) {
+					                alert('text status '+textStatus+', err '+err)
+					            }
+						   });
+	    				}
+        			
+        			</script>
+ 				</form>
+			</div>
+			<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<h2>
+					JWTokens End-Point For User: <label id="usr4" name="usr4"></label>
+				</h2>
+				<script type="text/javascript"> var usr = getActiveUserSource();
+				// alert("JWToken:   " + usr);
+	        		document.getElementById("usr4").innerText = usr;
+	        	</script>
+				<form id="jwt" action="/getDemoUserJWT" method="POST" >
+					<div class="w3-container">
+						JWTX5Token		: <textarea class="textinput" id="jwx5token" name="jwx5token" ><%= user.x5jwtok %></textarea>
+					</div>
+					<div  class="w3-container">
+						JWEncryptedToken: <textarea class="textinput" id="jwtoken" name="jwtoken" ><%= user.jwtok %></textarea>
+					</div>
+					<div class="w3-container">
+						<p>Run Create JWKToken scenario</p>
+						<button id="but7" class="w3-button w3-black" onclick="setUserJWTokenAjax('JWKSets', 'but7' ,event);">JWTokens</button>
+			    	</div>	
+        			<script type="text/javascript">
+        				function setUserJWTokenAjax(ope, but , event) {
+        					// alert("setUserJWTokenAjax: ");
+	    					var uid = document.getElementById("usr").innerText;
+	    					// alert("setUserJWTokenAjax: " + uid);
+	    					document.getElementById("demoname").value = uid;
+	    					document.getElementById("uid").value = uid;
+	    					// alert("uid:  " + uid);
+							var upass = uid;
+							var udata = {"uid": uid, "ope": 'JWToken', "upass": uid};
+							// alert("data:  " + JSON.stringify(udata));						      
+							$.ajax({
+						        type: 'POST',
+						        url: '/getDemoUserJWT',
+						        data: { udata: JSON.stringify(udata) },
+						        success: function(data) {
+						        	console.log('message', data.message);
+						        	document.getElementById("jwx5token").value = JSON.stringify(data.user.x5jwtok);
+						        	document.getElementById("jwtoken").value = JSON.stringify(data.user.jwtok);
+					            },
+					            error: function(jqXHR, textStatus, err) {
+					                alert('text status '+textStatus+', err '+err)
+					            }
+						   });
+	    				}
+        			
+        			</script>
+ 				</form>
+			</div>
+			<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<h2>
+					OCSP Responder End-Point For User: <label id="usr5" name="usr5"></label>
+				</h2>
+				<script type="text/javascript"> var usr = getActiveUserSource();
+				// alert("OCSP:   " + usr);
+	        		document.getElementById("usr5").innerText = usr;
+	        	</script>
+				<form id="ocsp" action="/getDemoUserOCSP" method="POST" >
+					<div class="w3-container">
+						OCSP-Status		: <textarea class="textinput" id="ocsptxt" name="ocsptxt" ><%= user.ocsp %></textarea>
+					</div>
+					<div class="w3-container">
+						<p>Run Create JWKToken scenario</p>
+						<button id="but5" class="w3-button w3-black" onclick="setUserOCSPStatusAjax('OCSP', 'but5' ,event);">OCSP-Status</button>
+			    	</div>	
+        			<script type="text/javascript">
+        				function setUserOCSPStatusAjax(ope, but , event) {
+        					// alert("setUserOCSPStatusAjax: ");
+	    					var uid = document.getElementById("usr").innerText;
+	    					// alert("setUserOCSPStatusAjax: " + uid);
+	    					document.getElementById("demoname").value = uid;
+	    					document.getElementById("uid").value = uid;
+	    					// alert("uid:  " + uid);
+							var upass = uid;
+							var udata = {"uid": uid, "ope": 'OCSP', "upass": uid};
+							// alert("data:  " + JSON.stringify(udata));						      
+							$.ajax({
+						        type: 'POST',
+						        url: '/getDemoUserOCSP',
+						        data: { udata: JSON.stringify(udata) },
+						        success: function(data) {
+						        	console.log('message', data.message);
+						        	document.getElementById("ocsptxt").value = JSON.stringify(data.user.ocsp);
+					            },
+					            error: function(jqXHR, textStatus, err) {
+					                alert('text status '+textStatus+', err '+err)
+					            }
+						   });
+	    				}
+        			
+        			</script>
+ 				</form>
+			</div>
+			<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
+				<h2>
+					Secure Envelope For User: <label id="usr10" name="usr10"></label>
+				</h2>
+				<script type="text/javascript"> var usr = getActiveUserSource();
+					//alert("Secure Envelope:   " + usr);
+					//alert("Secure Envelope:   " + JSON.stringify(user));
+	        		document.getElementById("usr10").innerText = usr;
+	        	</script>
+				<form id="secenv" action="/getDemoUserSecureEnv" method="POST" enctype="multipart/form-data">
+					<div class="w3-container">
+						<input type="text" id="uid11" name="uid11" required value="<%= user.uid %>" placeholder="CustomerId" >
+						<input type="text" id="target" name="target" required value="<%= user.target %>"  placeholder="TargetId" >
+						<input type="text" id="filetype" name="filetype" required placeholder="FileType">			            
+			            <input type="file" id="Content" name="Content" required placeholder="Content"><div class="progress"></div>						
+					</div>
+					<div>
+			    		Secure Envelope		: <textarea class="textinput" id="secenv" name="secenv" ><%= user.secenv %></textarea>
+			    	</div>						
+					<div class="w3-container">
+						<p>Run Create Bank Secure Envelope scenario</p>
+						<button id="but9" class="w3-button w3-black" onclick="uploadFiles();">SecureEnvelop</button>
+			    	</div>
+ 				</form>
+ 				<script type="text/javascript">
+					function uploadFiles() {
+						//alert("uploadFiles001:  ");
+						$(document).ready(function() {
+							  alert("uploadFiles002:  ");
+							  $('#but9').click(function(e){
+								  alert("uploadFiles003:  ");
+								  e.preventDefault(); // prevents page reloading  
+								  e.stopPropagation();
+								  //win.close();
+								  //let newWin = window.open("about:blank", "hello", "width=200,height=200");
+								  //alert("uploadFiles003::B:  ");
+							    var files = $("#Content").get(0).files;
+							    //alert("uploadFiles003::C:  ");
+							    if (files.length > 0){
+							      //alert("uploadFiles004:  ");
+							      var formData = new FormData();							      
+							      for (var i = 0; i < files.length; i++) {
+							        var file = files[i];							        
+							        formData.append('uploaded_files', file, file.name);
+							        //alert("uploadFiles: ");
+							      }
+							      //alert("uploadFiles005:  ");
+							      var uid = document.getElementById("usr").innerText;
+			    					// alert("setUserOCSPStatusAjax: " + uid);
+			    					document.getElementById("demoname").value = uid;
+			    					document.getElementById("uid").value = uid;
+			    					 //alert("uploadFiles006:  ");
+							      $.ajax({
+							        url: '/getDemoUserSecureEnv',
+							        type: 'POST',
+							        data: formData,
+							        processData: false,
+							        contentType: false,
+							        success: function(response) {
+							        	user = {
+							        			uid: '',
+							        			pass: '',
+							        			serv: '',
+							        			srctxt: '',
+							        			destxt: '',
+							        			jwksets: '',
+							        			oprf: '',
+							        			oprt: '',
+							        			Timestamp: '',
+							        			target: '',
+							        			filetype: '',
+							        			Content: '',
+							        			secenv: '',
+							        			keyInfo: '',
+							        			newuser: {}
+							        		};
+
+							          //alert('Files Saved: ' + response);
+							          var usr = JSON.parse(JSON.stringify(response));							          
+							          JSON.parse(usr, (key, value) => {
+										  if (typeof value === 'string') {
+											 //alert("Response: key:  " + key + "  value:  " + value);
+										    if(key === 'uid') user.uid = value;
+										    if(key === 'ope') user.oprf = value;
+										    if(key === 'pass') user.pass = value;
+										    if(key === 'secenv') {
+										    	user.secenv = value;
+										    	//alert("Response: secenv:   " + user.secenv);
+										    }
+										  }
+										  //return value;
+										  //user.serv = user.oprf;
+									});
+							          document.getElementById("secenv").value = user.secenv;
+										// Lazy: refresh window
+										//location.reload();
+         								window.location.reload();
+							          return false;
+							        },
+							        error: function(jqXHR, status, error) {
+							          alert('Upload Failed. Error: ' + error);
+							          //window.location.reload();
+							        },
+							      });							      
+							    }
+							  });
+							});
+						//window.location.reload();
+					}
+					
+					
+					/* function to collect popup window id:
+					 * link: https://stackoverflow.com/questions/29824692/how-can-i-check-if-pop-up-is-open-or-close-on-click-of-a-button
+					 * If you just want to close any open popups, you don't need the id:
+					 * $('[data-role="popup"]').popup("close");
+					 * If you need the ID:
+				     * if ($(".ui-popup-active").length > 0)) {
+					 *  var id = $(".ui-popup-active").find('[data-role="popup"]').prop("id");
+					 *  $('[data-role="popup"]').popup("close");
+					 *}
+					 *
+					 */
+					function closePopUps() {
+						$(document).on('click', '.checkifpop', function(e) {
+								   //console.log($('div.ui-popup-active'));
+								   var collection = $('div.ui-popup-active');// Get all open popups, if any
+								   $.each(collection, function(key,popup){
+								     //You can get ID of the Popup like this:
+								     //$(popup).attr('id')
+								     // alert($(popup).attr('id')); // handle each open popup
+								      if(You_want_to_close_popup){
+								         $('#'+popupID).popup('close');
+								      }
+								   });
+								});
+					}
+					
+					function readSingleFile(e) {
+						alert("ajeet:  " + e);
+						e.preventDefault(); // prevents page reloading
+						var formData = new FormData();							      
+						  var file = e.target.files[0];
+						  if (!file) {
+						    return;
+						  }
+					      formData.append('uploaded_files', file, file.name);
+						  /* var reader = new FileReader();
+						  reader.onload = function(e) {
+							  var contents = e.target.result;
+							    displayContents(contents);
+						  };
+						  reader.readAsText(file);*/
+					      //alert("readSingleFile:005:  ");
+					      var uid = document.getElementById("usr").innerText;
+	    					// alert("setUserOCSPStatusAjax: " + uid);
+	    					document.getElementById("demoname").value = uid;
+	    					document.getElementById("uid").value = uid;
+	    					 //alert("uploadFiles006:  ");
+					      $.ajax({
+					        url: '/getDemoUserSecureEnv',
+					        type: 'POST',
+					        data: formData,
+					        processData: false,
+					        contentType: false,
+					        success: function(response) {
+					        	user = {
+					        			uid: '',
+					        			pass: '',
+					        			serv: '',
+					        			srctxt: '',
+					        			destxt: '',
+					        			jwksets: '',
+					        			oprf: '',
+					        			oprt: '',
+					        			Timestamp: '',
+					        			target: '',
+					        			filetype: '',
+					        			Content: '',
+					        			secenv: '',
+					        			keyInfo: '',
+					        			newuser: {}
+					        		};
+
+					          alert('Files Saved: ' + response);
+					          var usr = JSON.parse(JSON.stringify(response));							          
+					          JSON.parse(usr, (key, value) => {
+								  if (typeof value === 'string') {
+									 //alert("Response: key:  " + key + "  value:  " + value);
+								    if(key === 'uid') user.uid = value;
+								    if(key === 'ope') user.oprf = value;
+								    if(key === 'pass') user.pass = value;
+								    if(key === 'secenv') {
+								    	user.secenv = value;
+								    	//alert("Response: secenv:   " + user.secenv);
+								    }
+								  }
+								  //return value;
+								  //user.serv = user.oprf;
+							});
+					        document.getElementById("secenv").value = user.secenv;
+								// Lazy: refresh window
+								//location.reload();
+ 								window.location.reload();
+					          return false;
+					        },
+					        error: function(jqXHR, status, error) {
+					          alert('Upload Failed. Error: ' + error);
+					          //window.location.reload();
+					        },
+					      });							      
+					    }
+
+						function displayContents(contents) {
+						  var element = document.getElementById('secenv');
+						  alert("readSingleFile:  " + contents);
+						  document.getElementById("secenv").value = contents;
+						  //element.textContent = contents;
+						}
+
+						//document.getElementById('Content')
+						// .addEventListener('change', readSingleFile, false);
+				</script>
+			</div>
+			
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-center w3-grey w3-padding-64">
+		<a href="#home" class="w3-button w3-light-grey"><i
+			class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+
+		<p>
+			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
+				title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a>
+		</p>
+	</footer>
+
+	<script>
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>
