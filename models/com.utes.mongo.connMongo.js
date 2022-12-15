@@ -41,7 +41,8 @@ async function connectMongo() {
  */
 async function connMongo () {
 	console.log("connMongo:001:  " + process.env.DATABASE);
-	await mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true }).then(
+	var uri = "mongodb://127.0.0.1:27017/auth_users?authSource=admin&keepAlive=true&poolSize=30&socketTimeoutMS=360000&connectTimeoutMS=360000";
+	await mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).then(
 			  () => { /**
 						 * ready to use. The `mongoose.connect()` promise
 						 * resolves to mongoose instance.
