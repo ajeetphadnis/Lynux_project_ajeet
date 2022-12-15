@@ -10,7 +10,7 @@ var debug = process.env.DEBUG5;
 if (debug === 'true') {
 	debug = 'true';
 } else {
-	debug = null;
+	debug = 'true';
 }
 
 debug = 'true';
@@ -40,6 +40,7 @@ async function connectMongo() {
  * FUnction: connMongo
  */
 async function connMongo () {
+	console.log("connMongo:001:  " + process.env.DATABASE);
 	await mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true }).then(
 			  () => { /**
 						 * ready to use. The `mongoose.connect()` promise
@@ -51,7 +52,7 @@ async function connMongo () {
 				  return db;
 			  },
 			  err => { /** handle initial connection error */ 
-				  console.log("connError:  " + err);
+				  console.log("connError33:  " + err);
 			  }
 			);
 }
@@ -102,7 +103,7 @@ function connMongoClient(uri)  {
  * @returns 
  */
 async function connMongoIDPClient(uri) {
-	const url = 'mongodb://localhost:27017?retryWrites=true&w=majority';
+	const url = 'mongodb://mongodb:27017?retryWrites=true&w=majority';
 	 try{
 		 client = new MongoClient(url, { useUnifiedTopology: true, useNewUrlParser: true } );
 		 client.connect(function(err) {
@@ -124,3 +125,4 @@ exports.connMongoIDPClient = connMongoIDPClient;
 
  //connectMongo();
 //connMongoClient('');
+connMongo();

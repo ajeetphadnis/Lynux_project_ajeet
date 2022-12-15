@@ -49,7 +49,7 @@ const oneHr = 1000 * 60 * 60 ;
 		origin: true,
 		optionsSuccessStatus: 200
 	}));
-	const port = process.env.PORT ||443;
+	const port = process.env.PORT ||3443;
 	app.use(bodyParser.json());
 	//app.use(forms.array()); 
 	app.use(express.urlencoded({ extended: true	}));
@@ -60,7 +60,7 @@ const oneHr = 1000 * 60 * 60 ;
 	    saveUninitialized:true,
 	    cookie: { maxAge: oneHr, secure: true,
 			httpOnly: true,
-			sameSite: 'none'  },
+			SameSite: 'None'  },
 	    resave: false,
 	    store: new MongoStore({
 	          mongooseConnection: mongoose.connection,
@@ -87,5 +87,5 @@ const oneHr = 1000 * 60 * 60 ;
 	app.disable('view cache');
 	routes(app);
 	https.createServer(credentials,app).listen(port);
-	http.createServer(app).listen(20005);
+	http.createServer(app).listen(3005);
 //});

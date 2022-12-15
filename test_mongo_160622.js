@@ -41,6 +41,7 @@ http.createServer(app).listen(40005);
 // connect to database
 function connectDB() {
 	const uri = process.env.DATABASE;
+	console.log("db string:  " + uri);
 	try {
 		client = new MongoClient(uri, { useUnifiedTopology: true }, { useNewUrlParser: true }, { connectTimeoutMS: 30000 }, { keepAlive: 1000 });
 		client.connect(function (err) {
@@ -125,5 +126,5 @@ async function getAuthUser(user, pw) {
 
 exports.getAuthUser = getAuthUser;
 exports.validateUniqueUser = validateUniqueUser;
-// connectMongo();
+connectDB();
 //getSAMLResp('');
