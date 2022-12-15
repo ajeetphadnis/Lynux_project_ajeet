@@ -90,8 +90,6 @@ console.log("Dir: " + __dirname);
     tempFileDir : path.join(__dirname,'uploads'),
 }));*/
 
-var jwtStr = "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpZCI6IjAwREQwMDAwMDAwRjdMNSIsImlzcyI6ImNvbS51dGVzLmludGVybWVkaWF0ZV9jYS1kb21haW4iLCJzdWIiOiIwMEREMDAwMDAwMEY3TDUiLCJhdWQiOiJjb20udXRlcy5pbnRlcm1lZGlhdGVfY2EtZG9tYWluIiwianRpIjoiMTIwLTUxLTIxNi0xMDYtMjQ0LTc0LTE3OC01Mi02MS0xMzkiLCJleHAiOjEyNDUyNjQ2MTAsIm5iZiI6MTI0NTI2NDMxMCwiaWF0IjoxNjYzNjM3NTY5fQ.";
-
 var randuser = {"fullname": "Ajeet", "emailAddress": "ajeet@phadnis.no", "uid": "ajeet"};
 
 app.get('/demo_user', (req, res) => {
@@ -147,13 +145,7 @@ function compareDates(date1, date2) {
     var g1 = new Date();
 }
 
-function parseJwt (token) {
-    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
-}
+ app.listen(3000, () => console.log('Your app listening on port 3000'));
 
-
- //app.listen(3001, () => console.log('Your app listening on port 3000'));
-
- //var ran = getRandomHex(16);
- parseJwt(jwtStr);
+//var ran = getRandomHex(16);
 //console.log(ran);
