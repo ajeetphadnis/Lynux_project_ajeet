@@ -41,7 +41,7 @@ async function connectMongo() {
  */
 async function connMongo () {
 	console.log("connMongo:001:  " + process.env.DATABASE);
-	var uri = "mongodb://mongo:27017/auth_users?authSource=admin&keepAlive=true&poolSize=30&socketTimeoutMS=360000&connectTimeoutMS=360000";
+	var uri = "mongodb://mongodb:27017/auth_users?authSource=admin&keepAlive=true&poolSize=30&socketTimeoutMS=360000&connectTimeoutMS=360000";
 	console.log("connMongo:002:  " + uri);
 	await mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).then(
 			  () => { /**
