@@ -65,8 +65,9 @@ const session = require('express-session');  // session middleware
 	async function connMongo(req, res) {
 		// Connection URL
     	  //const url = 'mongodb://localhost:27017/auth_users\', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
-    	  const url = process.env.DATABASE+', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
-    	  client = await conMongo.connMongoClient(url);	
+    	  var url = process.env.DATABASE; //+', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
+		  console.log("db URL: " + url);
+		  client = await conMongo.connMongoClient(url);	
     	  return client;
 	};
 	
