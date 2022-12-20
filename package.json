@@ -4,7 +4,6 @@
   "description": "This project is intended to create a authenticaton protocol exchnage server",
   "main": "pha_authExchangeSrv.js",
   "scripts": {
-    "test": "run_phaAuthExSrvTest.js",
     "start": "node pha_authExchangeSrv.js"
   },
   "keywords": [

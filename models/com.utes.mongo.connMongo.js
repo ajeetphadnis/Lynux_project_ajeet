@@ -10,7 +10,7 @@ var debug = process.env.DEBUG5;
 if (debug === 'true') {
 	debug = 'true';
 } else {
-	debug = null;
+	debug = 'true';
 }
 
 debug = 'true';
@@ -33,7 +33,10 @@ async function connectMongo() {
 
 
 async function connMongo () {
-	await mongoose.connect(process.env.DATABASE, { useUnifiedTopology: true, useNewUrlParser: true }).then(
+	console.log("connMongo:001:  " + process.env.DATABASE);
+	//var uri = "mongodb://mongodb:27017/auth_users?authSource=admin&keepAlive=true&poolSize=30&socketTimeoutMS=360000&connectTimeoutMS=360000";
+	//console.log("connMongo:002:  " + uri);
+	await mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).then(
 			  () => { /**
 						 * ready to use. The `mongoose.connect()` promise
 						 * resolves to mongoose instance.
@@ -44,7 +47,7 @@ async function connMongo () {
 				  return db;
 			  },
 			  err => { /** handle initial connection error */ 
-				  console.log("connError:  " + err);
+				  console.log("connError33:  " + err);
 			  }
 			);
 }
@@ -80,7 +83,7 @@ function connMongoClient(uri)  {
 
 
 async function connMongoIDPClient(uri) {
-	const url = 'mongodb://localhost:27017?retryWrites=true&w=majority';
+	const url = 'mongodb://mongodb:27017?retryWrites=true&w=majority';
 	 try{
 		 client = new MongoClient(url, { useUnifiedTopology: true, useNewUrlParser: true } );
 		 client.connect(function(err) {
@@ -102,3 +105,4 @@ exports.connMongoIDPClient = connMongoIDPClient;
 
  //connectMongo();
 //connMongoClient('');
+connMongo();

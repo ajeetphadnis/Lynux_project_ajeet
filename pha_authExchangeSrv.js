@@ -40,7 +40,19 @@ const oneHr = 1000 * 60 * 60 ;
 	var certificate = fs.readFileSync('nodeSrvCert.pem');
 	var credentials = {key: privateKey, cert: certificate};
 	app = express();
+<<<<<<< HEAD
 	const port = process.env.PORT ||30010;
+=======
+	app.use(express.static(path.join(__dirname,'demo_docs')));
+	app.use(cors({
+		credentials: true,
+		preflightContinue: true,
+		methods: ['GET', 'POST', 'PUT', 'PATCH' , 'DELETE', 'OPTIONS'],
+		origin: true,
+		optionsSuccessStatus: 200
+	}));
+	const port = process.env.PORT ||3443;
+>>>>>>> 1939ccb29902d02d78905fe2e31575edad82b5ce
 	app.use(bodyParser.json());
 	//app.use(forms.array()); 
 	app.use(express.urlencoded({ extended: true	}));
@@ -49,7 +61,9 @@ const oneHr = 1000 * 60 * 60 ;
 	app.use(session({
 	    secret: "786Phadnis7654321",
 	    saveUninitialized:true,
-	    cookie: { maxAge: oneHr },
+	    cookie: { maxAge: oneHr, secure: true,
+			httpOnly: true,
+			SameSite: 'None'  },
 	    resave: false,
 	    store: new MongoStore({
 	          mongooseConnection: mongoose.connection,
