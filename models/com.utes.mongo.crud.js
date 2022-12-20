@@ -183,7 +183,7 @@ if(debug) {console.log('mongo database 001:  ');}
 	    if(debug) {console.log("getUserStruct003:  called ....");}
 	    usrStruct = await myTab.findOne(query);
 	    if (usrStruct == null) {
-	    	console.log("getUserStruct004:  usrStruct is null!");
+	    	console.log("crud: getUserStruct004:  usrStruct is null!");
 	    	usrStruct = {};
 	    }
 	    exports.usrStruct = usrStruct;
