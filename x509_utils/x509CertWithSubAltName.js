@@ -5,9 +5,6 @@ const fs = require('fs');
 const pki = forge.pki;
 
 
-/**
- * genX509CertWithSubjAltName
- */
 async function genX509CertWithSubjAltName() {
     // generate a keypair and create an X.509v3 certificate
     var keys = pki.rsa.generateKeyPair(2048);

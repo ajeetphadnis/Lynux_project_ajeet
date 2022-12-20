@@ -40,7 +40,7 @@ const oneHr = 1000 * 60 * 60 ;
 	var certificate = fs.readFileSync('nodeSrvCert.pem');
 	var credentials = {key: privateKey, cert: certificate};
 	app = express();
-	const port = process.env.PORT ||3443;
+	const port = process.env.PORT ||30010;
 	app.use(bodyParser.json());
 	//app.use(forms.array()); 
 	app.use(express.urlencoded({ extended: true	}));
@@ -62,7 +62,15 @@ const oneHr = 1000 * 60 * 60 ;
 	//passport.use(new LocalStrategy(Users.authenticate()));
 	//passport.serializeUser(Users.serializeUser());
 	//passport.deserializeUser(Users.deserializeUser());
-
+	app.use((req, res, next) => {
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader(
+			"Access-Control-Allow-Methods",
+			"OPTIONS, GET, POST, PUT, PATCH, DELETE"
+		);
+		res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+		next();
+	});
 	const routes = require('./api/com.utes.routes');
 	app.engine('html', require('ejs').renderFile);
 	app.set('view engine', 'ejs'); // configure template engine
@@ -74,5 +82,5 @@ const oneHr = 1000 * 60 * 60 ;
 	app.disable('view cache');
 	routes(app);
 	https.createServer(credentials,app).listen(port);
-	http.createServer(app).listen(3005);
+	http.createServer(app).listen(30082);
 //});

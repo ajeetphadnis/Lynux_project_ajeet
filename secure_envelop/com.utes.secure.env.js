@@ -74,13 +74,12 @@ var debug = process.env.DEBUG1;
 
 
 	/**
-	 * Function: getP12FileName
 	 * getP12FileName: Serches for p12 file in supplied directory
 	 * and the user in arg strtStr
-	 * @param {*} dir 
-	 * @param {*} strtStr 
-	 * @param {*} endStr 
-	 * @returns 
+	 *  
+	 * @param firstname
+	 * @returns file path
+	 * 
 	 */
 	function getP12FileName(dir, strtStr, endStr) {
 		//const dir = '/Users/flavio/folder'
@@ -99,8 +98,7 @@ var debug = process.env.DEBUG1;
 	 * readFile: reads file in supplied filepath
 	 * with a promise
 	 *  
-	 * @param {*} filePath 
-	 * @param {*} encoding
+	 * @param firstname
 	 * @returns
 	 * 
 	 */

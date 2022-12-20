@@ -48,7 +48,7 @@ const session = require('express-session');  // session middleware
     } else {
     	debug = null;
     }
-    
+    debug = 'true';
     const sleep = (time) => {
     	  return new Promise((resolve) => {
     	    setTimeout(resolve, time);
@@ -102,7 +102,7 @@ const session = require('express-session');  // session middleware
 			   //   await client.close();
 			  }
 		    if (usrStruct == null) {
-		    	console.log("getUserStruct004:  usrStruct is null!");
+		    	console.log("getUserStruct004:  usrStruct is null!:   " + userid);
 		    	usrStruct = {};
 		    }
 		    exports.usrStruct = usrStruct;

@@ -55,6 +55,12 @@ algorithm:  ["RS256"]
 
 /**
  * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 module.exports = {
 		samlGenKeysPEM: function (keysize, prvkeyName, pubkeyName) {
@@ -81,13 +87,15 @@ module.exports = {
 
 		
 		
-/**
- * Function: jwtSignToken
- * @param {*} payload 
- * @param {*} privateKey 
- * @param {*} sOptions 
- * @param {*} jwtFile 
- */
+		/**
+		 * 
+		 * 
+		 * 
+		 * 
+		 * @param firstname
+		 * @returns
+		 * 
+		 */
 		jwtSignToken: function (payload, privateKey, sOptions, jwtFile)  {	
 			if (sOptions === null) {
 				   sOptions = {
@@ -113,13 +121,15 @@ module.exports = {
 			
 		
 			
-		/**
-		 * Function: jwtVerifyToken
-		 * @param {*} token 
-		 * @param {*} jwtFileName 
-		 * @param {*} pubFileName 
-		 * @param {*} verifyOptions 
-		 */
+			/**
+			 * 
+			 * 
+			 * 
+			 * 
+			 * @param firstname
+			 * @returns
+			 * 
+			 */
 		jwtVerifyToken: function (token, jwtFileName, pubFileName, verifyOptions )	{
 			console.log("jwtVerifyToken:  001 : " + pubFileName);
 			var pubStr;
@@ -162,9 +172,13 @@ module.exports = {
 		
 		
 		/**
-		 * Function: jwtCreateJTI
-		 * @param {*} length 
-		 * @returns 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * @param firstname
+		 * @returns
+		 * 
 		 */
 		jwtCreateJTI: function (length)	 {
 			/** Sync */

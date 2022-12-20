@@ -18,13 +18,15 @@ const dashRE = /-/g;
 const lodashRE = /_/g;
 
 
-	/**
-	 * Function: parseJwtCrPem
-	 * @param {*} token 
-	 * @param {*} uid 
-	 * @param {*} newuser 
-	 * @returns 
-	 */
+/**
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
+ */
 	function parseJwtCrPem(token, uid, newuser) {
 		  console.log("CERT: parseJwtCrPem001: "  + uid + "    newuser: " + newuser.commonName);
 		  var token1 = token.toString();

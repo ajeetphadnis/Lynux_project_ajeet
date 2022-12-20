@@ -29,10 +29,13 @@ if (debug === 'true') {
 
 
 /**
- * Function: readFile
- * @param {*} filePath 
- * @param {*} encoding 
- * @returns 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 const readFile = (filePath, encoding) => {
     return new Promise((resolve, reject) => {
@@ -49,11 +52,13 @@ const readFile = (filePath, encoding) => {
 
 
 /**
- * Function: getCA_P12_PrivateKey
- * @param {*} uid 
- * @param {*} filePath 
- * @param {*} pass 
- * @returns 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 async function getCA_P12_PrivateKey ( uid, filePath, pass ) {
     // Read file in binary contents
@@ -76,11 +81,13 @@ async function getCA_P12_PrivateKey ( uid, filePath, pass ) {
 
 
 /**
- * Function: getX509Details
- * @param {*} uid 
- * @param {*} filePath 
- * @param {*} pass 
- * @returns 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 async function getX509Details (uid, filePath, pass) {
     var pem = null;
@@ -118,12 +125,13 @@ async function getX509Details (uid, filePath, pass) {
 
 
 /**
- * Function: cre_pem2jwt
- * @param {*} uid 
- * @param {*} prvKeyFile 
- * @param {*} pubCertFile 
- * @param {*} pass 
- * @param {*} paydata 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 async function cre_pem2jwt(uid, prvKeyFile, pubCertFile, pass, paydata) {
 	await getX509Details (uid, pubCertFile, pass);
@@ -154,12 +162,13 @@ async function cre_pem2jwt(uid, prvKeyFile, pubCertFile, pass, paydata) {
 
 
 /**
- * Function: cre_demopem2jwt
- * @param {*} uid 
- * @param {*} prvKeyFile 
- * @param {*} pubCertFile 
- * @param {*} pass 
- * @param {*} paydata 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 async function cre_demopem2jwt(uid, prvKeyFile, pubCertFile, pass, paydata) {
 	await getX509Details (uid, pubCertFile, pass);

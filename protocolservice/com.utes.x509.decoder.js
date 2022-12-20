@@ -99,11 +99,7 @@ function remove_linebreaks_ss( str ) {
     return newstr;
 } 
 
-/**
- * 
- * @param  {} certStr
- * @param  {} mode
- */
+
 async function verifyDecodeX509Cert(certStr, mode) {
     try {
         //var certs = certStr.replace(/[\r\n]+/gm, "");
@@ -251,7 +247,6 @@ async function verifyDecodeX509Cert(certStr, mode) {
             } else {
                 uid = subjAttrs[0].value;
             }
-            uid = uid.replaceAll("\"", "");
             console.log("saml-oauth_decoder:   " + uid);
             const date2 = new Date();
             console.log("xml Parser6:  " + date2 );

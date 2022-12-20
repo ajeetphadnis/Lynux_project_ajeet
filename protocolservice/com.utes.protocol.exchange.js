@@ -22,11 +22,8 @@ const parseCurl = require('./parseCurlData');
 var nID = '';
 
 /**
- * Function: getProtocolTransSSS
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
- */
+     *
+     */
     async function getProtocolTrans(req, res, next) {
         try {
           if (req.method === 'GET' && req.method !== 'POST') {

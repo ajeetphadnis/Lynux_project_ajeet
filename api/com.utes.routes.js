@@ -15,7 +15,7 @@ const controller = require('./com.utes.controller');
 
 
 /**
- * Module: router app
+ * 
  * 
  * 
  * 
@@ -57,8 +57,6 @@ module.exports = function(app) {
     app.route('/getDemoUserSecureEnv').post(controller.getDemoUserSecureEnv);
     app.route('/getProtocolTrans').get(controller.getProtocolTrans);
     app.route('/getProtocolTrans').post(controller.getProtocolTrans);
-	app.route('/getEcDsaKeysCerts').get(controller.getEcDsaKeysCerts);
-    app.route('/getEcDsaKeysCerts').post(controller.getEcDsaKeysCerts);
     app.route('/index').get( function(req, res, next) {
 	    res.render('index');
 	 });

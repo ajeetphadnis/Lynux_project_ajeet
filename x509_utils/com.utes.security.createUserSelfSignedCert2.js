@@ -32,14 +32,13 @@ var client;
 
 
 /**
- * createUserSelfSignedCert
- * @param {*} uid 
- * @param {*} text 
- * @param {*} data 
- * @param {*} pass 
- * @param {*} req 
- * @param {*} res 
- * @param {*} next 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 async function createUserSelfSignedCert(uid, text, data, pass, req, res, next) {
 	var password = pass;
@@ -215,11 +214,13 @@ async function createUserSelfSignedCert(uid, text, data, pass, req, res, next) {
 
 
 /**
- * loadPkcs12
- * @param {*} uid 
- * @param {*} pkcs12Der 
- * @param {*} password 
- * @param {*} caStore 
+ * 
+ * 
+ * 
+ * 
+ * @param firstname
+ * @returns
+ * 
  */
 	function loadPkcs12(uid, pkcs12Der, password, caStore) {
 	  var pkcs12Asn1 = forge.asn1.fromDer(pkcs12Der);

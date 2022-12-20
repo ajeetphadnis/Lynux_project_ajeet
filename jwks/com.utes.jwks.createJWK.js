@@ -21,8 +21,8 @@ const pem = require("pem");
 
 
 /**
- * Function: getCA_P12_PrivKey
- * Function gets the p12 file
+ * 
+ * 
  * 
  * 
  * @param firstname
@@ -48,8 +48,8 @@ const getCA_P12_PrivKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * Function: getCA_P12_PubKey
- * Function get public key
+ * 
+ * 
  * 
  * 
  * @param firstname
@@ -75,8 +75,8 @@ const getCA_P12_PubKey = async ( uid, filePath, pass ) => {
 
 
 /**
- * Function: genJWK
- * Function generates JW jeys.
+ * 
+ * 
  * 
  * 
  * @param firstname
@@ -171,8 +171,8 @@ async function genJWK (uid, path, pass) {
 
 
 /**
- * Function: verifySigningChain
- * Function verifies the signature
+ * 
+ * 
  * 
  * 
  * @param firstname
@@ -226,7 +226,7 @@ function cert_to_x5c (cert, maxdepth) {
 
 
 /**
- * Function: x5c_to_cert
+ * 
  * 
  * 
  * 

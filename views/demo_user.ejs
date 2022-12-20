@@ -239,6 +239,13 @@ body, html {
 				<div class="w3-row-padding w3-center" style="margin-top: 64px">
 					<div class="w3-quarter">
 						<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+						<p class="w3-large">Full Functionality Free Tier</p>
+						<p>Our cornerstone products can always be downloaded, hosted
+							and productively deployed by you and we wont ask for a single
+							penny.</p>
+					</div>
+					<div class="w3-quarter">
+						<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
 						<p class="w3-large">List of a few in our product line:</p>
 						<p>
 							We develope application such as SOAP and REST services for
@@ -255,10 +262,8 @@ body, html {
 					</div>
 					<div class="w3-quarter">
 						<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-						<p class="w3-large">Raksh.io REST Service as Protocols Exchange Hub:</p>
-						<p> Internet Security Protocols Exchange Hub:
-							The Protocol Exchange Hub provides a dynamic REST service that delivers
-							transformed protocol on demand as described here:
+						<p class="w3-large">Internet Security Protocols:</p>
+						<p>
 							Internet security has achieved great importance, as its vast and encompasses 
 							various aspects associated with internet security:<br> Various security 
 							mechanisms exist for specialized internet services like email, electronic 
@@ -297,8 +302,8 @@ body, html {
 							Secure multi-party computation<br> 
 							<br>
 							raksha.io implements the cryptographic mechanisms required in form of :
-							PKI, OAUTH, SAML2, ECDSA low level protocols. raksha.io runs a demo version of
-							ProtocolExchange REST service Hub. This service can be accessed by any 
+							PKI, OAUTH, SAML2 low level protocols. raksha.io runs a demo version of
+							ProtocolExchange REST service. This service can be accessed by any 
 							without any login at this url pattern:
 							https://utes-dev.phadnis.no/getProtocolTrans?convrt=saml-oauth
 							The url parameter convrt tells the service which type of protocol
@@ -313,26 +318,7 @@ body, html {
 							curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://localhost:20443/getProtocolTrans?convrt=oauth-saml
 						</p>
 					</div>
-					<div class="w3-quarter">
-						<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-						<p class="w3-large">ECDSA For SSL / TLS Certificates & much 
-							more …</p>
-						<p>							
-							ECDSA stands for Elliptic Curve Digital Signature Algorithm. This 
-							algorithm deals with elliptical curve and the mathematics 
-							behind it to provide the cryptography.
-							ECDSA works by selecting a number from an elliptical curve and 
-							then multiplying this by another number which results in a new 
-							point on the curve that makes it incredibly difficult to crack the 
-							new point or in crypto terms the new private key. This makes 
-							ECDSA a lot more complex than the RSA (Rivest Shamir 
-							Aldeman) algorithm that is used in most SSL certificates on the 
-							Internet. At Raksha.io we have IDPs issuing both the types of 
-							SSL /TLS 2 certificates, depending on the client side PKI 
-							environments. ECDSA keys being short, gives distinct advantage 
-							in terms of scalability and performance. ECDSA is referred to 
-							Elliptic curve Cryptography- ECC.</p>
-					</div>
+
 				</div>
 			</div>
 		</div>
@@ -793,99 +779,6 @@ body, html {
 								alert("No user is selected or logged in !!");
 							}
 	    				}        			
-        			</script>
-					</form>
-				</div>
-
-				<div class="w3-card-4 w3-half w3-row-padding" style="width: 100%;">
-					<h2>
-						ECDSA Certificates and Keys For User: <label id="usr14" name="usr14"></label>
-					</h2>
-					<script type="text/javascript"> var usr = getActiveUserSource();
-						alert("ECDSA :   " + usr);
-							document.getElementById("usr14").innerText = usr;
-					</script>
-
-					<form id="ecdsa" action="/getEcDsaKeysCerts" method="POST">
-
-						<br> ECDSA Certificates and Keys Generation:</br> 
-						<div class="w3-container">
-							<select id = "curvType" onchange = "getEcdsaKeysAndCertsAjax()" > 
-								<option> prime256v1 </option>  
-								<option> secp256k1 </option>  
-							</select>
-						</div>
-						<div class="w3-container">
-							<select id = "keyType" onchange = "getEcdsaKeysAndCertsAjax()" > 
-								<option> Private </option>  
-								<option> Public </option>  
-							</select>
-						</div>
-						<div class="w3-container">
-							ECDSA Certificate:
-							<textarea class="textinput" id="eccert" name="eccert"><%- user.srctxt %></textarea>
-						</div>
-
-						<div class="w3-container">
-							<p>Run Create ECDSA Certificates and Keys scenario</p>
-							<button id="but14" class="w3-button w3-black"
-								onclick="getEcdsaKeysAndCertsAjax('ECDSA', 'but14' ,event);">ECDSA</button>
-						</div>
-						<script type="text/javascript">
-							var usr = getActiveUserSource();
-					if (typeof usr !== 'undefined' && usr !== '' && usr !== null) {
-        				function getEcdsaKeysAndCertsAjax(ope, but , event) {
-								alert("getEcdsaKeysAndCertsAjax ---- callled ....!!");
-								//event.preventDefault();
-								var uid = usr;
-								var curVal = document.getElementById("curvType").value;
-								var keyVal = document.getElementById("keyType").value;
-								var udata = {"uid": uid, "ope": curVal, "key": keyVal, "upass": uid};
-								/*var curTxt = document.getElementById("curvType").text;								
-								var keyTxt = document.getElementById("keyType").text;*/
-								//alert("getEcdsaKeysAndCertsAjax:   " + curTxt + '  ' + curVal+ '   ' + keyTxt + '     ' + keyVal + '    ' + dt.fullname);
-								//var dat = document.getElementById("name").value;
-								//var dt = JSON.parse(dat);
-								//var usr = dt.nameIdentifier;
-								//var udata = {"nameIdentifier": usr, "fullname": dt.fullname, "emailAddress": dt.emailAddress, "password": dt.password, "commonName": dt.commonName, "orgName": dt.orgName};
-								//alert("Udata:  " + JSON.stringify(udata));
-									//event.preventDefault();
-									alert("getEcdsaKeysAndCertsAjax: " + usr);            
-									$.ajax({
-										type: 'POST',
-										url: '/getEcDsaKeysCerts',
-										data: {udata: JSON.stringify(udata)} ,
-										success: function(data) {
-											//console.log('message', data.message);
-											alert("message:  " + data.message);
-											if (data.message === 'undefined' || data.message === "" || data.message === null) {
-											document.getElementById("but14").click();
-										}
-										var ecdsaStr = JSON.stringify(data.user.srctxt);
-										ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
-										ecdsaStr = ecdsaStr.replace( /[\"\\\"]+/gm, '' ).trim();//
-										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
-										if (ecdsaStr.charAt(0) === '"' && ecdsaStr.charAt(ecdsaStr.length -1) === '"') {
-												ecdsaStr = ecdsaStr.substr(1,str.length -2);
-												//console.log(ecdsaStr.substr(1,str.length -2));
-										}
-										alert("Cert:  " + ecdsaStr);
-										document.getElementById("eccert").value = ecdsaStr;										
-										},
-										error: function(jqXHR, textStatus, err) {
-											alert(JSON.parse(jqXHR.responseText).error);
-											req.app.use((err, req, res, next) => {
-											if (err && err.code === 'ECONNABORTED') {
-												res.status(400).send(user); // Don't process this error any further to avoid its logging
-											} else
-												next(err);
-											});
-										}
-									});
-								}
-							} else {
-								alert("No user is selected or logged in !!")
-							}			
         			</script>
 					</form>
 				</div>
