@@ -214,7 +214,7 @@ const session = require('express-session');  // session middleware
 			     // await client.close();
 			  }
 		    if (usrStruct == null) {
-		    	console.log("getUserStruct004:  usrStruct is null!");
+		    	console.log("getUserStructMail:004:  usrStruct is null!");
 		    	usrStruct = {};
 		    }
 		//});
