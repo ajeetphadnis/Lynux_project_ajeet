@@ -79,8 +79,9 @@ const oneHr = 1000 * 60 * 60 ;
 	app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 	app.use(bodyParser.urlencoded({ extended: true }));
 	//parse application/vnd.api+json as json
-	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));	
 	app.use(express.static(path.join(__dirname, 'public'))); // 
+	app.use(express.static(path.join(__dirname, 'paperjsv01215')));
 	app.disable('view cache');
 	routes(app);
 	https.createServer(credentials,app).listen(port);
