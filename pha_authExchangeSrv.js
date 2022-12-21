@@ -81,7 +81,7 @@ const oneHr = 1000 * 60 * 60 ;
 	//parse application/vnd.api+json as json
 	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));	
 	app.use(express.static(path.join(__dirname, 'public'))); // 
-	app.use(express.static(path.join(__dirname, 'paperjsv01215/dist')));
+	app.use(express.static(path.join(__dirname, 'paperjsv01215')));
 	app.disable('view cache');
 	routes(app);
 	https.createServer(credentials,app).listen(port);
