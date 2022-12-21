@@ -138,7 +138,7 @@ var newuser = new Users ({
 	 * @param next
 	 * @returns
 	 */
-	function getDemoSamlAssert(uid, req, res, next) {
+	async function getDemoSamlAssert(uid, req, res, next) {
 		// db fetch start
 		console.log("getDemoSamlAssert001: " + uid);
 		if (uid === 'undefined') {
@@ -147,7 +147,8 @@ var newuser = new Users ({
 		}
 		if (uid !== 'undefined' && uid != null) {
 			connMongo(req, res);
-			usrDb.getUserStruct(uid, req, res, next).then(res => {
+			console.log("getDemoSamlAssert:  " + uid);
+			await usrDb.getUserStruct(uid, req, res, next).then(res => {
 				if (uid != null && uid != '') {
 					var data = JSON.stringify(usrStruct);
 					JSON.parse(data, (key, value) => {

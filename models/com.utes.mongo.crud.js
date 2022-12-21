@@ -174,7 +174,8 @@ if(debug) {console.log('mongo database 001:  ');}
 	 * 
 	 */
 	async function getUserStruct(userid, req, res, next) {
-		console.log("getUserStruct001:   called ...." + userid);
+		console.log("crud:  getUserStruct001:   called ...." + userid);
+		client = getMongoClient('');
 		const myDb = client.db('auth_users');
 		const myTab = myDb.collection('users');
 		// Query for a user that has nameIdentifier field value in userid
