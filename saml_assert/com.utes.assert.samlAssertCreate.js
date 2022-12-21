@@ -36,23 +36,27 @@ var signedAssertion = '';
  */
 async function  createSamlAssert(uid, opts, req, res, next) {
 	console.log("createSamlAssert001: " + uid);
-	//console.log("createSamlAssert001: " + JSON.stringify(opts.attributes)); 
-	signedAssertion = saml.create(opts);
-	//console.log("createSamlAssert002: " + signedAssertion); 
-	if(debug) {console.log("createSamlAssert003: " + JSON.stringify(signedAssertion));}
-	var fpath = (__dirname+"\\.\\user_certs\\");
-	//console.log("createSamlAssert002: " + (__dirname+"\\..\\user_certs\\"));
-	//var xmlStr = new XMLSerializer().serializeToString(signedAssertion);
-	//fs.writeFileSync("./user_certs/"+uid+"_signedAssert.xml", signedAssertion, function(err, signedAssertion) {
-		fs.writeFile('./user_certs/'+uid+"_signedAssert.xml", signedAssertion, function(err) {
-	    if (err) {
-	      console.log("createSamlAssert004:err")
-	    } else {
-			console.log("createSamlAssert005:writefile:  success" )
-	      //console.log("createSamlAssert005:Xml file successfully updated.    " + signedAssertion);
-	    }
-	  });
-	  return signedAssertion;
+	if (uid !== 'undefined' || uid !== '' || uid != null) {
+		//console.log("createSamlAssert001: " + JSON.stringify(opts.attributes)); 
+		signedAssertion = saml.create(opts);
+		//console.log("createSamlAssert002: " + signedAssertion); 
+		if(debug) {console.log("createSamlAssert003: " + JSON.stringify(signedAssertion));}
+		var fpath = (__dirname+"\\.\\user_certs\\");
+		//console.log("createSamlAssert002: " + (__dirname+"\\..\\user_certs\\"));
+		//var xmlStr = new XMLSerializer().serializeToString(signedAssertion);
+		//fs.writeFileSync("./user_certs/"+uid+"_signedAssert.xml", signedAssertion, function(err, signedAssertion) {
+			fs.writeFile('./user_certs/'+uid+"_signedAssert.xml", signedAssertion, function(err) {
+			if (err) {
+			console.log("createSamlAssert004:err");
+			} else {
+				console.log("createSamlAssert005:writefile:  success" );
+			//console.log("createSamlAssert005:Xml file successfully updated.    " + signedAssertion);
+			}
+		});
+		return signedAssertion;
+	} else {
+		console.log("createSamlAssert 004:err:  uid is null !!!" );
+	}
 }
 
 

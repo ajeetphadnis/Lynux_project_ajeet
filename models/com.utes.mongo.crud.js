@@ -275,5 +275,5 @@ module.exports.usrdt = usrdt;
 module.exports.usrStruct = usrStruct;
 module.exports.getUserStruct = getUserStruct;
 
-const url = 'mongodb://localhost:27017/auth_users\', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
-getMongoClient(url);
+//const url = 'mongodb://localhost:27017/auth_users\', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
+//getMongoClient(url);
