@@ -10,7 +10,7 @@
  * 
  */
 require('dotenv').config();
-var MongoClient = require('mongodb').MongoClient;
+
 
 var usrdt;
 var usrStruct;
@@ -24,7 +24,7 @@ if (debug === 'true') {
 	debug = null;
 }
 debug = 'true';
-const {MongoClient} = require('mongodb'),
+const MongoClient = require('mongodb').MongoClient,
 	  bodyParser            =  require("body-parser"),
       LocalStrategy         =  require("passport-local"),
       passportLocalMongoose =  require("passport-local-mongoose");
