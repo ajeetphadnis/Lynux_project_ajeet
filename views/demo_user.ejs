@@ -862,13 +862,13 @@ body, html {
 											document.getElementById("but14").click();
 										}
 										var ecdsaStr = JSON.stringify(data.user.srctxt);
-										ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
+										/*ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
 										ecdsaStr = ecdsaStr.replace( /[\"\\\"]+/gm, '' ).trim();//
 										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
 										if (ecdsaStr.charAt(0) === '"' && ecdsaStr.charAt(ecdsaStr.length -1) === '"') {
 												ecdsaStr = ecdsaStr.substr(1,str.length -2);
 												//console.log(ecdsaStr.substr(1,str.length -2));
-										}
+										}*/
 										alert("Cert:  " + ecdsaStr);
 										document.getElementById("eccert").value = ecdsaStr;										
 										},
