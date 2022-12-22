@@ -10,6 +10,8 @@
  * 
  */
 require('dotenv').config();
+var MongoClient = require('mongodb').MongoClient;
+
 var usrdt;
 var usrStruct;
 var client;
@@ -179,7 +181,7 @@ if(debug) {console.log('mongo database 001:  ');}
 	 * @returns
 	 * 
 	 */
-	async function getUserStruct(userid, req, res, next) {
+	async function getUserStruct11(userid, req, res, next) {
 		console.log("crud:  getUserStruct001:   called ...." + userid);
 		//getMongoClient('');
 		if (client) {
@@ -205,6 +207,25 @@ if(debug) {console.log('mongo database 001:  ');}
 	    if(debug) {console.log("getUserStruct005:  " + JSON.stringify(usrStruct));}
 	    if(debug) {console.log(usrStruct );}
 	    return usrStruct;
+	}
+
+
+	function getUserStruct(userid, req, res, next) {
+		var MongoClient = require('mongodb').MongoClient;
+		var url = process.env.DATABASE;
+		if(debug) {console.log("getUserStruct001:  " + userid);}
+		const query = { nameIdentifier: userid };
+	    if(debug) {console.log("getUserStruct002:  called ....");}
+		MongoClient.connect(url, function(err, db) {
+			if (err) throw err;
+			var dbo = db.db("auth_users");
+			dbo.collection("users").findOne({nameIdentifier: userid}, function(err, result) {
+				if (err) throw err;
+				console.log("getUserStruct003:  " + result);
+				db.close();
+				return result;
+			});
+		});
 	}
 
 	
