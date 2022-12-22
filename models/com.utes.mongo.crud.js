@@ -182,9 +182,9 @@ if(debug) {console.log('mongo database 001:  ');}
 		console.log("crud:  getUserStruct001:   called ...." + userid);
 		//getMongoClient('');
 		if (client) {
-			console.log("db client:  not undefined .." );
+			console.log("getUserStruct:db client11:  is defined .." );
 		} else {
-		  console.log("db client:  is undefined .." );
+		  console.log("getUserStruct:db client22:  is undefined .." );
 		}
 
 		const myDb = await client.db('auth_users');
