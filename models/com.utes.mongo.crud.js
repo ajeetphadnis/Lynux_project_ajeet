@@ -216,7 +216,7 @@ if(debug) {console.log('mongo database 001:  ');}
 		if(debug) {console.log("getUserStruct001:  " + userid);}
 		const query = { nameIdentifier: userid };
 	    if(debug) {console.log("getUserStruct002:  called ....");}
-		MongoClient.connect(url, function(err, db) {
+		MongoClient.connect(url, { useUnifiedTopology: true, useNewUrlParser: true }, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db("auth_users");
 			dbo.collection("users").findOne({nameIdentifier: userid}, function(err, result) {
