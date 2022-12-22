@@ -70,13 +70,13 @@ async function connMongoClient1(uri) {
 	}
 
 //connect to database
-function connMongoClient(uri)  {
+async function connMongoClient(uri)  {
      uri = process.env.DATABASE;      
     try{
         	client = new MongoClient(uri, { useUnifiedTopology:  true } , { useNewUrlParser:  true }, { connectTimeoutMS:  30000 }, {  keepAlive:  1000 });
-		 client.connect(function(err) {
-		 	console.log('Connected successfully to server');
-		 });
+			await client.connect(function(err) {
+				console.log('Connected successfully to server');
+			});
 	    return client;
 	 } catch(err) { console.error(err); 
 	 }
