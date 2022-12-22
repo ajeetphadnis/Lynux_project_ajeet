@@ -104,9 +104,9 @@ if(debug) {console.log('mongo database 001:  ');}
 		  return client;	*/
 		  client = await conMongo.connMongoClient();
 		  if (client ) {
-		  	console.log("db client:  not undefined .." );
+		  	console.log("db client11:  not undefined .." );
 		  } else {
-			console.log("db client:  is undefined .." );
+			console.log("db client22:  is undefined .." );
 		  }
 		  return client;
 	}
