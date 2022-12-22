@@ -21,6 +21,7 @@ if (debug === 'true') {
 } else {
 	debug = null;
 }
+debug = 'true';
 const {MongoClient} = require('mongodb'),
 	  bodyParser            =  require("body-parser"),
       LocalStrategy         =  require("passport-local"),
