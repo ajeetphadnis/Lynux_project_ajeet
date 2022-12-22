@@ -206,6 +206,9 @@ var newuser = new Users ({
 					
 					//console.log("getSamlAssert001: " + crAssert.options.cert); 
 					//connMongo(req, res);
+					if (!newuser.nameIdentifier) {
+						newuser.nameIdentifier = uid;
+					}
 					crAssert.createDemoSamlAssert(newuser.nameIdentifier, crAssert.options, req, res, next);
 
 				} else {
