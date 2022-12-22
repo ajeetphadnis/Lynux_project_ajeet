@@ -863,6 +863,7 @@ body, html {
 										}
 										var ecdsaStr = JSON.stringify(data.user.srctxt);
 										ecdsaStr = ecdsaStr.replace(/\n/g, '<br/>').trim();
+										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
 										/*ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
 										ecdsaStr = ecdsaStr.replace( /[\"\\\"]+/gm, '' ).trim();//
 										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
