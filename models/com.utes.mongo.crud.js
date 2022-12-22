@@ -180,7 +180,7 @@ if(debug) {console.log('mongo database 001:  ');}
 	 */
 	async function getUserStruct(userid, req, res, next) {
 		console.log("crud:  getUserStruct001:   called ...." + userid);
-		getMongoClient('');
+		//getMongoClient('');
 		if (client !== 'undefined' || client !== '' || client !== null) {
 			console.log("db client:  not undefined .." );
 		} else {
