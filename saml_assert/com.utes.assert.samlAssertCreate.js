@@ -69,9 +69,9 @@ async function  createSamlAssert(uid, opts, req, res, next) {
  * @returns
  * 
  */
-function  createDemoSamlAssert(uid, opts, req, res, next) {
-	//console.log("Assert2: " + opts.cert); 
-	var signedAssertion = saml.create(opts);
+async function  createDemoSamlAssert(uid, opts, req, res, next) {
+	console.log("createDemoSamlAssert001:   : " + uid); 
+	var signedAssertion = await saml.create(opts);
 	if(debug) {console.log("Assert Demo: " + JSON.stringify(signedAssertion));}
 	//var xmlStr = new XMLSerializer().serializeToString(signedAssertion);
 	fs.writeFileSync("./demo_certs/"+uid+"_signedAssert.xml", signedAssertion, function(err, signedAssertion) {
