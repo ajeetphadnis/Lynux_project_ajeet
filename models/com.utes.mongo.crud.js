@@ -103,7 +103,7 @@ if(debug) {console.log('mongo database 001:  ');}
 		  dbClient = client;
 		  return client;	*/
 		  client = await conMongo.connMongoClient();
-		  console.log("db client:  " + client);
+		  console.log("db client:  " + JSON.stringify(client));
 		  return client;
 	}
 	
