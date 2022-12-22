@@ -192,8 +192,8 @@ if(debug) {console.log('mongo database 001:  ');}
 		const myDb = await client.db('auth_users');
 		const myTab = await myDb.collection('users');
 		// Query for a user that has nameIdentifier field value in userid
-	    const query = { nameIdentifier: userid };
 	    if(debug) {console.log("getUserStruct002:  " + userid);}
+		const query = { nameIdentifier: userid };
 	    if(debug) {console.log("getUserStruct003:  called ....");}
 	    usrStruct = await myTab.findOne(query);
 	    if (usrStruct == null) {
