@@ -181,7 +181,7 @@ if(debug) {console.log('mongo database 001:  ');}
 	 * @returns
 	 * 
 	 */
-	async function getUserStruct11(userid, req, res, next) {
+	async function getUserStruct(userid, req, res, next) {
 		console.log("crud:  getUserStruct001:   called ...." + userid);
 		//getMongoClient('');
 		if (client) {
@@ -210,7 +210,7 @@ if(debug) {console.log('mongo database 001:  ');}
 	}
 
 
-	function getUserStruct(userid, req, res, next) {
+	function getUserStruct22(userid, req, res, next) {
 		var MongoClient = require('mongodb').MongoClient;
 		var url = process.env.DATABASE;
 		if(debug) {console.log("getUserStruct001:  " + userid);}
