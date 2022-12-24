@@ -166,7 +166,8 @@ user = {
 				if (opr === 'SAML-OAuth') {
 					await fs.readFile((filsaml+user.uid+'_signedAssert.xml'), (err, data) => {
 					    if(err) {
-					        throw err;
+					        //throw err;
+							alert(filsaml+user.uid+'_signedAssert.xml ' + "file is not available try later.")
 					    } else {
 							user.srctxt = data.toString('utf8');
 							user.oprf = 'Converting from SAMLToken -> JWT Token';
