@@ -862,9 +862,13 @@ body, html {
 											document.getElementById("but14").click();
 										}
 										var ecdsaStr = JSON.stringify(data.user.srctxt);
-										ecdsaStr = ecdsaStr.replace(/\n/g, '').trim();
+										ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)|\n/g, '').trim();
+										ecdsaStr = ecdsaStr.replace( /[\"\\\"]+/gm, '\r\n' ).trim();//
+										ecdsaStr = ecdsaStr.replace(/^[^\n]/gm, "");
+										ecdsaStr = 'C'+ecdsaStr;
+										/*ecdsaStr = ecdsaStr.replace(/\n/g, '').trim();
 										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
-										/*ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
+										ecdsaStr = ecdsaStr.replace(/(?:\\r\\n)/g, '\r\n').trim();
 										ecdsaStr = ecdsaStr.replace( /[\"\\\"]+/gm, '' ).trim();//
 										ecdsaStr = ecdsaStr.replace(/['"]+/g, '');
 										if (ecdsaStr.charAt(0) === '"' && ecdsaStr.charAt(ecdsaStr.length -1) === '"') {
