@@ -261,7 +261,7 @@ user = {
 							return;
 						} else {
 							//var tmpDt = data.replaceAll("\"", "");
-							var tmpDt = data.replaceAll("^\"|\"$", "");
+							var tmpDt = data.replaceAll("^\"|\"$"/gm, "");
 							var tmpDt1 = tmpDt.replace(/(\r\n|\n|\r)/gm,"");
 							user.srctxt = tmpDt1;
 							if(debug) {console.log("Converter:004: " + user.srctxt);}
