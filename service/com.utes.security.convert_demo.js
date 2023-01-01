@@ -239,6 +239,7 @@ user = {
 						});
 				}
 				if (user.serv === 'X509-OAuth') {
+					console.log("Convert_Demo:X509-OAuth:  " user.uid);
 					filpem = './demo_certs/'+user.uid+'_selfsigned.crt';
 					filPrvKey = './demo_certs/'+user.uid+'_certp12b64.p12';
 					user.newuser.password = user.pass;
