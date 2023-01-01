@@ -11,3 +11,5 @@ temp/
 uploads/
 user_certs/
 user_jwtokens/
+secure_envelop/ApplicationRequest.xml
+JWKSets/
