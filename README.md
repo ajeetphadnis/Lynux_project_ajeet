@@ -4,7 +4,12 @@ At Raksha.io we develope application such as SOAP and REST services for enterpri
 Such as ePeppol transactions, Secure Envelope transactions Enterprise PKI X509 RSA TEST certificate generation
 Enterprise PKI X509 ECDSA TEST certificate generation Enterprise JWKS repositories
 Enterprise JWT, JWE token generation services Enterprise securiy authentication protocol conversions services:
-X509 - SAML, SAML - X509, SAML - OAUTH, OAUTH - SAML, OAUTH - X509, X509 - OAUTH
+  - X509-SAML
+  - SAML-X509 
+  - SAML-OAUTH 
+  - OAUTH-SAML 
+  - OAUTH-X509 
+  - X509-OAUTH
 
 Raksh.io REST Service as Protocols Exchange Hub:
 
