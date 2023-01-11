@@ -93,8 +93,6 @@ than 24 hours.
 UTES in Action:
 
 Raksha.io is committed to secure network infrastructure and web apps and ops. Some UTES Actions are:
-
-    • As it was absolutely necessary for us to use a databased user repo, we have implemented mongodb as database. The
-      schema/models is auth_users and the collection is users. So a user has to register first and then user is able to login.
-  
+  • As it was absolutely necessary for us to use a databased user repo, we have implemented mongodb as database. The
+    schema/models is auth_users and the collection is users. So a user has to register first and then user is able to login.
  
