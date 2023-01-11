@@ -78,7 +78,7 @@ certificates, depending on the client side PKI environments. ECDSA keys being sh
 advantage in terms of scalability and performance. ECDSA is referred to Elliptic curve Cryptography- ECC.
 
 
-UTES Demo: ia raksha.io demo application that renders raksha.io's microservices those enable variout
+UTES Demo: is raksha.io's demo application that renders raksha.io's microservices those enable variout
 crypto protocol endpoints. These protocols could be used or implemented as TLS, DSS, encrypt, decrypt.
 
 The UTES Demo can be started with the following steps:
