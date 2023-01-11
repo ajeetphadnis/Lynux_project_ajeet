@@ -91,18 +91,7 @@ being stored in our database persists for more
 than 24 hours.
 
 UTES in Action:
-Raksha.io is committed to secure network infrastructure and web apps and ops. Some
-UTES Actions are:
-  • As it was absolutely necessary for us to use a databased user repo, we have implemented mongodb as database. The
-    schema/models is auth_users and the collection is users. So a user has to register first and then user is able to login.
-  • user can chose login if s/he is already member of the community. Or Register to become a member and a last option
-    to logout.
-  • After a user has registered successfully, user is navigated to start page. where user can login . When a user is logged in,
-    user is navigated to this protocol converter service page:
-  • The user id is then shown in readonly field on the page and is able to choose protocol operations as desired. The data
-    display has a delay and the user has to repeat the operation to get the data in the page view. Investigating how to
-    solve this.
-  • Demo Development was initiated on 15 Jan 2022 the purpose was to develop a state of art one page app that was 
-    responsive and would run on any device. On 28th Feb. 2022 the project was completed. The features deployed on this
 
+Raksha.io is committed to secure network infrastructure and web apps and ops. Some UTES Actions are:
+  
  
