@@ -104,26 +104,5 @@ UTES Actions are:
     solve this.
   • Demo Development was initiated on 15 Jan 2022 the purpose was to develop a state of art one page app that was 
     responsive and would run on any device. On 28th Feb. 2022 the project was completed. The features deployed on this
-new app are:
-  • The app uses .env file for many key functions, ensure that the file is in the root.
-  • Creating user with minimal inputs:
-  • full name
-  • email
-  • unique id
-  • Creating random user - this feature creates random user with one click
-  • Protocol Exchange Service - includes:
-    • SAML -> OAUTH
-    • OAUTH -> SAML
-    • SAML -> X509
-    • X509 -> SAML
-    • X509 -> OAUTH
-    • OAUTH -> X509
-    • SAML Assert Service
-    • JWKeySet endpoint Service
-    • JWToken endpoint Service
-    • ECDSA Certificate Service
-    • OCSP Service
-    • Secure Envelop Service
-
 
  
