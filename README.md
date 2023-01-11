@@ -12,46 +12,59 @@ Internet Security Protocols Exchange Hub: The Protocol Exchange Hub provides a d
 Various security mechanisms exist for specialized internet services like email, electronic commerce, and payment, wireless internet, etc.
 To provide the security to this internet various protocols have been used like SSL (Secure Socket Layer), TLS ( Transport Layer Security), etc
 Protocols are divided in the following catagories:
-SSL Protocol
-TLS Protocol
-SHTTP
-SET Protocol
-PEM Protocol
-PGP Protocol
-IPSec and VPNs
-SSL and TLS
-Application Transparent Transport Layer Security
-Kerberos
-OSPF authentication
-SNMPv3
-All the above network and web security protocols need
-mechanisms that would implement cyber threat protection
-against the Enterprise web application attacks.
-cryptographic protocol or encryption protocol is an
-abstract or concrete protocol that performs a security-related
-function and applies cryptographic methods, often as sequences
-of cryptographic primitives
-Cryptographic protocols are widely used for secure application-level
-data transport. A cryptographic protocol usually incorporates at
-least some of these aspects:
-Key agreement or establishment
-Entity authentication
-Symmetric encryption and message authentication material construction
-Secured application-level data transport
-Non-repudiation methods
-Secret sharing methods
-Secure multi-party computation
+- SSL Protocol
+- TLS Protocol
+- SHTTP
+- SET Protocol
+- PEM Protocol
+- PGP Protocol
+- IPSec and VPNs
+- SSL and TLS
+- Application Transparent Transport Layer Security
+- Kerberos
+- OSPF authentication
+- SNMPv3
 
-raksha.io implements the cryptographic mechanisms required in form of : PKI, OAUTH, SAML2, ECDSA low level protocols. 
+
+All the above network and web security protocols need mechanisms that would implement cyber threat protection
+against the Enterprise web application attacks.
+cryptographic protocol or encryption protocol is an abstract or concrete protocol that performs a security-related
+function and applies cryptographic methods, often as sequences of cryptographic primitives
+Cryptographic protocols are widely used for secure application-level data transport. A cryptographic protocol 
+usually incorporates at least some of these aspects:
+- Key agreement or establishment
+- Entity authentication
+- Symmetric encryption and message authentication material construction
+- Secured application-level data transport
+- Non-repudiation methods
+- Secret sharing methods
+- Secure multi-party computation
+
+raksha.io implements the cryptographic mechanisms required in form of : 
+  -  PKI
+  -  OAUTH
+  -  SAML2 
+  -  ECDSA 
+  -  low level protocols. 
+
+
 raksha.io runs a demo version of ProtocolExchange REST service Hub. This service can be accessed by any without any 
 login at this url pattern: https://utes-dev.phadnis.no/getProtocolTrans?convrt=saml-oauth The url parameter convrt 
 tells the service which type of protocol transformation is to be performed. Valid parameters are: 
-saml-oauth, saml-x509, oauth-saml, oauth-x509, x509-saml and x509-oauth. 
+  - saml-oauth
+  - saml-x509 
+  - oauth-saml 
+  - oauth-x509 
+  - x509-saml and 
+  - x509-oauth. 
+
+
 Typical client interfaces are cURL and Postman. Example of Postman : 
-configure a https - POST method with the url. Set Accept header to application/json. 
-Paste client cert or token in the body of the request. Example of cURL : 
-curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt_test.jwt 
---header 'Accept: application/json' -X POST -k https://localhost:20443/getProtocolTrans?convrt=oauth-saml
+  1. configure a https - POST method with the url. Set Accept header to application/json. 
+  2. Paste client cert or token in the body of the request. Example of cURL : 
+    - curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt_test.jwt 
+    -   --header 'Accept: application/json' -X POST -k https://localhost:20443/getProtocolTrans?convrt=oauth-saml
+
 
 ECDSA For SSL / TLS Certificates & much more …
 
