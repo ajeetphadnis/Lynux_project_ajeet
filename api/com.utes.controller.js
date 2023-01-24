@@ -21,7 +21,7 @@ var jwtUtils = require('../jwks/com.utes.jwks.jwe.createJWT');
 var ocspUtils = require('../x509_utils/com.utes.verify.p12.verifyClientCerts');
 var clntSecureEnv = require('../secure_envelop/com.utes.secure.env');
 var protocolTrans = require('../protocolservice/com.utes.protocol.exchange');
-var ecdsaUtils = require('../ecdsa_keycerts/com.utes.ec.ecdsa.crKeyCerts');
+var ecdsaUtils = require('../ecdsa_keycerts/com.utes.ec.ecdsa.CA_Certs');
 
 
 
