@@ -61,6 +61,17 @@ if (debug === 'true') {
 } else {
 	debug = null;
 }
+
+var newuser = new Users ({
+  nameIdentifier: '',
+  emailAddress: '',
+  fullname: '',
+  commonName: '',
+  orgName: '',
+  password: '',
+  mobilePhone: '',
+  groups: '',
+});
 //     var dn = "//C=NO\ST=Akershus\L=Oslo\O=UTES.Com\OU=UTES-CA\CN=utes.com\emailAddress=ap@phadnis.no";
 // ejs data to be sent
 var user = {
