@@ -200,6 +200,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
       await exec(`openssl req -x509 -new -sha256 -nodes -key ${keypath} -subj /CN=${cn}/C=${c}/O=${o}/ST=${st}/L=${l}/OU=${ou}/emailAddress=${emailAdd} -addext  "subjectAltName=DNS:utes.phadnis.com"  -addext "certificatePolicies = 1.2.3.4" \ -out ${servfil} -days 730`, function (err, buffer) {  
       console.log(err, buffer.toString());
     });
+    await checkFileExist(servfil);
     await showECDSACert(user, servfil );
 }
 
@@ -577,6 +578,6 @@ exports.createEcDsaCASignedClientCert = createEcDsaCASignedClientCert;
 //createEcDsaCert('ajeet', '', '', '');
 //crEcdsaP7B('', '', 'ajeet');
 //crAsn1Eckeys('amar', 'prime256v1', 'ecdsaKeyCerts/', 'Private');
-//createEcDsaCACert('CA_ROOT', 'prime256v1', 'Private', 356, '');
+createEcDsaCACert('CA_ROOT', 'prime256v1', 'Private', 356, '');
 //createEcDsaClientCert('Doub-Host', 'prime256v1', 'Private', 356, '');
 //createEcDsaCASignedClientCert('PHADNIS-Host', 'prime256v1', 'Private', 356, '');
