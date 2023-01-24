@@ -258,6 +258,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
   });
   await checkFileExist(clientSignedCert);
   await showECDSACert(user, clientSignedCert );
+  await checkFileExist(keypath);
   await crEcdsaP12(keypath, clientSignedCert, user);
 }
 
