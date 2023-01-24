@@ -303,26 +303,26 @@ async function showECDSACert(user, certFil ) {
         // parse application/json
         req.app.use(bodyParser.json());
 				console.log('getEcDsaKeysCerts: POST');
-                var dat = JSON.stringify(req.body.udata);
-                console.log('getEcDsaKeysCerts: POST2:    ' + dat);
-                try {
-                  if (typeof dat !== 'undefined' && dat !== null && dat !== '') {
-                      dat = dat.replace(/\\/g, '');
-                      dat = dat.slice(1, -1);
-                      console.log('getEcDsaKeysCerts: POST3:  ' + dat);
-                      var uid = '';
-                      var curvType = '';
-                      var keyType = '';
-                      var pas = '';
-                      JSON.parse(dat, (key, value) => {
-                          if (typeof value === 'string') {
-                            if(key === 'uid') uid = value;
-                            if(key === 'ope') curvType = value;
-                            if(key === 'key') keyType = value;
-                            if(key === 'upass') pas = value;
-                          }
-                          console.log("vals:  " + uid + '   ' + keyType + '   ' + pas);
-                        });
+            var dat = JSON.stringify(req.body.udata);
+            console.log('getEcDsaKeysCerts: POST2:    ' + dat);
+            try {
+              if (typeof dat !== 'undefined' && dat !== null && dat !== '') {
+                  dat = dat.replace(/\\/g, '');
+                  dat = dat.slice(1, -1);
+                  console.log('getEcDsaKeysCerts: POST3:  ' + dat);
+                  var uid = '';
+                  var curvType = '';
+                  var keyType = '';
+                  var pas = '';
+                  JSON.parse(dat, (key, value) => {
+                      if (typeof value === 'string') {
+                        if(key === 'uid') uid = value;
+                        if(key === 'ope') curvType = value;
+                        if(key === 'key') keyType = value;
+                        if(key === 'upass') pas = value;
+                      }
+                      console.log("vals:  " + uid + '   ' + keyType + '   ' + pas);
+                    });
                   //}
                     if (uid) {
                         txtfil = txtfil+uid+'_srv.txt';
