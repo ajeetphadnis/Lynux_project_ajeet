@@ -392,12 +392,12 @@ async function showECDSACert(user, certFil ) {
      * @param {*} user 
      */
     async function crEcdsaP12(pkeyfil, certfil, user) {
-        var keyfil = user+'.pem';
-        //var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/srv_'+keyfil;
-        //var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+keyfil;
+        var keyfil = user+'_hostkey.pem';
+        var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
+        var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+keyfil;
         var pfxpath = 'ecdsaKeyCerts/'+user+'_srv.p12';
         
-        exec(`openssl pkcs12 -export -inkey  ${pkeyfil}  -in ${certfil} -passout pass:${user} -out ${pfxpath} `, function (err, buffer) {  
+        exec(`openssl pkcs12 -export -inkey  ${keypath}  -in ${servfil} -passout pass:${user} -out ${pfxpath} `, function (err, buffer) {  
             console.log(err, buffer.toString());
         });
     }
