@@ -295,6 +295,7 @@ async function crAsn1Eckeys(user, curvType, path, type) {
              parameters: toOIDArray('1.2.840.10045.3.1.7')
            }, 'pem', { label: 'EC PRIVATE KEY' });
            fs.writeFileSync((path+'/'+user+'_hostkey.pem'), pemKey, 'utf8');
+           await checkFileExist(path+'/'+user+'_hostkey.pem');
            console.log("privatekey:  " + pemKey);
            return pemKey;
          } else if (type === 'Private' && curvType === 'secp256k1') {
