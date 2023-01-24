@@ -544,7 +544,7 @@ exports.crAsn1Eckeys = crAsn1Eckeys;
 exports.crEcdsaPfx = crEcdsaPfx;
 exports.crEcdsaP12 = crEcdsaP12;
 exports.crEcdsaP7B = crEcdsaP7B;
-//exports.getEcDsaKeysCerts = getEcDsaKeysCerts;
+exports.getEcDsaKeysCerts = getEcDsaKeysCerts;
 exports.createEcDsaClientCert = createEcDsaClientCert;
 exports.createEcDsaCASignedClientCert = createEcDsaCASignedClientCert;
 //createEcDsaPrivateKey('', '');
