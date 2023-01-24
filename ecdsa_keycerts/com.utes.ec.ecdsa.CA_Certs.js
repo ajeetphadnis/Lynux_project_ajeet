@@ -479,7 +479,8 @@ async function showECDSACert(user, certFil ) {
                             cl = 'na';
                             ll = 'na';
                         console.log("getEcDsaKeysCerts: POST:   " + cnl);
-                        await createEcDsaCert(cnl, curvType, keyType, '', '');
+                        await createEcDsaCASignedClientCert(cnl, curvType, keyType, 356, '');
+                        //await createEcDsaCert(cnl, curvType, keyType, '', '');
                         req.app.session = req.session;
                         req.app.session.uid = req.body.uid;
                         req.app.session.upw = req.body.uid;
@@ -552,4 +553,4 @@ exports.createEcDsaCASignedClientCert = createEcDsaCASignedClientCert;
 //crAsn1Eckeys('amar', 'prime256v1', 'ecdsaKeyCerts/', 'Private');
 //createEcDsaCACert('CA_ROOT', 'prime256v1', 'Private', 356, '');
 //createEcDsaClientCert('Doub-Host', 'prime256v1', 'Private', 356, '');
-createEcDsaCASignedClientCert('PHADNIS-Host', 'prime256v1', 'Private', 356, '');
+//createEcDsaCASignedClientCert('PHADNIS-Host', 'prime256v1', 'Private', 356, '');
