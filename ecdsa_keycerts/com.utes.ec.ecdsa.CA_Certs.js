@@ -218,7 +218,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
   var keyfil = user+'.pem';
   var csrfil = 'ecdsaKeyCerts/'+user+'_host.csr';
   var keypath = 'ecdsaKeyCerts/'+user+'_hostkey.pem';
-  var ppkey = await crAsn1Eckeys(user, curvType, 'ecdsaKeyCerts/', keyType);  // 1. prime256v1, 2. secp256k1
+  var ppkey = await crAsn1Eckeys(user, curvType, 'ecdsaKeyCerts', keyType);  // 1. prime256v1, 2. secp256k1
   var dn = "//C=NO\ST=Akershus\L=Oslo\O=UTES.Com\OU=UTES-CA\CN=utes.com\emailAddress=ap@phadnis.no";
   //console.log("vars:  " + c + "   " + cn);
 
@@ -294,6 +294,7 @@ async function crAsn1Eckeys(user, curvType, path, type) {
              // parameters: toOIDArray('1.3.36.3.3.2.8.1.1.14')
              parameters: toOIDArray('1.2.840.10045.3.1.7')
            }, 'pem', { label: 'EC PRIVATE KEY' });
+           //console.log("PrivateKey:  " + pemKey);
            fs.writeFileSync((path+'/'+user+'_hostkey.pem'), pemKey, 'utf8');
            await checkFileExist(path+'/'+user+'_hostkey.pem');
            console.log("privatekey:  " + pemKey);
