@@ -190,7 +190,7 @@ function toOIDArray(oid) {
 async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr) {
     var keyfil = user+'.pem';
     var servfil = 'ecdsaKeyCerts/'+user+'_srv.cer';
-    var keypath = 'ecdsaKeyCerts/'+user+'_key.pem';
+    var keypath = 'ecdsaKeyCerts/'+user+'_hostkey.pem';
     var ppkey = await crAsn1Eckeys(user, curvType, 'ecdsaKeyCerts/', keyType);  // 1. prime256v1, 2. secp256k1
     var dn = "//C=NO\ST=Akershus\L=Oslo\O=UTES.Com\OU=UTES-CA\CN=utes.com\emailAddress=ap@phadnis.no";
     //console.log("vars:  " + c + "   " + cn);
