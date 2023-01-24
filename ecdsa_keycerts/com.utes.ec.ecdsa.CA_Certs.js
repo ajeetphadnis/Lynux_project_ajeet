@@ -115,6 +115,19 @@ var passl = '';
   });
 }
 
+/**
+	 * connMongo: 
+	 * @param req
+	 * @param res
+	 * @returns
+	 */
+ function connMongo(req, res) {
+  // Connection URL
+    const url = 'mongodb://localhost:27017/auth_users\', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}';
+    usrDb.getMongoClient(url);		
+};
+
+
 
 /**
  * Function: toOIDArray
