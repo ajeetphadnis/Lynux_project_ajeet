@@ -217,8 +217,8 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
  */
  async function createEcDsaClientCert(user, curvType, keyType, validityTime, pkeyStr) {
   var keyfil = user+'.pem';
-  var csrfil = 'ecdsaKeyCerts/'+user+'_host.csr';
-  var keypath = 'ecdsaKeyCerts/'+user+'_hostkey.pem';
+  var csrfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.csr';
+  var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_hostkey.pem';
   var ppkey = await crAsn1Eckeys(user, curvType, 'ecdsa_keycerts/ecdsaKeyCerts/', keyType);  // 1. prime256v1, 2. secp256k1
   var dn = "//C=NO\ST=Akershus\L=Oslo\O=UTES.Com\OU=UTES-CA\CN=utes.com\emailAddress=ap@phadnis.no";
   //console.log("vars:  " + c + "   " + cn);
@@ -246,11 +246,11 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
  */
  async function createEcDsaCASignedClientCert(user, curvType, keyType, validityTime, pkeyStr) {
   var keyfil = user+'.pem';
-  var csrfil = 'ecdsaKeyCerts/'+user+'_host.csr';
-  var caCert = 'ecdsaKeyCerts/CA_ROOT_srv.cer';
-  var caKey  = 'ecdsaKeyCerts/CA_ROOT_key.pem';
-  var clientSignedCert = 'ecdsaKeyCerts/' + user + '_host.cer';
-  var keypath = 'ecdsaKeyCerts/'+user+'_hostkey.pem';
+  var csrfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.csr';
+  var caCert = 'ecdsa_keycerts/ecdsaKeyCerts/CA_ROOT_srv.cer';
+  var caKey  = 'ecdsa_keycerts/ecdsaKeyCerts/CA_ROOT_hostkey.pem';
+  var clientSignedCert = 'ecdsa_keycerts/ecdsaKeyCerts/' + user + '_host.cer';
+  var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_hostkey.pem';
   await createEcDsaClientCert(user, curvType, keyType, validityTime, pkeyStr);
   // openssl x509 -req -sha256 -days 730 -in host.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out host.crt
     await exec(`openssl x509 -req -sha256 -days 730 -in ${csrfil} -CA ${caCert} -CAkey ${caKey} -CAcreateserial -out ${clientSignedCert} -days 730`, function (err, buffer) {  
@@ -335,8 +335,8 @@ async function crAsn1Eckeys(user, curvType, path, type) {
  * @param {*} certFil 
  */
 async function showECDSACert(user, certFil ) {
-    var servfil = 'ecdsaKeyCerts/'+user+'_srv.cer';
-    var txtfil = 'ecdsaKeyCerts/'+user+'_srv.txt';
+    var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
+    var txtfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.txt';
     //await exec(`openssl req -out ${txtfil} -text -in ${certFil} `, function (err, buffer) {
     await checkFileExist(certFil); 
     await exec(`openssl x509 -in ${certFil} -text -out ${txtfil} `, async function (err, buffer) {  
@@ -352,9 +352,9 @@ async function showECDSACert(user, certFil ) {
  * @param {*} certFil 
  */
  async function showECDSAClientCert(user, certFil ) {
-  var servfil = 'ecdsaKeyCerts/'+user+'_host.csr';
-  var servfilpem = 'ecdsaKeyCerts/'+user+'_host.cer';
-  var txtfil = 'ecdsaKeyCerts/'+user+'_csr.txt';
+  var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.csr';
+  var servfilpem = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.cer';
+  var txtfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_csr.txt';
   await checkFileExist(certFil);
   await exec(`openssl req -out ${txtfil} -text -in ${certFil} `, async function (err, buffer) {  
       console.log(err, buffer.toString());
@@ -392,10 +392,10 @@ async function showECDSACert(user, certFil ) {
      * @param {*} user 
      */
     async function crEcdsaP12(pkeyfil, certfil, user) {
-        var keyfil = user+'_hostkey.pem';
+        var keyfil = user+'_key.pem';
         var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
         var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+keyfil;
-        var pfxpath = 'ecdsaKeyCerts/'+user+'_srv.p12';
+        var pfxpath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.p12';
         
         exec(`openssl pkcs12 -export -inkey  ${keypath}  -in ${servfil} -passout pass:${user} -out ${pfxpath} `, function (err, buffer) {  
             console.log(err, buffer.toString());
