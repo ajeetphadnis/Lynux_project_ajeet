@@ -1,3 +1,7 @@
+/**
+ * Module: com.utes.protocol.exchange
+ */
+
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
@@ -22,8 +26,11 @@ const parseCurl = require('./parseCurlData');
 var nID = '';
 
 /**
-     *
-     */
+ * Function : getProtocolTrans
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
     async function getProtocolTrans(req, res, next) {
         try {
           if (req.method === 'GET' && req.method !== 'POST') {

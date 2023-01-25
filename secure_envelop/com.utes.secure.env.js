@@ -417,7 +417,7 @@ var debug = process.env.DEBUG1;
 	}
 
 
-		/**
+	/**
 	 * processForm : analyses the user p12 file and then extracts
 	 * private key and public certificate and uses them to create
 	 * secure envelop and signs it.
@@ -554,7 +554,7 @@ var debug = process.env.DEBUG1;
 
 
 	/**
-	 * 
+	 * Function: getKeyInfo
 	 * @returns
 	 */
 	function getKeyInfo() {
@@ -573,7 +573,7 @@ var debug = process.env.DEBUG1;
 
 	
 	/**
-	 * 
+	 * Function: signXml
 	 * @param xml
 	 * @param xpath
 	 * @param key
@@ -601,7 +601,7 @@ var debug = process.env.DEBUG1;
 
 	
 	/**
-	 * 
+	 * Function: validateXml
 	 * @param xml1
 	 * @param key
 	 * @returns

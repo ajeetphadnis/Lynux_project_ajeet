@@ -1,4 +1,7 @@
-// Consumes one or more AMQP Queues and saves messages to MongoDB collection
+/**
+ * Module: com.utes.rabbit.amqp2mongo
+ *  Consumes one or more AMQP Queues and saves messages to MongoDB collection
+ */
 'use strict'
 
 const _ = require('lodash')
@@ -27,6 +30,11 @@ if (!queueNames.length) {
 }
 
 //connect to database
+/**
+ * Function: getMongoClient
+ * @param {*} uri 
+ * @returns 
+ */
 async function getMongoClient(uri) {
   /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
@@ -167,10 +175,11 @@ function finalTranslate (base) {
   return base
 }
 
-// Converts Buffer to a string, altering contentEncoding as appropriate
+
 /**
  * Function: convertContent
  * This function converts the content to desired format
+ * Converts Buffer to a string, altering contentEncoding as appropriate
  * @param {*} buff 
  * @param {*} props 
  * @returns 

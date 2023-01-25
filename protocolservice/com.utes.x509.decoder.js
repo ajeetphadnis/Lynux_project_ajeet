@@ -89,6 +89,11 @@ var options = new Object();
 }
 
 // Slice and Stitch
+/**
+ * Function:  remove_linebreaks_ss
+ * @param {*} str 
+ * @returns 
+ */
 function remove_linebreaks_ss( str ) {
     var newstr = "";
       
@@ -99,7 +104,12 @@ function remove_linebreaks_ss( str ) {
     return newstr;
 } 
 
-
+/**
+ * Function:  verifyDecodeX509Cert
+ * @param {*} certStr 
+ * @param {*} mode 
+ * @returns 
+ */
 async function verifyDecodeX509Cert(certStr, mode) {
     try {
         //var certs = certStr.replace(/[\r\n]+/gm, "");

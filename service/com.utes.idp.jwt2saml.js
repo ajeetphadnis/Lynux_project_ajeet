@@ -45,7 +45,7 @@ if (debug === 'true') {
 }
 
 /**
- * 
+ * Function: readFile (promised)
  * 
  * 
  * 
@@ -68,7 +68,7 @@ const readFile = (filePath, encoding) => {
 
 
 /**
- * 
+ * Function: jwt2IdpSaml
  * 
  * 
  * 

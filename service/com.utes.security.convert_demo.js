@@ -73,7 +73,7 @@ user = {
 
 
 	/**
-	 * 
+	 * Function: sleep (promised)
 	 * @param ms
 	 * @returns
 	 */
