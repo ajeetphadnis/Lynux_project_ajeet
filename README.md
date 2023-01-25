@@ -1,9 +1,9 @@
 # raksha
 
-At Raksha.io we develope application such as SOAP and REST services for enterprise partners document exchanges:
-Such as ePeppol transactions, Secure Envelope transactions Enterprise PKI X509 RSA TEST certificate generation
-Enterprise PKI X509 ECDSA TEST certificate generation Enterprise JWKS repositories
-Enterprise JWT, JWE token generation services Enterprise securiy authentication protocol conversions services:
+At Raksha.io we develope application such as SOAP and REST services for enterprise partners, document exchanges apps:
+Such as ePeppol transactions, Secure Envelope transactions, Enterprise PKI X509 RSA TEST certificate generation,
+Enterprise PKI X509 ECDSA TEST certificate generation, Enterprise JWKS stores / repositories,
+Enterprise JWT, JWE token generation services, Enterprise securiy authentication protocol conversions services:
   - X509-SAML
   - SAML-X509 
   - SAML-OAUTH 
@@ -39,7 +39,7 @@ Cryptographic protocols are widely used for secure application-level data transp
 usually incorporates at least some of these aspects:
 - Key agreement or establishment
 - Entity authentication
-- Symmetric encryption and message authentication material construction
+- Symmetric / asymmetirc  encryption and message authentication material construction
 - Secured application-level data transport
 - Non-repudiation methods
 - Secret sharing methods
@@ -120,7 +120,7 @@ Raksha.io is committed to secure network infrastructure and web apps and ops. So
   * The user id is then shown in readonly field on the page and is able to choose protocol operations as desired. The data
     display has a delay and the user has to repeat the operation to get the data in the page view. Investigating how to
     solve this.
-  * Demo Development was initiated on 15 Jan 2022 the purpose was to develop a state of art one page app that was 
+  * Demo Development was initiated on 15 April 2020 the purpose was to develop a state of art one page app that was 
     responsive and would run on any device. On 28th Feb. 2022 the project was completed. The features deployed on this
 new app are:
   * The app uses .env file for many key functions, ensure that the file is in the root.
