@@ -310,7 +310,7 @@ async function crAsn1Eckeys(user, curvType, path, type) {
             privateKey: ecdh.getPrivateKey(),
             // OID for brainpoolP512t1
             // parameters: toOIDArray('1.3.36.3.3.2.8.1.1.14')
-            parameters: toOIDArray('1.2.840.10045.3.1.7')
+            parameters: toOIDArray('1.3.132.0.10')
           }, 'pem', { label: 'EC PRIVATE KEY' });
           fs.writeFileSync((path+'/'+user+'_hostkey.pem'), pemKey, 'utf8');
           console.log("privatekey:  " + pemKey);
