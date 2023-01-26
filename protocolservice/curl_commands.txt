@@ -36,7 +36,8 @@
 
             // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest1.xml --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=saml-x509
             // curl -s -o response.txt -w "%{http_code}" -F file=@samlTest1.xml --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=saml-oauth
+			
+			curl -s -o response.txt -w "%{http_code}" -F file=@./protoExchangeTokens/saml2jwt__ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7.jwt --header 'Accept: application/json' -X POST -k https://phadnis.no/getProtocolTrans?convrt=oauth-x509
 
+			curl -s -o response.txt -w "%{http_code}" -F file=@./protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://phadnis.no/getProtocolTrans?convrt=oauth-saml
 
-            // curl -s -o response.txt -w "%{http_code}"  -F file=@saml01@salesforce.com_selfsigned.crt  --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=x509-saml
-            // curl -s -o response.txt -w "%{http_code}"  -F file=@saml01@salesforce.com_selfsigned.crt  --header 'Accept: application/json' -X POST -k https://pratham001:20443/getProtocolTrans?convrt=x509-oauth
