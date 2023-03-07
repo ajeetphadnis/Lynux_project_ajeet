@@ -1,10 +1,16 @@
-// import libraries
+/**
+ * Module: 
+ * import libraries
+ */ import libraries
 const forge = require('node-forge');
 const crypto = require('crypto');
 const fs = require('fs');
 const pki = forge.pki;
 
 
+/**
+ * Function: genX509CertWithSubjAltName
+ */
 async function genX509CertWithSubjAltName() {
     // generate a keypair and create an X.509v3 certificate
     var keys = pki.rsa.generateKeyPair(2048);

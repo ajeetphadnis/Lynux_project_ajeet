@@ -48,14 +48,17 @@ var DUMP_PRIVATE_KEY1 = '-----BEGIN PRIVATE KEY-----'+
 
 
 /**
+ * Function: getCA_P12_PrivateKey
  * 
  * 
  * 
- * 
- * @param firstname
+ * @param uid
+ * @param filePath
+ * @param pass
  * @returns
  * 
  */
+
 	function getCA_P12_PrivateKey ( uid, filePath, pass ) {
 	    // Read file in binary contents
 	    console.log("loadCA_P12Cert001: ");
@@ -75,13 +78,13 @@ var DUMP_PRIVATE_KEY1 = '-----BEGIN PRIVATE KEY-----'+
 
 	
 	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * @param firstname
-	 * @returns
-	 * 
+	 * Function: pem2jwks
+	 * @param {*} uid 
+	 * @param {*} filjwt 
+	 * @param {*} pass 
+	 * @param {*} req 
+	 * @param {*} res 
+	 * @param {*} next 
 	 */
 	async function pem2jwks (uid, filjwt, pass, req, res, next) {
 		DUMP_PRIVATE_KEY = getCA_P12_PrivateKey (uid,  './user_certs/'+uid+'_certp12b64.p12', pass );

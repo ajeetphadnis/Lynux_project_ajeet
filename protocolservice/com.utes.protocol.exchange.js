@@ -1,3 +1,7 @@
+/**
+ * Module: com.utes.protocol.exchange
+ */
+
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
@@ -22,8 +26,11 @@ const parseCurl = require('./parseCurlData');
 var nID = '';
 
 /**
-     *
-     */
+ * Function : getProtocolTrans
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
     async function getProtocolTrans(req, res, next) {
         try {
           if (req.method === 'GET' && req.method !== 'POST') {
@@ -65,7 +72,7 @@ var nID = '';
             // curl -F file=@samlTest2_signedAssertion.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
             // curl -F file=@samlTest3signedMessage.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
             // curl -F file=@samlTest4signedMsgAssrt.xml http://localhost:3000/protocoltrans?convrt=saml-oauth
-            // curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt__ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7.jwt --header 'Accept: application/json'  http://localhost:3000/protocoltrans?convrt=oauth-x509
+            // curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt__ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7.jwt --header 'Accept: application/json' -X POST -k http://localhost:3000/getProtocolTrans?convrt=oauth-x509
             // curl -s -o response.txt -w "%{http_code}" -F file=@../protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://localhost:20443/getProtocolTrans?convrt=oauth-saml
             // Invoke-WebRequest : A parameter cannot be found that matches parameter name 'F'.
             // Remove-item alias:curl

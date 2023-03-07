@@ -309,9 +309,14 @@ body, html {
 							configure a https - POST method with the url. Set Accept 
 							header to application/json. Paste client cert or token in the
 							body of the request. 
-							Example of cURL :
-							curl -s -o response.txt -w "%{http_code}" -F file=@saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://localhost:20443/getProtocolTrans?convrt=oauth-saml
-						</p>
+							In the examples below curl picks the certificate or token file from 
+							the specified location for example : ./protoExchangeTokens/</p>
+							<p>
+							Examples of cURL :</p>
+							<p>curl -s -o response.txt -w "%{http_code}" -F file=@./protoExchangeTokens/saml2jwt__ce3d2948b4cf20146dee0a0b3dd6f69b6cf86f62d7.jwt --header 'Accept: application/json' -X POST -k https://phadnis.no/getProtocolTrans?convrt=oauth-x509</p>
+							<p>curl -s -o response.txt -w "%{http_code}" -F file=@./protoExchangeTokens/saml2jwt_test.jwt --header 'Accept: application/json'  -X POST -k https://phadnis.no/getProtocolTrans?convrt=oauth-saml</p>
+							<p></p>The above commands will write a response.txt file in command executed directory if permissions
+							are granted.</p>
 					</div>
 					<div class="w3-quarter">
 						<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
@@ -331,7 +336,9 @@ body, html {
 							SSL /TLS 2 certificates, depending on the client side PKI 
 							environments. ECDSA keys being short, gives distinct advantage 
 							in terms of scalability and performance. ECDSA is referred to 
-							Elliptic curve Cryptography- ECC.</p>
+							Elliptic curve Cryptography- ECC.
+							Raksh.io supports supports sepc256k1 (Koblitz),  sepc256r1 (random) 
+							and prime256v1 EC types.</p>
 					</div>
 				</div>
 			</div>

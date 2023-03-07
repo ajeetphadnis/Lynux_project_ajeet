@@ -32,7 +32,7 @@ if (debug === 'true') {
 
 
 //create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: true })
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 const zipCodeURL = './views/index.html'; 
 
 	/**

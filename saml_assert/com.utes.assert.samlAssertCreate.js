@@ -26,7 +26,7 @@ if (debug === 'true') {
 var signedAssertion = '';
 
 /**
- * 
+ * Function:  createSamlAssert
  * 
  * 
  * 
@@ -62,7 +62,7 @@ async function  createSamlAssert(uid, opts, req, res, next) {
 
 /**
  * 
- * 
+ * Function:  createDemoSamlAssert
  * 
  * 
  * @param firstname

@@ -1,5 +1,5 @@
 /**
- *
+ *  Module: com.utes.protocol.exchange_server
  */
  const formidable = require("formidable");
  var DOMParser = require('xmldom').DOMParser;
@@ -83,6 +83,11 @@ app.use(function (req, res, next) {
   // START: line remove functions
 
   // Transform sctreamer to remove first line
+  /**
+   * Function:  RemoveFirstLine
+   * @param {*} args 
+   * @returns 
+   */
   function RemoveFirstLine(args) {
       if (! (this instanceof RemoveFirstLine)) {
           return new RemoveFirstLine(args);

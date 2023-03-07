@@ -44,11 +44,11 @@ var pki = forge.pki;
 var client;
 
 /**
+ * Function: toPositiveHex
  * 
  * 
  * 
- * 
- * @param firstname
+ * @param hexString
  * @returns a hexString is considered negative if it's most significant bit is 1
  *          because serial numbers use ones' complement notation this RFC in
  *          section 4.1.2.2 requires serial numbers to be positive
@@ -68,11 +68,11 @@ function toPositiveHex(hexString){
 
 
 /**
+ * Function: randomSerialNumber
  * 
  * 
  * 
- * 
- * @param firstname
+ * @param 
  * @returns
  * 
  */
@@ -82,11 +82,11 @@ function randomSerialNumber () {
 
 
 /**
+ * Function: getHexSerialNr
  * 
  * 
  * 
- * 
- * @param firstname
+ * @param length
  * @returns
  * 
  */
@@ -99,13 +99,14 @@ function getHexSerialNr(length) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: createUserSelfSignedCert
+ * @param {*} uid 
+ * @param {*} text 
+ * @param {*} data 
+ * @param {*} pass 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
  */
 async function createUserSelfSignedCert(uid, text, data, pass, req, res, next) {
 	var password = pass;
@@ -316,13 +317,11 @@ async function createUserSelfSignedCert(uid, text, data, pass, req, res, next) {
 
 
 /**
- * 
- * 
- * 
- * 
- * @param firstname
- * @returns
- * 
+ * Function: loadPkcs12
+ * @param {*} uid 
+ * @param {*} pkcs12Der 
+ * @param {*} password 
+ * @param {*} caStore 
  */
 	function loadPkcs12(uid, pkcs12Der, password, caStore) {
 	  var pkcs12Asn1 = forge.asn1.fromDer(pkcs12Der);

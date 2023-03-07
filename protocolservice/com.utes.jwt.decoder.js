@@ -14,33 +14,33 @@
 
 
 require('dotenv').config();
-const xmlParser 		  = require('xml2js'),
-parseString 		  	  = require('xml2js').parseString,
-//stripPrefix 			  = require('xml2js').processors.stripPrefix;
-fs 						  = require('fs'),
-JWT 				  	  = require('jsonwebtoken'),
-xmlParser1 				  = require('xml2json'),
-formatXml 				  = require('xml-formatter'),
-bodyParser 				  = require('body-parser');
-var buffer 				  = require('buffer/').Buffer;
-var stripPrefix 		  = require('xml2js').processors.stripPrefix;
+const xmlParser = require('xml2js'),
+    parseString = require('xml2js').parseString,
+    //stripPrefix 			  = require('xml2js').processors.stripPrefix;
+    fs = require('fs'),
+    JWT = require('jsonwebtoken'),
+    xmlParser1 = require('xml2json'),
+    formatXml = require('xml-formatter'),
+    bodyParser = require('body-parser');
+var buffer = require('buffer/').Buffer;
+var stripPrefix = require('xml2js').processors.stripPrefix;
 var DOMParser = require('xmldom').DOMParser;
 var XMLSerializer = require('xmldom').XMLSerializer;
 //bodyParser.urlencoded({ extended: true }); 
-const Users =  require("../models/com.utes.auth.users");
+const Users = require("../models/com.utes.auth.users");
 const demoCert = require('../x509_utils/com.utes.security.createDemoSelfSignedCert');
 var crAssert = require('../saml_assert/com.utes.assert.samlAssertCreate');
 
 var debug = process.env.DEBUG10;
- if (debug === 'true') {
-     debug = 'true';
- } else {
-     debug = null;
- }
+if (debug === 'true') {
+    debug = 'true';
+} else {
+    debug = null;
+}
 
- var samlt = '';
+var samlt = '';
 
- var newuser = new Users ({
+var newuser = new Users({
     nameIdentifier: '',
     emailAddress: '',
     fullname: '',
@@ -55,7 +55,12 @@ var pemcert = '';
 
 
 
-
+/**
+ * Function: parseJwt
+ * @param {*} token 
+ * @param {*} mode 
+ * @returns 
+ */
 async function parseJwt(token, mode) {
     try {
         console.log("parseJwt001:   " + token);
@@ -76,26 +81,26 @@ async function parseJwt(token, mode) {
             // ****************************
             uid = payload.id;
             newuser.nameIdentifier = payload.id;
-            console.log("DecodeJWT001:  "+ payload.id  );
-			newuser.emailAddress = payload.Principal.mail;
+            console.log("DecodeJWT001:  " + payload.id);
+            newuser.emailAddress = payload.Principal.mail;
             var mailc = newuser.emailAddress.split('@');
-            console.log("DDecodeJWT002:  "+ payload.Principal.mail);
-			newuser.fullname = mailc[0];
-			newuser.commonName = mailc[1];
-			newuser.orgName = mailc[1];
-			newuser.password = mailc[0];
-			newuser.mobilePhone = '';
-			newuser.groups = 'user, admin';
+            console.log("DDecodeJWT002:  " + payload.Principal.mail);
+            newuser.fullname = mailc[0];
+            newuser.commonName = mailc[1];
+            newuser.orgName = mailc[1];
+            newuser.password = mailc[0];
+            newuser.mobilePhone = '';
+            newuser.groups = 'user, admin';
             var iser = payload.iss;
-            samlt = payload.exp+'*'+payload.nbf+'*'+'*'+mode+'*'+iser;
-            console.log("DDecodeJWT003:  "+ samlt);
+            samlt = payload.exp + '*' + payload.nbf + '*' + '*' + mode + '*' + iser;
+            console.log("DDecodeJWT003:  " + samlt);
             //******************** */
             crAssert.options.cert = fs.readFileSync('SamlAssertCert.pem');
-            console.log("DecodeX509Cert006:  "+ mode );
+            console.log("DecodeX509Cert006:  " + mode);
             crAssert.options.key = fs.readFileSync('SamlAssertKey.pem');
             //crAssert.options.issuer = 'idp.utes.com';
             crAssert.options.issuer = iser;
-            crAssert.options.lifetimeInSeconds =  '10800';
+            crAssert.options.lifetimeInSeconds = '10800';
             //crAssert.options.Conditions = 'https://utes.com/saml';
             crAssert.options.audiences = mailc;
             //crAssert.options.NotBefore = "2021-04-23T23:51:43.745Z";
@@ -107,7 +112,7 @@ async function parseJwt(token, mode) {
             crAssert.options.nameIdentifier = uid;
             crAssert.options.sessionIndex = 'jskjflksjeouotui4548958';
             crAssert.options.authnContextClassRef = 'urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport';
-            console.log("DecodeX509Cert007:  "+ mode );
+            console.log("DecodeX509Cert007:  " + mode);
             crAssert.options.attributes = {
                 //'urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport',
                 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailAddress': newuser.emailAddress,
@@ -124,20 +129,20 @@ async function parseJwt(token, mode) {
             return samlAss;
         } else if (mode === 'oauth-x509') {
             newuser.nameIdentifier = payload.id;
-            console.log("DecodeJWT001:  "+ payload.id  );
-			newuser.emailAddress = payload.Principal.mail;
+            console.log("DecodeJWT001:  " + payload.id);
+            newuser.emailAddress = payload.Principal.mail;
             var mailc = newuser.emailAddress.split('@');
-            console.log("DDecodeJWT002:  "+ payload.Principal.mail);
-			newuser.fullname = mailc[0];
-			newuser.commonName = mailc[1];
-			newuser.orgName = mailc[1];
-			newuser.password = mailc[0];
-			newuser.mobilePhone = '';
-			newuser.groups = 'user, admin';
+            console.log("DDecodeJWT002:  " + payload.Principal.mail);
+            newuser.fullname = mailc[0];
+            newuser.commonName = mailc[1];
+            newuser.orgName = mailc[1];
+            newuser.password = mailc[0];
+            newuser.mobilePhone = '';
+            newuser.groups = 'user, admin';
             var iser = payload.iss;
-            samlt = payload.exp+'*'+payload.nbf+'*'+'*'+mode+'*'+iser;
-            console.log("DDecodeJWT003:  "+ samlt);
-            pemcert = await demoCert.createDemoSelfSignedCert(mailc[0], samlt, newuser, newuser.password, '', '', '');            
+            samlt = payload.exp + '*' + payload.nbf + '*' + '*' + mode + '*' + iser;
+            console.log("DDecodeJWT003:  " + samlt);
+            pemcert = await demoCert.createDemoSelfSignedCert(mailc[0], samlt, newuser, newuser.password, '', '', '');
             //console.log("convert jwt to x509 finished !!    " + pemcert);
             return pemcert;
         }
