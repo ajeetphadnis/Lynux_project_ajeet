@@ -189,8 +189,8 @@ function toOIDArray(oid) {
  */
 async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr) {
     var keyfil = user+'.pem';
-    var servfil = 'ecdsaKeyCerts/'+user+'_srv.cer';
-    var keypath = 'ecdsaKeyCerts/'+user+'_hostkey.pem';
+    var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.cer';
+    var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_hostkey.pem';
     var ppkey = await crAsn1Eckeys(user, curvType, 'ecdsaKeyCerts/', keyType);  // 1. prime256v1, 2. secp256k1
     var dn = "//C=NO\ST=Akershus\L=Oslo\O=UTES.Com\OU=UTES-CA\CN=utes.com\emailAddress=ap@phadnis.no";
     //console.log("vars:  " + c + "   " + cn);
@@ -247,7 +247,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
  async function createEcDsaCASignedClientCert(user, curvType, keyType, validityTime, pkeyStr) {
   var keyfil = user+'.pem';
   var csrfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.csr';
-  var caCert = 'ecdsa_keycerts/ecdsaKeyCerts/CA_ROOT_srv.cer';
+  var caCert = 'ecdsa_keycerts/ecdsaKeyCerts/CA_ROOT_host.cer';
   var caKey  = 'ecdsa_keycerts/ecdsaKeyCerts/CA_ROOT_hostkey.pem';
   var clientSignedCert = 'ecdsa_keycerts/ecdsaKeyCerts/' + user + '_host.cer';
   var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_hostkey.pem';
@@ -272,7 +272,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
  * @param {*} type 
  * @returns 
  */
-async function crAsn1Eckeys(user, curvType, path, type) {
+async function crAsn1Eckeys(user, curvType, path1, type) {
     // Define ECPrivateKey from RFC 5915
        var ECPrivateKey = asn1.define('ECPrivateKey', function() {
          this.seq().obj(
@@ -296,10 +296,11 @@ async function crAsn1Eckeys(user, curvType, path, type) {
              // parameters: toOIDArray('1.3.36.3.3.2.8.1.1.14')
              parameters: toOIDArray('1.2.840.10045.3.1.7')
            }, 'pem', { label: 'EC PRIVATE KEY' });
-           //console.log("PrivateKey:  " + pemKey);
-           fs.writeFileSync((path+user+'_hostkey.pem'), pemKey, 'utf8');
+           console.log("PrivateKey22:  " + pemKey);
+           //fs.writeFileSync((path+user+'_hostkey.pem'), pemKey, 'utf8');
+           fs.writeFileSync(path.join('ecdsa_keycerts/ecdsaKeyCerts',(user+'_hostkey.pem')), pemKey, 'utf8');
            await checkFileExist(path+user+'_hostkey.pem');
-           console.log("privatekey:  " + pemKey);
+           console.log("privatekey11:  " + pemKey);
            return pemKey;
          } else if (type === 'Private' && curvType === 'secp256k1') {
           var ecdh = crypto.createECDH(curvType);
@@ -312,7 +313,8 @@ async function crAsn1Eckeys(user, curvType, path, type) {
             // parameters: toOIDArray('1.3.36.3.3.2.8.1.1.14')
             parameters: toOIDArray('1.3.132.0.10')
           }, 'pem', { label: 'EC PRIVATE KEY' });
-          fs.writeFileSync((path+'/'+user+'_hostkey.pem'), pemKey, 'utf8');
+          //fs.writeFileSync((path+'/'+user+'_hostkey.pem'), pemKey, 'utf8');
+          fs.writeFileSync(path.join('ecdsa_keycerts/ecdsaKeyCerts',(user+'_hostkey.pem')), pemKey, 'utf8');
           console.log("privatekey:  " + pemKey);
           return pemKey;
         }
@@ -335,8 +337,8 @@ async function crAsn1Eckeys(user, curvType, path, type) {
  * @param {*} certFil 
  */
 async function showECDSACert(user, certFil ) {
-    var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
-    var txtfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.txt';
+    var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.cer';
+    var txtfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.txt';
     //await exec(`openssl req -out ${txtfil} -text -in ${certFil} `, function (err, buffer) {
     await checkFileExist(certFil); 
     await exec(`openssl x509 -in ${certFil} -text -out ${txtfil} `, async function (err, buffer) {  
@@ -392,10 +394,10 @@ async function showECDSACert(user, certFil ) {
      * @param {*} user 
      */
     async function crEcdsaP12(pkeyfil, certfil, user) {
-        var keyfil = user+'_key.pem';
-        var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.cer';
+        var keyfil = user+'_hostkey.pem';
+        var servfil = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.cer';
         var keypath = 'ecdsa_keycerts/ecdsaKeyCerts/'+keyfil;
-        var pfxpath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_srv.p12';
+        var pfxpath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.p12';
         
         exec(`openssl pkcs12 -export -inkey  ${keypath}  -in ${servfil} -passout pass:${user} -out ${pfxpath} `, function (err, buffer) {  
             console.log(err, buffer.toString());
@@ -472,7 +474,7 @@ async function showECDSACert(user, certFil ) {
                         });
                   //}
                     if (uid) {
-                        txtfil = txtfil+uid+'_srv.txt';
+                        txtfil = txtfil+uid+'_host.txt';
                         connMongo(req, res);
                         await usrDb.getUserStruct(uid, req, res, next).then(res => {
                             if (uid != null && uid != '') {
@@ -578,7 +580,7 @@ exports.createEcDsaCASignedClientCert = createEcDsaCASignedClientCert;
 //createEcDsaPrivateKey('', '');
 //createEcDsaCert('ajeet', '', '', '');
 //crEcdsaP7B('', '', 'ajeet');
-//crAsn1Eckeys('amar', 'prime256v1', 'ecdsaKeyCerts/', 'Private');
+//crAsn1Eckeys('CA_ROOT', 'prime256v1', 'ecdsaKeyCerts/', 'Private');
 //createEcDsaCACert('CA_ROOT', 'prime256v1', 'Private', 356, '');
 //createEcDsaClientCert('Doub-Host', 'prime256v1', 'Private', 356, '');
 //createEcDsaCASignedClientCert('PHADNIS-Host', 'prime256v1', 'Private', 356, '');
