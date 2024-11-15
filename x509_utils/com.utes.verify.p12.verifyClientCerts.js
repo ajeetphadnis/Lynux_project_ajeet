@@ -222,9 +222,9 @@ async function getDemoUserOCSP(req, res, next) {
 				}
 			}
 		} catch (err) {
-			console.log(err);
+			console.log("OCSP:Msg:  "  + err);
 		}
-	}
+	}						
 
 
 

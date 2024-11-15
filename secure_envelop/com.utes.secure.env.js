@@ -27,7 +27,7 @@ var certSN;
 var kinf;
 var endStr = `
 	</ApplicationRequest>`;
-var jfpath;
+//var jfpath;
 var newuser = new Users ({
 	  nameIdentifier: '',
 	  emailAddress: '',
@@ -161,6 +161,7 @@ var debug = process.env.DEBUG1;
 				if(debug) {console.log("readP12PrvKey:pass:  " + pass);}
 				if(debug) {console.log("readP12PrvKey:fileEnv:  " + fileEnv);}
 				// read payload file
+				console.log("Secure xml path:  " + __dirname);
 				var payload = await readFile('./demo_certs/Pain001.xml');
 				var b64Str = Buffer.from(payload).toString('base64');
 				// read client p12 file
@@ -242,6 +243,8 @@ var debug = process.env.DEBUG1;
 					        // var b64Str = Buffer.from("This is test
 							// string").toString('base64');
 							//user = req.session.user;
+							jfpath = jfpath.replace('../','');
+							console.log("p12 file:   " +  jfpath);
 							xfile = fs.readFileSync(jfpath, 'utf8');
 							//console.log("p12Cert:  " + xfile);
 							user.Content = xfile;
@@ -334,7 +337,7 @@ var debug = process.env.DEBUG1;
 	async function processForm(form, req, res) {
 		var filStr;
 		if (form ) {
-			const uploadFolder = path.join("./uploads");
+			const uploadFolder = path.join("../uploads");
 			console.log("processForm:uploaderPath:  " + uploadFolder);
 			const form = formidable({ multiples: true });
 			form.multiples = true;
@@ -441,7 +444,7 @@ var debug = process.env.DEBUG1;
 				var formfields = new Promise(async function (resolve, reject) {
 					form.parse(req, async function (err, fields, files) {
 						if (err) {
-							console.log("processExtForm003:  ");
+							console.log("processExtForm003:  " + __dirname + "    "+ err.Content);
 							reject(err);
 							return;
 						}
@@ -701,7 +704,7 @@ var debug = process.env.DEBUG1;
 						//});
 					}		
 					if (req.method === 'POST' && req.method !== 'GET') {						
-						const uploadFolder =  "./uploads";
+						const uploadFolder =  "../uploads";
 						console.log("POSTFunc:uploaderPath:  " + uploadFolder);
 						const form = formidable({ multiples: true });
 						form.multiples = true;
@@ -709,7 +712,7 @@ var debug = process.env.DEBUG1;
 						form.uploadDir = uploadFolder;
 						await processExtForm(form, req, res);
 						if(debug) {console.log("SecureEnv:  " + JSON.stringify(user));}
-						
+						console.log("SecureEnvAjeet:  " + JSON.stringify(user));
 						if (user && user.uid) {
 							if(debug) {console.log("POST: user:   " + JSON.stringify(user));}
 							req.app.session = req.session;

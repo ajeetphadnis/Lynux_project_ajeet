@@ -62,12 +62,25 @@ module.exports = function(app) {
     app.route('/index').get( function(req, res, next) {
 	    res.render('index');
 	 });
+    // app.use(express.static(path.join(__dirname, 'demo_docs')));
+    
+    function fileExist(fullpath) {
+    	try {
+        	return fs.statSync(fullpath).isFile();
+    	} catch (e) {
+        	return false;
+    	}
+    }
+    
     app.route('/getDoc1').get( function (req, res, next) {
-        var filePath = "demo_docs/RegisterOrCreateUser.pdf";    
-        fs.readFile(filePath, (err, data) => {
+    	console.log("PDF DATA:  getDoc1");
+    	var name = "RegisterOrCreateUser.pdf";
+        var filePath = "/com.utes.auth.protocol.exchange_new/demo_docs/RegisterOrCreateUser.pdf";    
+            fs.readFile(filePath, (err, data) => {
+            console.log("PDF DATA:  " + data);
             res.set({
               "Content-Type": "application/pdf", //here you set the content type to pdf
-              "Content-Disposition": "inline; filename=" + filePath, //if you change from inline to attachment if forces the file to download but inline displays the file on the browser
+              "Content-Disposition": "inline; filename=" + filePath, //if you change from inline to attachment if forces the file to 		download but inline displays the file on the browser
             });
             res.send(data); // here we send the pdf file to the browser
             //res.render('getDoc1');
@@ -75,7 +88,10 @@ module.exports = function(app) {
     });
 
     app.route('/getDoc2').get( function (req, res, next) {
-        var filePath = "demo_docs/UTES_IN_ACTION.pdf";    
+        var filePath = "/com.utes.auth.protocol.exchange_new/demo_docs/UTES_IN_ACTION.pdf"; 
+        console. log('__filename:', __filename); 
+	console. log('__dirname:', __dirname); 
+  
         fs.readFile(filePath, (err, data) => {
             res.set({
               "Content-Type": "application/pdf", //here you set the content type to pdf
@@ -87,7 +103,7 @@ module.exports = function(app) {
     });
 
     app.route('/getDoc3').get( function (req, res, next) {
-        var filePath = "demo_docs/RakshAboutDoc.pdf";    
+        var filePath = "/com.utes.auth.protocol.exchange_new/demo_docs/RakshAboutDoc.pdf"; 
         fs.readFile(filePath, (err, data) => {
             res.set({
               "Content-Type": "application/pdf", //here you set the content type to pdf
@@ -99,7 +115,7 @@ module.exports = function(app) {
     });
 
     app.route('/getDoc4').get( function (req, res, next) {
-        var filePath = "demo_docs/SupportedExchanges.pdf";    
+        var filePath = "/com.utes.auth.protocol.exchange_new/demo_docs/SupportedExchanges.pdf";    
         fs.readFile(filePath, (err, data) => {
             res.set({
                 "Content-Type": "application/pdf", //here you set the content type to pdf

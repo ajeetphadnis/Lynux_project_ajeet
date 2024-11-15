@@ -227,7 +227,7 @@ async function createEcDsaCACert(user, curvType, keyType, validityTime, pkeyStr)
   //  openssl req -x509 -new -sha256 -nodes -key ca.key -days 3650 -out ca.crt
   // openssl req -new -sha256 -key host.key -nodes -out host.csr
     await exec(`openssl req -new -sha256 -key ${keypath} -subj /CN=${cnl}/C=${cl}/O=${ol}/ST=${stl}/L=${ll}/OU=${oul}/emailAddress=${emailAddl} -addext  "subjectAltName=DNS:utes.clients.com"  -addext "certificatePolicies = 1.2.3.4" \ -out ${csrfil} -days 730`, function (err, buffer) {  
-    console.log(err, buffer.toString());
+    //console.log(err, buffer.toString());
   });
   await showECDSAClientCert(user, csrfil );
 
@@ -400,7 +400,7 @@ async function showECDSACert(user, certFil ) {
         var pfxpath = 'ecdsa_keycerts/ecdsaKeyCerts/'+user+'_host.p12';
         
         exec(`openssl pkcs12 -export -inkey  ${keypath}  -in ${servfil} -passout pass:${user} -out ${pfxpath} `, function (err, buffer) {  
-            console.log(err, buffer.toString());
+            //console.log(err, buffer.toString());
         });
     }
 
@@ -516,10 +516,12 @@ async function showECDSACert(user, certFil ) {
                         req.app.session.upw = req.body.uid;
                         //await res.status(200).send({ user: user});
                         var ecdsaCert = fs.readFileSync(txtfil, 'utf-8');
-                        console.log("ECDSA Cert Text:   " + ecdsaCert);
+                        //console.log("ECDSA Cert Text:   " + ecdsaCert + '  :user:  ' + JSON.stringify(user));
                         user.srctxt = ecdsaCert;
+                        console.log("ECDSA Cert Text:   " + ecdsaCert + '  :user:  ' + JSON.stringify(user));
                         randusr = user;
-                        await res.status(200).send({ user});
+                        await res.status(200).send({ randusr: randusr, user: user});
+                        //await res.render('https://phadnis.no:30010/demo_user', {randusr: JSON.stringify(randusr), user: JSON.stringify(user)});
                   }
               } /*else {
                 //await res.status(200).send({ user});

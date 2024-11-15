@@ -92,13 +92,31 @@ user = {
 	 * @returns
 	 */
 	async function convrt_demo (req, res, next) {
+			console.log("Debug: convert_demo called ...");
+			//res.app.setHeader("Access-Control-Allow-Origin", "*");
+			res.app.use((req, res, next) => {
+				res.setHeader("Access-Control-Allow-Origin", "*");
+				res.setHeader(
+					"Access-Control-Allow-Methods",
+					"OPTIONS, GET, POST, PUT, PATCH, DELETE"
+				);
+				res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+				next();
+			});
 			req.app.set("../views", path.join(__dirname));
 			req.app.set("view engine", "ejs");
+			//req.app.options('*',cors()) //for all routes(include before other routes)
 			const { check, validationResult } = require('express-validator');
 			var urlencodedParser = bodyParser.urlencoded({ extended: true });
 			// get AJAX sent data
 			if (req.method === 'GET' && req.method !== 'POST') {
 				if(debug) {console.log('GET');}
+				// app.res.header("Access-Control-Allow-Origin", "*");
+
+				//app.res.header(
+				//	"Access-Control-Allow-Methods",
+
+				//);
 				req.on('data', function (chunk) {
 			        console.log('GOT DATA!' + JSON.stringify(data));
 			    });
@@ -106,8 +124,16 @@ user = {
 			
 			if (req.method === 'POST' && req.method !== 'GET') {
 				console.log('POST');
-				if(debug) {console.log('Got body:', req.body);}
+				//app.res.setHeader("Access-Control-Allow-Origin", "*");
+				//app.res.setHeader(
+				//	"Access-Control-Allow-Methods",
+				//	"OPTIONS, GET, POST, PUT, PATCH, DELETE"
+				//);
+				// if(debug) {console.log('Got body:', req.body);}
+				console.log('Got body:', req.body);
+				console.log('Got body:', req.body.udata);
 				var udat = JSON.parse(JSON.stringify(req.body.udata));
+				console.log("convert:  " + udat);
 				JSON.parse(udat, (key, value) => {
 					  if (typeof value === 'string') {
 					    console.log("key:  " + key + "  value:  " + value);
@@ -261,7 +287,8 @@ user = {
 							return;
 						} else {
 							//var tmpDt = data.replaceAll("\"", "");
-							var tmpDt = data.replaceAll("^\"|\"$"/gm, "");
+							console.log("Ajeet Replace all string:  " + data);
+							var tmpDt = data.replace("^\"|\"$"/gm, "");
 							var tmpDt1 = tmpDt.replace(/(\r\n|\n|\r)/gm,"");
 							user.srctxt = tmpDt1;
 							if(debug) {console.log("Converter:004: " + user.srctxt);}
@@ -334,3 +361,4 @@ user = {
 	        }
 		}
 exports.convrt_demo = convrt_demo;
+					"OPTIONS, GET, POST, PUT, PATCH, DELETE"

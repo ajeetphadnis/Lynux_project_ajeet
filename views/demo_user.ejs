@@ -1,5 +1,6 @@
 <!DOCTYPE html>   
 <html>
+
 <title>UTES Demo</title>
 <head>
 <meta charset="UTF-8">
@@ -13,7 +14,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<!--link rel="stylesheet" href="/css/pha_styles001.css"  type="text/css"-->
+<link rel="stylesheet" href="/com.utes.auth.protocol.exchange_new/public/css/pha_styles001.css"  type="text/css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
@@ -35,7 +36,7 @@
 </script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script  src="/paperjsv01215/dist/paper-full.js"></script>
+<script  src="/com.utes.auth.protocol.exchange_new/paperjsv01215/dist/paper-full.js"></script>
 <!-- link rel="stylesheet"  src="./assets/css/style.css" -->
 
 <!--script type="text/javascript" src="javascripts/script.js"></script -->
@@ -148,8 +149,8 @@ body, html {
 	}
 </script>
 
-	<!--img src="favicon.ico" class="w3-image w3-greyscale" style="width: 100%; margin-top: 48px" -->
-	<!--img src="/images/favicon004.jpg" class="w3-image w3-greyscale" style="width: 50%; margin-top: 48px"-->
+	<img src="/com.utes.auth.protocol.exchange_new/public/images/favicon.ico" class="w3-image w3-greyscale" style="width: 100%; margin-top: 48px" >
+	<img src="/com.utes.auth.protocol.exchange_new/public/images/favicon004.jpg" class="w3-image w3-greyscale" style="width: 50%; margin-top: 48px">
 </head>
 <body>
 	<!-- Navbar (sit on top) -->
@@ -372,28 +373,28 @@ body, html {
 							class="fa-solid fa-0"></i>
 						<p class="w3-large">Register or Create a User</p>
 						<div class="jw-document-wrapper" style="margin-left: 0px; width: 300px;">
-							<iframe src="/getDoc1#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
+							<iframe src="https://127.0.0.1:30010/getDoc1#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
 						</div>
 					</div>
 					<div class="w3-quarter">
 						<i class="fa fa-cogs w3-margin-bottom w3-jumbo"></i>
 						<p class="w3-large">See UTES in Action</p>
 						<div class="jw-document-wrapper" style="margin-left: 0px; width: 300px;">
-							<iframe src="/getDoc2#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
+							<iframe src="https://127.0.0.1:30010/getDoc2#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
 						</div>
 					</div>
 					<div class="w3-quarter">
 						<i class="fa fa-leanpub w3-margin-bottom w3-jumbo"></i>
 						<p class="w3-large">Understand what it did</p>
 						<div class="jw-document-wrapper" style="margin-left: 0px; width: 300px;">
-							<iframe src="/getDoc3#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
+							<iframe src="https://127.0.0.1:30010/getDoc3#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
 						</div>
 					</div>
 					<div class="w3-quarter">
 						<i class="fa fa-info w3-margin-bottom w3-jumbo"></i>
 						<p class="w3-large">Currently Supported Exchanges</p>
 						<div class="jw-document-wrapper" style="margin-left: 0px; width: 300px;">
-							<iframe src="/getDoc4#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
+							<iframe src="https://127.0.0.1:30010/getDoc4#zoom=70%&navbar=1&toolbar=1" style="width: 110%; height: 60vh"></iframe>
 						</div>					
 					</div>
 				</div>
@@ -596,12 +597,23 @@ body, html {
 								alert("data:  " + JSON.stringify(udata));						      
 								$.ajax({
 									type: 'POST',
+									accepts: "application/json",
 									url: '/convrt_demo',
+//									contentType: "application/json; charset=utf-8",
+//									processData: false,
+									crossDomain: true,
+//									cache: false,
+//        								async: true,
+//									dataType: "json",
+//									headers: { 'Access-Control-Allow-Origin': '*', "cache-control": "no-cache" },
 									data: { udata: JSON.stringify(udata) },
+									beforeSend: function (req, udata) {
+										req.withCredentials = false;
+										alert("Ajeet: credentials false..."+ JSON.stringify(udata));
+									},
 									success: function(data) {
-										//console.log('message', data.message);
-										
-										alert("message:  " + data.message + 'but: ' + but + "   once: " + once);
+										//console.log('message', data.message);										
+										alert("message Ajeet:  " + data.message + ' but: ' + but + "   once: " + once);
 										if ((once <= 3 && but !== butPrev ) && (data.message === undefined || data.message === 'undefined' || data.message === "" || data.message == null)) {
 											//once = 4;
 											alert('undefined message');
@@ -618,8 +630,8 @@ body, html {
 										setOnce();				        	
 									},
 									error: function(jqXHR, textStatus, err) {
-										alert('text status '+textStatus+', err '+err)
-									}
+										alert('text status :   '+textStatus+', err:    ' );
+									}  
 								});
 							} else {
 								alert("No user is selected or logged in !!");
@@ -863,7 +875,7 @@ body, html {
 										url: '/getEcDsaKeysCerts',
 										data: {udata: JSON.stringify(udata)} ,
 										success: function(data) {
-											//console.log('message', data.message);
+											//console.log('message', data.message
 											alert("message:  " + data.message);
 											if (data.message === 'undefined' || data.message === "" || data.message === null) {
 											document.getElementById("but14").click();
@@ -1223,7 +1235,7 @@ body, html {
 						</p>
 					</form>
 					<!-- Image of location/map -->
-					<img src="map.jpg" class="w3-image w3-greyscale" style="width: 20%; margin-top: 48px">
+					<img src="/com.utes.auth.protocol.exchange_new/public/images/map.jpg" class="w3-image w3-greyscale" style="width: 20%; margin-top: 48px">
 				</div>
 			</div>
 

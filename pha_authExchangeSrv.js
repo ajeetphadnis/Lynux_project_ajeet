@@ -5,7 +5,8 @@ require('dotenv').config();
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
-const express = require('express')
+const express = require('express');
+var Gallery = require('express-photo-gallery');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const Users =  require("./models/com.utes.auth.users");
@@ -14,6 +15,7 @@ const session = require('express-session');  // session middleware
 //const passport = require('passport');  // authentication
 const mongoose = require("mongoose");
 const mongostore = require("connect-mongo");
+const cors = require('cors');
 //var multer = require('multer');
 //var forms = multer();
 //LocalStrategy = require("passport-local").Strategy,
@@ -43,8 +45,15 @@ const oneHr = 1000 * 60 * 60 ;
 	const port = process.env.PORT ||30010;
 	app.use(bodyParser.json());
 	//app.use(forms.array()); 
+	app.use(express.static(path.join(__dirname, 'VIDEO')));
+	app.use(express.static(path.join(__dirname, 'images')));
 	app.use(express.urlencoded({ extended: true	}));
 	app.use(bodyParser.urlencoded({ extended: true }));
+	const corsOptions = {
+	  origin: "https://phadnis.no",
+	  credentials: false,
+	};
+	app.use(cors(corsOptions));
 	const MongoStore = mongostore(session);
 	app.use(session({
 	    secret: "786Phadnis7654321",
@@ -65,14 +74,21 @@ const oneHr = 1000 * 60 * 60 ;
 	//passport.serializeUser(Users.serializeUser());
 	//passport.deserializeUser(Users.deserializeUser());
 	app.use((req, res, next) => {
-		res.setHeader("Access-Control-Allow-Origin", "*");
-		res.setHeader(
+		res.header("Access-Control-Allow-Origin", "*");
+		res.header(
 			"Access-Control-Allow-Methods",
 			"OPTIONS, GET, POST, PUT, PATCH, DELETE"
 		);
-		res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+		res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 		next();
 	});
+	var options = {
+		title: 'Jyotsnas Photo Gallery'
+	};
+
+	app.use('/images', Gallery('images', options));
+	app.use('/VIDEO', Gallery('VIDEO', options));
+	
 	const routes = require('./api/com.utes.routes');
 	app.engine('html', require('ejs').renderFile);
 	app.set('view engine', 'ejs'); // configure template engine
@@ -81,6 +97,7 @@ const oneHr = 1000 * 60 * 60 ;
 	//parse application/vnd.api+json as json
 	app.use(bodyParser.json({ type: 'application/vnd.api+json' }));	
 	app.use(express.static(path.join(__dirname, 'public'))); // 
+	app.use(express.static(path.join(__dirname, 'demo_docs'))); // 
 	app.use(express.static(path.join(__dirname, 'paperjsv01215')));
 	app.disable('view cache');
 	routes(app);

@@ -887,3 +887,4 @@ function _runServer(argv) {
 	if (require.main === module) {
 		main();
 	}
+}
